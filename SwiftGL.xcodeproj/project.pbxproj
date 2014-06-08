@@ -10,6 +10,9 @@
 		D2AB3ABB1944F05700655A34 /* SwiftGL.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3ABA1944F05700655A34 /* SwiftGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2AB3AC11944F05700655A34 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AB51944F05700655A34 /* SwiftGL.framework */; };
 		D2AB3AC81944F05700655A34 /* SwiftGLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AC71944F05700655A34 /* SwiftGLTests.swift */; };
+		D2AB3AD21944F08E00655A34 /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AD11944F08E00655A34 /* Vec2.swift */; };
+		D2AB3AD51944F0A700655A34 /* Vec.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3AD31944F0A700655A34 /* Vec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2AB3AD61944F0A700655A34 /* Vec.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AD41944F0A700655A34 /* Vec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		D2AB3AC01944F05700655A34 /* SwiftGLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB3AC61944F05700655A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AB3AC71944F05700655A34 /* SwiftGLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGLTests.swift; sourceTree = "<group>"; };
+		D2AB3AD11944F08E00655A34 /* Vec2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vec2.swift; sourceTree = "<group>"; };
+		D2AB3AD31944F0A700655A34 /* Vec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec.h; sourceTree = "<group>"; };
+		D2AB3AD41944F0A700655A34 /* Vec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 			isa = PBXGroup;
 			children = (
 				D2AB3ABA1944F05700655A34 /* SwiftGL.h */,
+				D2AB3AD11944F08E00655A34 /* Vec2.swift */,
+				D2AB3AD31944F0A700655A34 /* Vec.h */,
+				D2AB3AD41944F0A700655A34 /* Vec.m */,
 				D2AB3AB81944F05700655A34 /* Supporting Files */,
 			);
 			path = SwiftGL;
@@ -110,6 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2AB3ABB1944F05700655A34 /* SwiftGL.h in Headers */,
+				D2AB3AD51944F0A700655A34 /* Vec.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +220,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2AB3AD61944F0A700655A34 /* Vec.m in Sources */,
+				D2AB3AD21944F08E00655A34 /* Vec2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +328,7 @@
 		D2AB3ACC1944F05700655A34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -327,12 +340,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D2AB3ACD1944F05700655A34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
