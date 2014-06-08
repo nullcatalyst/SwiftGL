@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Project Catalyst. All rights reserved.
 //
 
-import Foundation
+import Darwin
 
 extension Vec3 {
     init() {
@@ -202,5 +202,7 @@ extension Vec3 {
 func length(v: Vec3) -> CFloat {return v.length}
 func length2(v: Vec3) -> CFloat {return v.length2}
 func normalize(v: Vec3) -> Vec3 {return v / v.length}
-func mix(a: Vec3, b: Vec3, t: CFloat) -> Vec3 {return a + (b - a) * t}
 func dot(a: Vec3, b: Vec3) -> CFloat {return a.x * b.x + a.y * b.y + a.z * b.z}
+func cross(a: Vec3, b: Vec3) -> Vec3 {return Vec3(x: a.y * b.z - a.z * b.y, y: a.z * b.x - a.x * b.z, z: a.x * b.y - a.y * b.x)}
+func mix(a: Vec3, b: Vec3, t: Vec3) -> Vec3 {return a + (b - a) * t}
+func mix(a: Vec3, b: Vec3, t: CFloat) -> Vec3 {return a + (b - a) * t}
