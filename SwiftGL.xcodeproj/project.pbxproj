@@ -14,6 +14,7 @@
 		D2AB3AD51944F0A700655A34 /* Vec.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3AD31944F0A700655A34 /* Vec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2AB3AD61944F0A700655A34 /* Vec.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AD41944F0A700655A34 /* Vec.m */; };
 		D2AB3AE1194500D900655A34 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3ADF194500D900655A34 /* LICENSE */; };
+		D2AB3AE4194501D300655A34 /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AE3194501D300655A34 /* Vec3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		D2AB3AD41944F0A700655A34 /* Vec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vec.m; sourceTree = "<group>"; };
 		D2AB3ADF194500D900655A34 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D2AB3AE0194500D900655A34 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D2AB3AE3194501D300655A34 /* Vec3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vec3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			children = (
 				D2AB3ABA1944F05700655A34 /* SwiftGL.h */,
 				D2AB3AD11944F08E00655A34 /* Vec2.swift */,
+				D2AB3AE3194501D300655A34 /* Vec3.swift */,
 				D2AB3AD31944F0A700655A34 /* Vec.h */,
 				D2AB3AD41944F0A700655A34 /* Vec.m */,
 				D2AB3AB81944F05700655A34 /* Supporting Files */,
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2AB3AD61944F0A700655A34 /* Vec.m in Sources */,
+				D2AB3AE4194501D300655A34 /* Vec3.swift in Sources */,
 				D2AB3AD21944F08E00655A34 /* Vec2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
