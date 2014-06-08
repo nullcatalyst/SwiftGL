@@ -41,36 +41,36 @@ extension Vec2 {
     
     // Swizzle (Vec2) Properties
     var xx: Vec2 {get {return Vec2(x: x, y: x)}}
-    var xy: Vec2 {get {return Vec2(x: x, y: y)} set(v) {self.x = v.x; self.y = v.y}}
     var yx: Vec2 {get {return Vec2(x: y, y: x)} set(v) {self.y = v.x; self.x = v.y}}
+    var xy: Vec2 {get {return Vec2(x: x, y: y)} set(v) {self.x = v.x; self.y = v.y}}
     var yy: Vec2 {get {return Vec2(x: y, y: y)}}
     
     // Swizzle (Vec3) Properties
     var xxx: Vec3 {get {return Vec3(x: x, y: x, z: x)}}
-    var xxy: Vec3 {get {return Vec3(x: x, y: x, z: y)}}
-    var xyx: Vec3 {get {return Vec3(x: x, y: y, z: x)}}
-    var xyy: Vec3 {get {return Vec3(x: x, y: y, z: y)}}
     var yxx: Vec3 {get {return Vec3(x: y, y: x, z: x)}}
-    var yxy: Vec3 {get {return Vec3(x: y, y: x, z: y)}}
+    var xyx: Vec3 {get {return Vec3(x: x, y: y, z: x)}}
     var yyx: Vec3 {get {return Vec3(x: y, y: y, z: x)}}
+    var xxy: Vec3 {get {return Vec3(x: x, y: x, z: y)}}
+    var yxy: Vec3 {get {return Vec3(x: y, y: x, z: y)}}
+    var xyy: Vec3 {get {return Vec3(x: x, y: y, z: y)}}
     var yyy: Vec3 {get {return Vec3(x: y, y: y, z: y)}}
     
     // Swizzle (Vec4) Properties
     var xxxx: Vec4 {get {return Vec4(x: x, y: x, z: x, w: x)}}
-    var xxxy: Vec4 {get {return Vec4(x: x, y: x, z: x, w: y)}}
-    var xxyx: Vec4 {get {return Vec4(x: x, y: x, z: y, w: x)}}
-    var xxyy: Vec4 {get {return Vec4(x: x, y: x, z: y, w: y)}}
-    var xyxx: Vec4 {get {return Vec4(x: x, y: y, z: x, w: x)}}
-    var xyxy: Vec4 {get {return Vec4(x: x, y: y, z: x, w: y)}}
-    var xyyx: Vec4 {get {return Vec4(x: x, y: y, z: y, w: x)}}
-    var xyyy: Vec4 {get {return Vec4(x: x, y: y, z: y, w: y)}}
     var yxxx: Vec4 {get {return Vec4(x: y, y: x, z: x, w: x)}}
-    var yxxy: Vec4 {get {return Vec4(x: y, y: x, z: x, w: y)}}
-    var yxyx: Vec4 {get {return Vec4(x: y, y: x, z: y, w: x)}}
-    var yxyy: Vec4 {get {return Vec4(x: y, y: x, z: y, w: y)}}
+    var xyxx: Vec4 {get {return Vec4(x: x, y: y, z: x, w: x)}}
     var yyxx: Vec4 {get {return Vec4(x: y, y: y, z: x, w: x)}}
-    var yyxy: Vec4 {get {return Vec4(x: y, y: y, z: x, w: y)}}
+    var xxyx: Vec4 {get {return Vec4(x: x, y: x, z: y, w: x)}}
+    var yxyx: Vec4 {get {return Vec4(x: y, y: x, z: y, w: x)}}
+    var xyyx: Vec4 {get {return Vec4(x: x, y: y, z: y, w: x)}}
     var yyyx: Vec4 {get {return Vec4(x: y, y: y, z: y, w: x)}}
+    var xxxy: Vec4 {get {return Vec4(x: x, y: x, z: x, w: y)}}
+    var yxxy: Vec4 {get {return Vec4(x: y, y: x, z: x, w: y)}}
+    var xyxy: Vec4 {get {return Vec4(x: x, y: y, z: x, w: y)}}
+    var yyxy: Vec4 {get {return Vec4(x: y, y: y, z: x, w: y)}}
+    var xxyy: Vec4 {get {return Vec4(x: x, y: x, z: y, w: y)}}
+    var yxyy: Vec4 {get {return Vec4(x: y, y: x, z: y, w: y)}}
+    var xyyy: Vec4 {get {return Vec4(x: x, y: y, z: y, w: y)}}
     var yyyy: Vec4 {get {return Vec4(x: y, y: y, z: y, w: y)}}
 }
 
@@ -93,3 +93,4 @@ func length(v: Vec2) -> CFloat {return v.length}
 func length2(v: Vec2) -> CFloat {return v.length2}
 func normalize(v: Vec2) -> Vec2 {return v / v.length}
 func mix(a: Vec2, b: Vec2, t: CFloat) -> Vec2 {return a + (b - a) * t}
+func dot(a: Vec2, b: Vec2) -> CFloat {return a.x * b.x + a.y * b.y}

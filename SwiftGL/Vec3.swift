@@ -47,7 +47,7 @@ extension Vec3 {
     
     var length2: CFloat {
     get {
-        return x * x + y * y
+        return x * x + y * y + z * z
     }
     }
     
@@ -203,3 +203,4 @@ func length(v: Vec3) -> CFloat {return v.length}
 func length2(v: Vec3) -> CFloat {return v.length2}
 func normalize(v: Vec3) -> Vec3 {return v / v.length}
 func mix(a: Vec3, b: Vec3, t: CFloat) -> Vec3 {return a + (b - a) * t}
+func dot(a: Vec3, b: Vec3) -> CFloat {return a.x * b.x + a.y * b.y + a.z * b.z}
