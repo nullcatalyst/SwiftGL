@@ -13,6 +13,7 @@
 		D2AB3AD21944F08E00655A34 /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AD11944F08E00655A34 /* Vec2.swift */; };
 		D2AB3AD51944F0A700655A34 /* Vec.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3AD31944F0A700655A34 /* Vec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2AB3AD61944F0A700655A34 /* Vec.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AD41944F0A700655A34 /* Vec.m */; };
+		D2AB3AE1194500D900655A34 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3ADF194500D900655A34 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,8 @@
 		D2AB3AD11944F08E00655A34 /* Vec2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vec2.swift; sourceTree = "<group>"; };
 		D2AB3AD31944F0A700655A34 /* Vec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec.h; sourceTree = "<group>"; };
 		D2AB3AD41944F0A700655A34 /* Vec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vec.m; sourceTree = "<group>"; };
+		D2AB3ADF194500D900655A34 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D2AB3AE0194500D900655A34 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,8 @@
 		D2AB3AAB1944F05700655A34 = {
 			isa = PBXGroup;
 			children = (
+				D2AB3ADF194500D900655A34 /* LICENSE */,
+				D2AB3AE0194500D900655A34 /* README.md */,
 				D2AB3AB71944F05700655A34 /* SwiftGL */,
 				D2AB3AC41944F05700655A34 /* SwiftGLTests */,
 				D2AB3AB61944F05700655A34 /* Products */,
@@ -203,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2AB3AE1194500D900655A34 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +421,7 @@
 				D2AB3ACD1944F05700655A34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2AB3ACE1944F05700655A34 /* Build configuration list for PBXNativeTarget "SwiftGLTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +430,7 @@
 				D2AB3AD01944F05700655A34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
