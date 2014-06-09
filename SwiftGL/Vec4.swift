@@ -3,12 +3,14 @@
 //  SwiftGL
 //
 //  Created by Scott Bennett on 2014-06-08.
-//  Copyright (c) 2014 Project Catalyst. All rights reserved.
+//  Copyright (c) 2014 Scott Bennett. All rights reserved.
 //
 
 import Darwin
 
-extension Vec4 {
+struct Vec4 {
+    var x, y, z, w: CFloat
+    
     init() {
         self.x = 0
         self.y = 0

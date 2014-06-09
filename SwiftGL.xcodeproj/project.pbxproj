@@ -11,12 +11,14 @@
 		D2AB3AC11944F05700655A34 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AB51944F05700655A34 /* SwiftGL.framework */; };
 		D2AB3AC81944F05700655A34 /* SwiftGLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AC71944F05700655A34 /* SwiftGLTests.swift */; };
 		D2AB3AD21944F08E00655A34 /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AD11944F08E00655A34 /* Vec2.swift */; };
-		D2AB3AD51944F0A700655A34 /* Vec.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3AD31944F0A700655A34 /* Vec.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D2AB3AD61944F0A700655A34 /* Vec.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AD41944F0A700655A34 /* Vec.m */; };
 		D2AB3AE1194500D900655A34 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3ADF194500D900655A34 /* LICENSE */; };
 		D2AB3AE4194501D300655A34 /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AE3194501D300655A34 /* Vec3.swift */; };
 		D2AB3AE619450A4D00655A34 /* Vec4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AE519450A4D00655A34 /* Vec4.swift */; };
 		D2AB3AE81945263000655A34 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AE71945263000655A34 /* Float.swift */; };
+		D2AB3AEA194536CF00655A34 /* Shader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AE9194536CF00655A34 /* Shader.swift */; };
+		D2AB3AEC194536EB00655A34 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AEB194536EB00655A34 /* OpenGL.framework */; };
+		D2AB3AEF194544CD00655A34 /* GLSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3AED194544CD00655A34 /* GLSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2AB3AF0194544CD00655A34 /* GLSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AEE194544CD00655A34 /* GLSupport.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +39,15 @@
 		D2AB3AC61944F05700655A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AB3AC71944F05700655A34 /* SwiftGLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGLTests.swift; sourceTree = "<group>"; };
 		D2AB3AD11944F08E00655A34 /* Vec2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vec2.swift; sourceTree = "<group>"; };
-		D2AB3AD31944F0A700655A34 /* Vec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec.h; sourceTree = "<group>"; };
-		D2AB3AD41944F0A700655A34 /* Vec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vec.m; sourceTree = "<group>"; };
 		D2AB3ADF194500D900655A34 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D2AB3AE0194500D900655A34 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D2AB3AE3194501D300655A34 /* Vec3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vec3.swift; sourceTree = "<group>"; };
 		D2AB3AE519450A4D00655A34 /* Vec4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vec4.swift; sourceTree = "<group>"; };
 		D2AB3AE71945263000655A34 /* Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
+		D2AB3AE9194536CF00655A34 /* Shader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shader.swift; sourceTree = "<group>"; };
+		D2AB3AEB194536EB00655A34 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		D2AB3AED194544CD00655A34 /* GLSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSupport.h; sourceTree = "<group>"; };
+		D2AB3AEE194544CD00655A34 /* GLSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSupport.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2AB3AEC194536EB00655A34 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +75,7 @@
 			children = (
 				D2AB3ADF194500D900655A34 /* LICENSE */,
 				D2AB3AE0194500D900655A34 /* README.md */,
+				D2AB3AEB194536EB00655A34 /* OpenGL.framework */,
 				D2AB3AB71944F05700655A34 /* SwiftGL */,
 				D2AB3AC41944F05700655A34 /* SwiftGLTests */,
 				D2AB3AB61944F05700655A34 /* Products */,
@@ -93,8 +99,9 @@
 				D2AB3AD11944F08E00655A34 /* Vec2.swift */,
 				D2AB3AE3194501D300655A34 /* Vec3.swift */,
 				D2AB3AE519450A4D00655A34 /* Vec4.swift */,
-				D2AB3AD31944F0A700655A34 /* Vec.h */,
-				D2AB3AD41944F0A700655A34 /* Vec.m */,
+				D2AB3AE9194536CF00655A34 /* Shader.swift */,
+				D2AB3AED194544CD00655A34 /* GLSupport.h */,
+				D2AB3AEE194544CD00655A34 /* GLSupport.m */,
 				D2AB3AB81944F05700655A34 /* Supporting Files */,
 			);
 			path = SwiftGL;
@@ -133,7 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2AB3ABB1944F05700655A34 /* SwiftGL.h in Headers */,
-				D2AB3AD51944F0A700655A34 /* Vec.h in Headers */,
+				D2AB3AEF194544CD00655A34 /* GLSupport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +190,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = "Project Catalyst";
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					D2AB3AB41944F05700655A34 = {
 						CreatedOnToolsVersion = 6.0;
@@ -235,8 +242,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2AB3AD61944F0A700655A34 /* Vec.m in Sources */,
+				D2AB3AF0194544CD00655A34 /* GLSupport.m in Sources */,
 				D2AB3AE81945263000655A34 /* Float.swift in Sources */,
+				D2AB3AEA194536CF00655A34 /* Shader.swift in Sources */,
 				D2AB3AE4194501D300655A34 /* Vec3.swift in Sources */,
 				D2AB3AD21944F08E00655A34 /* Vec2.swift in Sources */,
 				D2AB3AE619450A4D00655A34 /* Vec4.swift in Sources */,
