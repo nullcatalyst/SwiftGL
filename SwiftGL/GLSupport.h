@@ -14,9 +14,12 @@
  * Swift (in its current state) appears to be lacking the option to easily switch
  * between certain types -- especially when it comes to using C Types / Pointers
  * These conversion functions are here to augment and remove those limitations
+ *
+ * These functions will be removed as they are no longer needed
+ * I recommend you try not to rely on them existing
  */
 
-const float *CFloatPtr(const void *ptr);
+//const float *CFloatPtr(const void *ptr);
 const char *CStringPtr(const NSString *string);
 const GLvoid *COffsetPtr(GLsizeiptr offset);
 

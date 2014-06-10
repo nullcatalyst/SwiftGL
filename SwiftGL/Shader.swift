@@ -50,7 +50,7 @@ class Shader {
      * @return true on success
     **/
     func load(vertexFile: String, fragmentFile: String) -> Bool {
-        var vertexSource: String = NSString(contentsOfFile: vertexFile, encoding: NSASCIIStringEncoding, error: nil)
+        var vertexSource: String   = NSString(contentsOfFile: vertexFile,   encoding: NSASCIIStringEncoding, error: nil)
         var fragmentSource: String = NSString(contentsOfFile: fragmentFile, encoding: NSASCIIStringEncoding, error: nil)
         
         return self.compile(vertexSource, fragmentSource: fragmentSource)
@@ -73,20 +73,20 @@ class Shader {
     }
     
     // Bind Uniforms using Int
-    func bindUniform(uniform: GLuniform, x: CFloat) {glProgramUniform1f(id, uniform, x)}
-    func bindUniform(uniform: GLuniform, x: CFloat, y: CFloat) {glProgramUniform2f(id, uniform, x, y)}
-    func bindUniform(uniform: GLuniform, x: CFloat, y: CFloat, z: CFloat) {glProgramUniform3f(id, uniform, x, y, z)}
-    func bindUniform(uniform: GLuniform, x: CFloat, y: CFloat, z: CFloat, w: CFloat) {glProgramUniform4f(id, uniform, x, y, z, w)}
-    func bindUniform(uniform: GLuniform, v: Vec2) {glProgramUniform2fv(id, uniform, 1, toPtr([v]))}
-    func bindUniform(uniform: GLuniform, v: Vec3) {glProgramUniform3fv(id, uniform, 1, toPtr([v]))}
-    func bindUniform(uniform: GLuniform, v: Vec4) {glProgramUniform4fv(id, uniform, 1, toPtr([v]))}
+    func bind(#uniform: GLuniform, x: CFloat) {glProgramUniform1f(id, uniform, x)}
+    func bind(#uniform: GLuniform, x: CFloat, y: CFloat) {glProgramUniform2f(id, uniform, x, y)}
+    func bind(#uniform: GLuniform, x: CFloat, y: CFloat, z: CFloat) {glProgramUniform3f(id, uniform, x, y, z)}
+    func bind(#uniform: GLuniform, x: CFloat, y: CFloat, z: CFloat, w: CFloat) {glProgramUniform4f(id, uniform, x, y, z, w)}
+    func bind(#uniform: GLuniform, v: Vec2) {glProgramUniform2fv(id, uniform, 1, toPtr([v]))}
+    func bind(#uniform: GLuniform, v: Vec3) {glProgramUniform3fv(id, uniform, 1, toPtr([v]))}
+    func bind(#uniform: GLuniform, v: Vec4) {glProgramUniform4fv(id, uniform, 1, toPtr([v]))}
     
     // Bind Uniforms using String
-    func bindUniform(name: String, x: CFloat) {glProgramUniform1f(id, uniform(name), x)}
-    func bindUniform(name: String, x: CFloat, y: CFloat) {glProgramUniform2f(id, uniform(name), x, y)}
-    func bindUniform(name: String, x: CFloat, y: CFloat, z: CFloat) {glProgramUniform3f(id, uniform(name), x, y, z)}
-    func bindUniform(name: String, x: CFloat, y: CFloat, z: CFloat, w: CFloat) {glProgramUniform4f(id, uniform(name), x, y, z, w)}
-    func bindUniform(name: String, v: Vec2) {glProgramUniform2fv(id, uniform(name), 1, toPtr([v]))}
-    func bindUniform(name: String, v: Vec3) {glProgramUniform3fv(id, uniform(name), 1, toPtr([v]))}
-    func bindUniform(name: String, v: Vec4) {glProgramUniform4fv(id, uniform(name), 1, toPtr([v]))}
+    func bind(#uniform: String, x: CFloat) {glProgramUniform1f(id, self.uniform(uniform), x)}
+    func bind(#uniform: String, x: CFloat, y: CFloat) {glProgramUniform2f(id, self.uniform(uniform), x, y)}
+    func bind(#uniform: String, x: CFloat, y: CFloat, z: CFloat) {glProgramUniform3f(id, self.uniform(uniform), x, y, z)}
+    func bind(#uniform: String, x: CFloat, y: CFloat, z: CFloat, w: CFloat) {glProgramUniform4f(id, self.uniform(uniform), x, y, z, w)}
+    func bind(#uniform: String, v: Vec2) {glProgramUniform2fv(id, self.uniform(uniform), 1, toPtr([v]))}
+    func bind(#uniform: String, v: Vec3) {glProgramUniform3fv(id, self.uniform(uniform), 1, toPtr([v]))}
+    func bind(#uniform: String, v: Vec4) {glProgramUniform4fv(id, self.uniform(uniform), 1, toPtr([v]))}
 }

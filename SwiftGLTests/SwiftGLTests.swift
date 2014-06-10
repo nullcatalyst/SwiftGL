@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SwiftGL
 
 class SwiftGLTests: XCTestCase {
     override func setUp() {
