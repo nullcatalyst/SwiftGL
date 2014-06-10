@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Scott Bennett. All rights reserved.
 //
 
+#import <stdio.h>
 #import <Foundation/Foundation.h>
 
 #import "GLSupport.h"
