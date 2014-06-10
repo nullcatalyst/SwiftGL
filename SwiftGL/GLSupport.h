@@ -18,6 +18,7 @@
 
 const float *CFloatPtr(const void *ptr);
 const char *CStringPtr(const NSString *string);
+const GLvoid *COffsetPtr(GLsizeiptr offset);
 
 #pragma mark - Shader
 

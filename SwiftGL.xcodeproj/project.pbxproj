@@ -20,6 +20,7 @@
 		D2AB3AEF194544CD00655A34 /* GLSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3AED194544CD00655A34 /* GLSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2AB3AF0194544CD00655A34 /* GLSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AEE194544CD00655A34 /* GLSupport.m */; };
 		D2AB3AF21946795100655A34 /* Vbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AF11946795100655A34 /* Vbo.swift */; };
+		D2AB3AF419468EDA00655A34 /* Vao.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AF319468EDA00655A34 /* Vao.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		D2AB3AED194544CD00655A34 /* GLSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSupport.h; sourceTree = "<group>"; };
 		D2AB3AEE194544CD00655A34 /* GLSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSupport.m; sourceTree = "<group>"; };
 		D2AB3AF11946795100655A34 /* Vbo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vbo.swift; sourceTree = "<group>"; };
+		D2AB3AF319468EDA00655A34 /* Vao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vao.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				D2AB3AE519450A4D00655A34 /* Vec4.swift */,
 				D2AB3AE9194536CF00655A34 /* Shader.swift */,
 				D2AB3AF11946795100655A34 /* Vbo.swift */,
+				D2AB3AF319468EDA00655A34 /* Vao.swift */,
 				D2AB3AED194544CD00655A34 /* GLSupport.h */,
 				D2AB3AEE194544CD00655A34 /* GLSupport.m */,
 				D2AB3AB81944F05700655A34 /* Supporting Files */,
@@ -247,6 +250,7 @@
 			files = (
 				D2AB3AF0194544CD00655A34 /* GLSupport.m in Sources */,
 				D2AB3AE81945263000655A34 /* Float.swift in Sources */,
+				D2AB3AF419468EDA00655A34 /* Vao.swift in Sources */,
 				D2AB3AEA194536CF00655A34 /* Shader.swift in Sources */,
 				D2AB3AE4194501D300655A34 /* Vec3.swift in Sources */,
 				D2AB3AD21944F08E00655A34 /* Vec2.swift in Sources */,
