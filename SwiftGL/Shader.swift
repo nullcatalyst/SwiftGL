@@ -81,6 +81,8 @@ class Shader {
     func bind(#uniform: GLuniform, v: Vec3) {glProgramUniform3fv(id, uniform, 1, toPtr([v]))}
     func bind(#uniform: GLuniform, v: Vec4) {glProgramUniform4fv(id, uniform, 1, toPtr([v]))}
     
+    func bind(#uniform: GLuniform, m: Mat4, transpose: GLboolean = GLboolean(GL_FALSE)) {glProgramUniformMatrix4fv(id, uniform, 1, transpose, toPtr([m]))}
+    
     // Bind Uniforms using String
     func bind(#uniform: String, x: CFloat) {glProgramUniform1f(id, self.uniform(uniform), x)}
     func bind(#uniform: String, x: CFloat, y: CFloat) {glProgramUniform2f(id, self.uniform(uniform), x, y)}
@@ -89,4 +91,6 @@ class Shader {
     func bind(#uniform: String, v: Vec2) {glProgramUniform2fv(id, self.uniform(uniform), 1, toPtr([v]))}
     func bind(#uniform: String, v: Vec3) {glProgramUniform3fv(id, self.uniform(uniform), 1, toPtr([v]))}
     func bind(#uniform: String, v: Vec4) {glProgramUniform4fv(id, self.uniform(uniform), 1, toPtr([v]))}
+    
+    func bind(#uniform: String, m: Mat4, transpose: GLboolean = GLboolean(GL_FALSE)) {glProgramUniformMatrix4fv(id, self.uniform(uniform), 1, transpose, toPtr([m]))}
 }
