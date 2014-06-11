@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20662C11947D8D2001D2FAC /* Mat4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20662C01947D8D2001D2FAC /* Mat4.swift */; };
 		D2AB3ABB1944F05700655A34 /* SwiftGL.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3ABA1944F05700655A34 /* SwiftGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2AB3AC11944F05700655A34 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AB51944F05700655A34 /* SwiftGL.framework */; };
 		D2AB3AC81944F05700655A34 /* SwiftGLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AC71944F05700655A34 /* SwiftGLTests.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D20662C01947D8D2001D2FAC /* Mat4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mat4.swift; sourceTree = "<group>"; };
 		D2AB3AB51944F05700655A34 /* SwiftGL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB3AB91944F05700655A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AB3ABA1944F05700655A34 /* SwiftGL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftGL.h; sourceTree = "<group>"; };
@@ -74,14 +76,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D20662C41947D963001D2FAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2AB3AEB194536EB00655A34 /* OpenGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D2AB3AAB1944F05700655A34 = {
 			isa = PBXGroup;
 			children = (
 				D2AB3ADF194500D900655A34 /* LICENSE */,
 				D2AB3AE0194500D900655A34 /* README.md */,
-				D2AB3AEB194536EB00655A34 /* OpenGL.framework */,
 				D2AB3AB71944F05700655A34 /* SwiftGL */,
 				D2AB3AC41944F05700655A34 /* SwiftGLTests */,
+				D20662C41947D963001D2FAC /* Frameworks */,
 				D2AB3AB61944F05700655A34 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +113,7 @@
 				D2AB3AD11944F08E00655A34 /* Vec2.swift */,
 				D2AB3AE3194501D300655A34 /* Vec3.swift */,
 				D2AB3AE519450A4D00655A34 /* Vec4.swift */,
+				D20662C01947D8D2001D2FAC /* Mat4.swift */,
 				D2AB3AE9194536CF00655A34 /* Shader.swift */,
 				D2AB3AF11946795100655A34 /* Vbo.swift */,
 				D2AB3AF319468EDA00655A34 /* Vao.swift */,
@@ -250,6 +261,7 @@
 			files = (
 				D2AB3AF0194544CD00655A34 /* GLSupport.m in Sources */,
 				D2AB3AE81945263000655A34 /* Float.swift in Sources */,
+				D20662C11947D8D2001D2FAC /* Mat4.swift in Sources */,
 				D2AB3AF419468EDA00655A34 /* Vao.swift in Sources */,
 				D2AB3AEA194536CF00655A34 /* Shader.swift in Sources */,
 				D2AB3AE4194501D300655A34 /* Vec3.swift in Sources */,
