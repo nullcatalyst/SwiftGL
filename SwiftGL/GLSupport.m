@@ -11,10 +11,6 @@
 
 #import "GLSupport.h"
 
-//const float *CFloatPtr(const void *ptr) {
-//    return ptr;
-//}
-
 const char *CStringPtr(const NSString *string) {
     return [string cStringUsingEncoding:NSASCIIStringEncoding];
 }

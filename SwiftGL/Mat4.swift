@@ -3,10 +3,10 @@
 //  SwiftGL
 //
 //  Created by Scott Bennett on 2014-06-10.
-//
+//  Copyright (c) 2014 Scott Bennett. All rights reserved.
 //
 
-import Cocoa
+import Darwin
 
 struct Mat4 {
     var x, y, z, w: Vec4

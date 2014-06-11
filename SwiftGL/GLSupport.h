@@ -19,11 +19,10 @@
  * I recommend you try not to rely on them existing
  */
 
-//const float *CFloatPtr(const void *ptr);
 const char *CStringPtr(const NSString *string);
 const GLvoid *COffsetPtr(GLsizeiptr offset);
 
-#pragma mark - Shader
+#pragma mark - Shader Support Functions
 
 unsigned int swglCompileShader(int type, NSString *source);
 BOOL swglVerifyProgram(unsigned int program);

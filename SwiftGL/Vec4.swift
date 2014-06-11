@@ -47,18 +47,18 @@ struct Vec4 {
     }
     
     var length2: CFloat {
-    get {
-        return x * x + y * y + z * z + w * w
-    }
+        get {
+            return x * x + y * y + z * z + w * w
+        }
     }
     
     var length: CFloat {
-    get {
-        return sqrtf(self.length2)
-    }
-    set(l) {
-        self = l * normalize(self)
-    }
+        get {
+            return sqrt(self.length2)
+        }
+        set(l) {
+            self = l * normalize(self)
+        }
     }
     
     // Swizzle (Vec2) Properties
