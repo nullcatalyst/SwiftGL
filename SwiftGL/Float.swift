@@ -16,5 +16,6 @@ func degrees(radians: CFloat) -> CFloat {return radians * 180.0 / Pi}
 // Overload some trigonometic functions to make them easier to call without having to worry about as many casts
 func sin(radians: CFloat) -> CFloat {return sinf(radians)}
 func cos(radians: CFloat) -> CFloat {return cosf(radians)}
+func tan(radians: CFloat) -> CFloat {return tanf(radians)}
 
 func mix(a: CFloat, b: CFloat, t: CFloat) -> CFloat {return a + (b - a) * t}

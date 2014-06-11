@@ -11,11 +11,11 @@ import Cocoa
 struct Mat4 {
     var x, y, z, w: Vec4
     
-    init(x: Vec4, y: Vec4, z: Vec4, w: Vec4) {
-        self.x = x
-        self.y = y
-        self.z = z
-        self.w = w
+    init(xCol: Vec4, yCol: Vec4, zCol: Vec4, wCol: Vec4) {
+        self.x = xCol
+        self.y = yCol
+        self.z = zCol
+        self.w = wCol
     }
     
     init(xx: CFloat, yx: CFloat, zx: CFloat, wx: CFloat,
@@ -26,68 +26,6 @@ struct Mat4 {
         self.y = Vec4(x: yx, y: yy, z: yz, w: yw)
         self.z = Vec4(x: zx, y: zy, z: zz, w: zw)
         self.w = Vec4(x: wx, y: wy, z: wz, w: ww)
-    }
-    
-    static func identity() -> Mat4 {
-        return Mat4(xx: 1, yx: 0, zx: 0, wx: 0,
-                    xy: 0, yy: 1, zy: 0, wy: 0,
-                    xz: 0, yz: 0, zz: 1, wz: 0,
-                    xw: 0, yw: 0, zw: 0, ww: 1)
-    }
-    
-    static func rotateX(radians: CFloat) -> Mat4 {
-        var c = cos(radians)
-        var s = sin(radians)
-        return Mat4(xx: 1, yx:  0, zx: 0, wx: 0,
-                    xy: 0, yy:  c, zy: s, wy: 0,
-                    xz: 0, yz: -s, zz: c, wz: 0,
-                    xw: 0, yw:  0, zw: 0, ww: 1)
-    }
-    
-    static func rotateY(radians: CFloat) -> Mat4 {
-        var c = cos(radians)
-        var s = sin(radians)
-        return Mat4(xx: c, yx: 0, zx: -s, wx: 0,
-                    xy: 0, yy: 1, zy:  0, wy: 0,
-                    xz: s, yz: 0, zz:  c, wz: 0,
-                    xw: 0, yw: 0, zw:  0, ww: 1)
-    }
-    
-    static func rotateZ(radians: CFloat) -> Mat4 {
-        var c = cos(radians)
-        var s = sin(radians)
-        return Mat4(xx:  c, yx: s, zx: 0, wx: 0,
-                    xy: -s, yy: c, zy: s, wy: 0,
-                    xz:  0, yz: 0, zz: 1, wz: 0,
-                    xw:  0, yw: 0, zw: 0, ww: 1)
-    }
-    
-    static func translate(offset: Vec3) -> Mat4 {
-        return Mat4(xx: 1, yx: 0, zx: 0, wx: offset.x,
-                    xy: 0, yy: 1, zy: 0, wy: offset.y,
-                    xz: 0, yz: 0, zz: 1, wz: offset.z,
-                    xw: 0, yw: 0, zw: 0, ww: 1)
-    }
-    
-    static func translate(x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
-        return Mat4(xx: 1, yx: 0, zx: 0, wx: x,
-                    xy: 0, yy: 1, zy: 0, wy: y,
-                    xz: 0, yz: 0, zz: 1, wz: z,
-                    xw: 0, yw: 0, zw: 0, ww: 1)
-    }
-    
-    static func scale(scale: Vec3) -> Mat4 {
-        return Mat4(xx: scale.x, yx: 0, zx: 0, wx: 0,
-                    xy: 0, yy: scale.y, zy: 0, wy: 0,
-                    xz: 0, yz: 0, zz: scale.z, wz: 0,
-                    xw: 0, yw: 0, zw: 0, ww: 1)
-    }
-    
-    static func scale(x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
-        return Mat4(xx: x, yx: 0, zx: 0, wx: x,
-                    xy: 0, yy: y, zy: 0, wy: y,
-                    xz: 0, yz: 0, zz: z, wz: z,
-                    xw: 0, yw: 0, zw: 0, ww: 1)
     }
 }
 
@@ -115,4 +53,200 @@ struct Mat4 {
                 yw: a.x.w * b.y.x + a.y.w * b.y.y + a.z.w * b.y.z + a.w.w * b.y.w,
                 zw: a.x.w * b.z.x + a.y.w * b.z.y + a.z.w * b.z.z + a.w.w * b.z.w,
                 ww: a.x.w * b.w.x + a.y.w * b.w.y + a.z.w * b.w.z + a.w.w * b.w.w)
+}
+
+extension Mat4 { // Affine transformations
+    static func identity() -> Mat4 {
+        return Mat4(xx: 1, yx: 0, zx: 0, wx: 0,
+                    xy: 0, yy: 1, zy: 0, wy: 0,
+                    xz: 0, yz: 0, zz: 1, wz: 0,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func rotateX(radians: CFloat) -> Mat4 {
+        var c = cos(radians)
+        var s = sin(radians)
+        return Mat4(xx: 1, yx: 0, zx:  0, wx: 0,
+                    xy: 0, yy: c, zy: -s, wy: 0,
+                    xz: 0, yz: s, zz:  c, wz: 0,
+                    xw: 0, yw: 0, zw:  0, ww: 1)
+    }
+    
+    static func rotateY(radians: CFloat) -> Mat4 {
+        var c = cos(radians)
+        var s = sin(radians)
+        return Mat4(xx:  c, yx: 0, zx: s, wx: 0,
+                    xy:  0, yy: 1, zy: 0, wy: 0,
+                    xz: -s, yz: 0, zz: c, wz: 0,
+                    xw:  0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func rotateZ(radians: CFloat) -> Mat4 {
+        var c = cos(radians)
+        var s = sin(radians)
+        return Mat4(xx: c, yx: -s, zx: 0, wx: 0,
+                    xy: s, yy:  c, zy: s, wy: 0,
+                    xz: 0, yz:  0, zz: 1, wz: 0,
+                    xw: 0, yw:  0, zw: 0, ww: 1)
+    }
+    
+    static func rotate(radians: CFloat, x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
+        var v = normalize(Vec3(x: x, y: y, z: z))
+        var c = cos(radians)
+        var p = 1 - c
+        var s = sin(radians)
+        return Mat4(xx: c + p * v.x * v.x, yx: p * v.x * v.y - v.z * s, zx: p * v.x * v.z + v.y * s, wx: 0,
+                    xy: p * v.x * v.y + v.z * s, yy: c + p * v.y * v.y, zy: p * v.y * v.z - v.x * s, wy: 0,
+                    xz: p * v.x * v.z - v.y * s, yz: p * v.y * v.z + v.x * s, zz: c + p * v.z * v.z, wz: 0,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func rotate(radians: CFloat, v: Vec3) -> Mat4 {
+        var u = normalize(v)
+        var c = cos(radians)
+        var p = 1 - c
+        var s = sin(radians)
+        return Mat4(xx: c + p * u.x * u.x, yx: p * u.x * u.y - u.z * s, zx: p * u.x * u.z + u.y * s, wx: 0,
+                    xy: p * u.x * u.y + u.z * s, yy: c + p * u.y * u.y, zy: p * u.y * u.z - u.x * s, wy: 0,
+                    xz: p * u.x * u.z - u.y * s, yz: p * u.y * u.z + u.x * s, zz: c + p * u.z * u.z, wz: 0,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func translate(x: CFloat, y: CFloat) -> Mat4 {
+        return Mat4(xx: 1, yx: 0, zx: 0, wx: x,
+                    xy: 0, yy: 1, zy: 0, wy: y,
+                    xz: 0, yz: 0, zz: 1, wz: 0,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func translate(x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
+        return Mat4(xx: 1, yx: 0, zx: 0, wx: x,
+                    xy: 0, yy: 1, zy: 0, wy: y,
+                    xz: 0, yz: 0, zz: 1, wz: z,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func translate(offset: Vec2) -> Mat4 {
+        return Mat4(xx: 1, yx: 0, zx: 0, wx: offset.x,
+                    xy: 0, yy: 1, zy: 0, wy: offset.y,
+                    xz: 0, yz: 0, zz: 1, wz: 0,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func translate(offset: Vec3) -> Mat4 {
+        return Mat4(xx: 1, yx: 0, zx: 0, wx: offset.x,
+                    xy: 0, yy: 1, zy: 0, wy: offset.y,
+                    xz: 0, yz: 0, zz: 1, wz: offset.z,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func scale(x: CFloat, y: CFloat) -> Mat4 {
+        return Mat4(xx: x, yx: 0, zx: 0, wx: x,
+                    xy: 0, yy: y, zy: 0, wy: y,
+                    xz: 0, yz: 0, zz: 1, wz: 0,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func scale(x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
+        return Mat4(xx: x, yx: 0, zx: 0, wx: x,
+                    xy: 0, yy: y, zy: 0, wy: y,
+                    xz: 0, yz: 0, zz: z, wz: z,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func scale(scale: Vec2) -> Mat4 {
+        return Mat4(xx: scale.x, yx: 0, zx: 0, wx: 0,
+                    xy: 0, yy: scale.y, zy: 0, wy: 0,
+                    xz: 0, yz: 0, zz: 1, wz: 0,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func scale(scale: Vec3) -> Mat4 {
+        return Mat4(xx: scale.x, yx: 0, zx: 0, wx: 0,
+                    xy: 0, yy: scale.y, zy: 0, wy: 0,
+                    xz: 0, yz: 0, zz: scale.z, wz: 0,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+}
+
+extension Mat4 {
+    static func ortho(width: CFloat, height: CFloat, depth: CFloat) -> Mat4 {
+        return Mat4(xx: 0.5 / width, yx: 0, zx: 0, wx: 0,
+                    xy: 0, yy: 0.5 / height, zy: 0, wy: 0,
+                    xz: 0, yz: 0, zz: -0.5 / depth, wz: 0,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func ortho(width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+        var fan = far + near
+        var fsn = far - near
+        return Mat4(xx: 0.5 / width, yx: 0, zx: 0, wx: 0,
+                    xy: 0, yy: 0.5 / height, zy: 0, wy: 0,
+                    xz: 0, yz: 0, zz: -2 / fsn, wz: -fan / fsn,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func ortho(left: CFloat, right: CFloat, bottom: CFloat, top: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+        var ral = right + left
+        var rsl = right - left
+        var tab = top + bottom
+        var tsb = top - bottom
+        var fan = far + near
+        var fsn = far - near
+        return Mat4(xx: 2 / rsl, yx: 0, zx: 0, wx: -ral / rsl,
+                    xy: 0, yy: 2 / tsb, zy: 0, wy: -tab / tsb,
+                    xz: 0, yz: 0, zz: -2 / fsn, wz: -fan / fsn,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
+    static func frustum(width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+        var fan = far + near
+        var fsn = far - near
+        return Mat4(xx: near / width, yx: 0, zx: 0, wx: 0,
+                    xy: 0, yy: near / height, zy: 0, wy: 0,
+                    xz: 0, yz: 0, zz: -fan / fsn, wz: (-2 * far * near) / fsn,
+                    xw: 0, yw: 0, zw: -1, ww: 0)
+    }
+    
+    static func frustum(left: CFloat, right: CFloat, bottom: CFloat, top: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+        var ral = right + left
+        var rsl = right - left
+        var tsb = top - bottom
+        var tab = top + bottom
+        var fan = far + near
+        var fsn = far - near
+        return Mat4(xx: 2 * near / rsl, yx: 0, zx: ral / rsl, wx: 0,
+                    xy: 0, yy: 2 * near / tsb, zy: tab / tsb, wy: 0,
+                    xz: 0, yz: 0, zz: -fan / fsn, wz: (-2 * far * near) / fsn,
+                    xw: 0, yw: 0, zw: -1, ww: 0)
+    }
+    
+    static func perspective(fovy: CFloat, aspect: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+        var cot = 1 / tan(fovy / 2)
+        
+        return Mat4(xx: cot / aspect, yx: 0, zx: 0, wx: 0,
+                    xy: 0, yy: cot, zy: 0, wy: 0,
+                    xz: 0, yz: 0, zz: (far + near) / (near - far), wz: (2 * far * near) / (near - far),
+                    xw: 0, yw: 0, zw: -1, ww: 0)
+    }
+    
+    static func perspective(fovy: CFloat, width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+        var cot = 1 / tan(fovy / 2)
+        var aspect = width / height
+        
+        return Mat4(xx: cot / aspect, yx: 0, zx: 0, wx: 0,
+            xy: 0, yy: cot, zy: 0, wy: 0,
+            xz: 0, yz: 0, zz: (far + near) / (near - far), wz: (2 * far * near) / (near - far),
+            xw: 0, yw: 0, zw: -1, ww: 0)
+    }
+    
+    static func lookAt(eye: Vec3, center: Vec3, up: Vec3) -> Mat4 {
+        var n = normalize(eye - center)
+        var u = normalize(cross(up, n))
+        var v = cross(n, u)
+        return Mat4(xx: u.x, yx: u.y, zx: u.z, wx: dot(-u, eye),
+                    xy: v.x, yy: v.y, zy: v.z, wy: dot(-v, eye),
+                    xz: n.x, yz: n.y, zz: n.z, wz: dot(-n, eye),
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
 }
