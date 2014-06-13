@@ -85,7 +85,7 @@ extension Mat4 { // Affine transformations
         var c = cos(radians)
         var s = sin(radians)
         return Mat4(xx: c, yx: -s, zx: 0, wx: 0,
-                    xy: s, yy:  c, zy: s, wy: 0,
+                    xy: s, yy:  c, zy: 0, wy: 0,
                     xz: 0, yz:  0, zz: 1, wz: 0,
                     xw: 0, yw:  0, zw: 0, ww: 1)
     }
@@ -140,17 +140,24 @@ extension Mat4 { // Affine transformations
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
+    static func scale(s: CFloat) -> Mat4 {
+        return Mat4(xx: s, yx: 0, zx: 0, wx: 0,
+                    xy: 0, yy: s, zy: 0, wy: 0,
+                    xz: 0, yz: 0, zz: s, wz: 0,
+                    xw: 0, yw: 0, zw: 0, ww: 1)
+    }
+    
     static func scale(x: CFloat, y: CFloat) -> Mat4 {
-        return Mat4(xx: x, yx: 0, zx: 0, wx: x,
-                    xy: 0, yy: y, zy: 0, wy: y,
+        return Mat4(xx: x, yx: 0, zx: 0, wx: 0,
+                    xy: 0, yy: y, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: 1, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
     static func scale(x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
-        return Mat4(xx: x, yx: 0, zx: 0, wx: x,
-                    xy: 0, yy: y, zy: 0, wy: y,
-                    xz: 0, yz: 0, zz: z, wz: z,
+        return Mat4(xx: x, yx: 0, zx: 0, wx: 0,
+                    xy: 0, yy: y, zy: 0, wy: 0,
+                    xz: 0, yz: 0, zz: z, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
