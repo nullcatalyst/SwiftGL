@@ -58,3 +58,10 @@ extension Vao {
         glVertexAttribPointer(attribute, 4, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(vbo.stride), COffsetPtr(offset))
     }
 }
+
+extension Vao {
+    func bindElements(vbo: Vbo) {
+        glBindVertexArray(id)
+        glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), vbo.id)
+    }
+}
