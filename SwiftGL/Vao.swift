@@ -25,37 +25,43 @@ class Vao {
     }
 }
 
+protocol GLType {
+    class var glType: GLenum {get}
+    class var glNormalized: GLboolean {get}
+    class var glSize: GLint {get}
+}
+
+extension CFloat: GLType {
+    static var glType: GLenum {get {return GLenum(GL_FLOAT)}}
+    static var glNormalized: GLboolean {get {return GLboolean(GL_FALSE)}}
+    static var glSize: GLint {get {return 1}}
+}
+
+extension Vec2: GLType {
+    static var glType: GLenum {get {return GLenum(GL_FLOAT)}}
+    static var glNormalized: GLboolean {get {return GLboolean(GL_FALSE)}}
+    static var glSize: GLint {get {return 2}}
+}
+
+extension Vec3: GLType {
+    static var glType: GLenum {get {return GLenum(GL_FLOAT)}}
+    static var glNormalized: GLboolean {get {return GLboolean(GL_FALSE)}}
+    static var glSize: GLint {get {return 3}}
+}
+
+extension Vec4: GLType {
+    static var glType: GLenum {get {return GLenum(GL_FLOAT)}}
+    static var glNormalized: GLboolean {get {return GLboolean(GL_FALSE)}}
+    static var glSize: GLint {get {return 4}}
+}
+
 extension Vao {
-    func bindFloat(attribute: GLuint, vbo: Vbo, offset: GLsizeiptr) {
+    func bind <T: GLType> (#attribute: GLuint, type: T.Type, vbo: Vbo, offset: GLsizeiptr) {
         glBindVertexArray(id)
         glEnableVertexAttribArray(attribute)
         
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), vbo.id)
-        glVertexAttribPointer(attribute, 1, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(vbo.stride), COffsetPtr(offset))
-    }
-    
-    func bindVec2(attribute: GLuint, vbo: Vbo, offset: GLsizeiptr) {
-        glBindVertexArray(id)
-        glEnableVertexAttribArray(attribute)
-        
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), vbo.id)
-        glVertexAttribPointer(attribute, 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(vbo.stride), COffsetPtr(offset))
-    }
-    
-    func bindVec3(attribute: GLuint, vbo: Vbo, offset: GLsizeiptr) {
-        glBindVertexArray(id)
-        glEnableVertexAttribArray(attribute)
-        
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), vbo.id)
-        glVertexAttribPointer(attribute, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(vbo.stride), COffsetPtr(offset))
-    }
-    
-    func bindVec4(attribute: GLuint, vbo: Vbo, offset: GLsizeiptr) {
-        glBindVertexArray(id)
-        glEnableVertexAttribArray(attribute)
-        
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), vbo.id)
-        glVertexAttribPointer(attribute, 4, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(vbo.stride), COffsetPtr(offset))
+        glVertexAttribPointer(attribute, type.glSize, type.glType, type.glNormalized, GLsizei(vbo.stride), COffsetPtr(offset))
     }
 }
 

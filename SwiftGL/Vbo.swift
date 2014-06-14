@@ -30,7 +30,12 @@ class Vbo {
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), id)
         glBufferData(GLenum(GL_ARRAY_BUFFER), 0, nil, GLenum(GL_DYNAMIC_DRAW))
     }
-    
+}
+
+// NOTE: You cannot bind both vertex data and element data to the same VBO,
+//       Two separate VBOs must be used (then bound to the same VAO)
+
+extension Vbo {
     func bind <T> (data: CConstPointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
@@ -46,12 +51,22 @@ class Vbo {
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), id)
         glBufferSubData(GLenum(GL_ARRAY_BUFFER), stride * start, stride * count, ptr)
     }
-    
+}
+
+extension Vbo {
     func bindElements <T> (data: CConstPointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
         var ptr = CConstVoidPointer(self, data.value)
         glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), id)
         glBufferData(GLenum(GL_ELEMENT_ARRAY_BUFFER), stride * count, ptr, GLenum(GL_STATIC_DRAW))
+    }
+    
+    func bindSubElements <T> (data: CConstPointer<T>, count: GLsizeiptr) {
+        self.count  = count
+        self.stride = sizeof(T)
+        var ptr = CConstVoidPointer(self, data.value)
+        glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), id)
+        glBufferSubData(GLenum(GL_ELEMENT_ARRAY_BUFFER), stride * count, stride * count, ptr)
     }
 }

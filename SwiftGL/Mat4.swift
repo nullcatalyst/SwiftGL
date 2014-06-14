@@ -242,9 +242,9 @@ extension Mat4 {
         var aspect = width / height
         
         return Mat4(xx: cot / aspect, yx: 0, zx: 0, wx: 0,
-            xy: 0, yy: cot, zy: 0, wy: 0,
-            xz: 0, yz: 0, zz: (far + near) / (near - far), wz: (2 * far * near) / (near - far),
-            xw: 0, yw: 0, zw: -1, ww: 0)
+                    xy: 0, yy: cot, zy: 0, wy: 0,
+                    xz: 0, yz: 0, zz: (far + near) / (near - far), wz: (2 * far * near) / (near - far),
+                    xw: 0, yw: 0, zw: -1, ww: 0)
     }
     
     static func lookAt(#eye: Vec3, center: Vec3, up: Vec3) -> Mat4 {
