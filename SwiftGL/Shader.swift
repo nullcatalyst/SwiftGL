@@ -23,9 +23,7 @@ class Shader {
         glDeleteProgram(id)
     }
     
-    /**
-     * @return true on success
-    **/
+    /// @return true on success
     func compile(vertexSource: String, fragmentSource: String) -> Bool {
         glDeleteProgram(id)
         id = glCreateProgram();
@@ -46,14 +44,44 @@ class Shader {
         return swglVerifyProgram(id)
     }
     
-    /**
-     * @return true on success
-    **/
+    /// @return true on success
+    func compile(vertexSource: String, fragmentSource: String, bindAttibutes: (GLprogram) -> Void) -> Bool {
+        glDeleteProgram(id)
+        id = glCreateProgram();
+        
+        var vertexShader   = swglCompileShader(GL_VERTEX_SHADER,   vertexSource)
+        var fragmentShader = swglCompileShader(GL_FRAGMENT_SHADER, fragmentSource)
+        
+        // Call the external function to bind all of the default shader attributes
+        bindAttibutes(id)
+        
+        // Attach the shaders to our id
+        glAttachShader(id, vertexShader)
+        glAttachShader(id, fragmentShader)
+        
+        // Delete the shaders since they are now attached to the id, which will retain a reference to them
+        glDeleteShader(vertexShader)
+        glDeleteShader(fragmentShader)
+        
+        glLinkProgram(id)
+        
+        return swglVerifyProgram(id)
+    }
+    
+    /// @return true on success
     func load(vertexFile: String, fragmentFile: String) -> Bool {
         var vertexSource: String   = NSString(contentsOfFile: vertexFile,   encoding: NSASCIIStringEncoding, error: nil)
         var fragmentSource: String = NSString(contentsOfFile: fragmentFile, encoding: NSASCIIStringEncoding, error: nil)
         
         return self.compile(vertexSource, fragmentSource: fragmentSource)
+    }
+    
+    /// @return true on success
+    func load(vertexFile: String, fragmentFile: String, bindAttibutes: (GLprogram) -> Void) -> Bool {
+        var vertexSource: String   = NSString(contentsOfFile: vertexFile,   encoding: NSASCIIStringEncoding, error: nil)
+        var fragmentSource: String = NSString(contentsOfFile: fragmentFile, encoding: NSASCIIStringEncoding, error: nil)
+        
+        return self.compile(vertexSource, fragmentSource: fragmentSource, bindAttibutes)
     }
     
     func bind() {
