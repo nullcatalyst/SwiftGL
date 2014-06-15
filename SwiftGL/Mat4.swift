@@ -55,6 +55,10 @@ struct Mat4 {
                 ww: a.x.w * b.w.x + a.y.w * b.w.y + a.z.w * b.w.z + a.w.w * b.w.w)
 }
 
+@assignment func *= (inout a: Mat4, b: Mat4) {
+    a = a * b
+}
+
 extension Mat4 { // Affine transformations
     static func identity() -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: 0,
@@ -176,7 +180,7 @@ extension Mat4 { // Affine transformations
     }
 }
 
-extension Mat4 {
+extension Mat4 { // Projection transformations
     static func ortho(#width: CFloat, height: CFloat, depth: CFloat) -> Mat4 {
         return Mat4(xx: 0.5 / width, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: 0.5 / height, zy: 0, wy: 0,

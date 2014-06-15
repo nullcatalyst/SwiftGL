@@ -418,6 +418,15 @@ struct Vec4 {
 @infix func * (v: Vec4, s: CFloat) -> Vec4 {return Vec4(x: v.x * s, y: v.y * s, z: v.z * s, w: v.w * s)}
 @infix func / (v: Vec4, s: CFloat) -> Vec4 {return Vec4(x: v.x / s, y: v.y / s, z: v.z / s, w: v.w / s)}
 
+// Vec4 Assignment Operators
+@assignment func += (inout a: Vec4, b: Vec4) {a = a + b}
+@assignment func -= (inout a: Vec4, b: Vec4) {a = a - b}
+@assignment func *= (inout a: Vec4, b: Vec4) {a = a * b}
+@assignment func /= (inout a: Vec4, b: Vec4) {a = a / b}
+
+@assignment func *= (inout a: Vec4, b: CFloat) {a = a * b}
+@assignment func /= (inout a: Vec4, b: CFloat) {a = a / b}
+
 // Functions which operate on Vec2
 func length(v: Vec4) -> CFloat {return v.length}
 func length2(v: Vec4) -> CFloat {return v.length2}

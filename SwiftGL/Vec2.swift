@@ -90,6 +90,15 @@ struct Vec2 {
 @infix func * (v: Vec2, s: CFloat) -> Vec2 {return Vec2(x: v.x * s, y: v.y * s)}
 @infix func / (v: Vec2, s: CFloat) -> Vec2 {return Vec2(x: v.x / s, y: v.y / s)}
 
+// Vec2 Assignment Operators
+@assignment func += (inout a: Vec2, b: Vec2) {a = a + b}
+@assignment func -= (inout a: Vec2, b: Vec2) {a = a - b}
+@assignment func *= (inout a: Vec2, b: Vec2) {a = a * b}
+@assignment func /= (inout a: Vec2, b: Vec2) {a = a / b}
+
+@assignment func *= (inout a: Vec2, b: CFloat) {a = a * b}
+@assignment func /= (inout a: Vec2, b: CFloat) {a = a / b}
+
 // Functions which operate on Vec2
 func length(v: Vec2) -> CFloat {return v.length}
 func length2(v: Vec2) -> CFloat {return v.length2}

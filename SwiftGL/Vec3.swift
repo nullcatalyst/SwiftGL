@@ -200,6 +200,15 @@ struct Vec3 {
 @infix func * (v: Vec3, s: CFloat) -> Vec3 {return Vec3(x: v.x * s, y: v.y * s, z: v.z * s)}
 @infix func / (v: Vec3, s: CFloat) -> Vec3 {return Vec3(x: v.x / s, y: v.y / s, z: v.z / s)}
 
+// Vec3 Assignment Operators
+@assignment func += (inout a: Vec3, b: Vec3) {a = a + b}
+@assignment func -= (inout a: Vec3, b: Vec3) {a = a - b}
+@assignment func *= (inout a: Vec3, b: Vec3) {a = a * b}
+@assignment func /= (inout a: Vec3, b: Vec3) {a = a / b}
+
+@assignment func *= (inout a: Vec3, b: CFloat) {a = a * b}
+@assignment func /= (inout a: Vec3, b: CFloat) {a = a / b}
+
 // Functions which operate on Vec3
 func length(v: Vec3) -> CFloat {return v.length}
 func length2(v: Vec3) -> CFloat {return v.length2}
