@@ -26,3 +26,7 @@ const GLvoid *COffsetPtr(GLsizeiptr offset);
 
 unsigned int swglCompileShader(int type, NSString *source);
 BOOL swglVerifyProgram(unsigned int program);
+
+#pragma mark - Texture Support Functions
+
+void *swglLoadTexture(NSString *filename, GLsizei *width, GLsizei *height);

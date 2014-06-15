@@ -68,3 +68,29 @@ BOOL swglVerifyProgram(unsigned int program) {
     
     return true;
 }
+
+void *swglLoadTexture(NSString *filename, GLsizei *widthOut, GLsizei *heightOut) {
+    CFURLRef url = CFBundleCopyResourceURL(CFBundleGetMainBundle(), (CFStringRef) filename, CFSTR(""), NULL);
+    CGImageSourceRef imageSource = CGImageSourceCreateWithURL(url, NULL);
+    CGImageRef image = CGImageSourceCreateImageAtIndex(imageSource, 0, NULL);
+    CFRelease(imageSource);
+    GLsizei width  = (GLsizei) CGImageGetWidth (image);
+    GLsizei height = (GLsizei) CGImageGetHeight(image);
+    CGRect rect = CGRectMake(0.0f, 0.0f, width, height);
+    
+    void *imageData = malloc(width * height * 4);
+    CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef ctx = CGBitmapContextCreate(imageData, width, height, 8, width * 4, colourSpace, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedFirst);
+    CFRelease(colourSpace);
+    CGContextTranslateCTM(ctx, 0, height);
+    CGContextScaleCTM(ctx, 1.0f, -1.0f);
+    CGContextSetBlendMode(ctx, kCGBlendModeCopy);
+    CGContextDrawImage(ctx, rect, image);
+    CGContextRelease(ctx);
+    CFRelease(image);
+    
+    if (widthOut  != NULL) *widthOut  = width;
+    if (heightOut != NULL) *heightOut = height;
+    
+    return imageData;
+}
