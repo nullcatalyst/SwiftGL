@@ -404,6 +404,12 @@ struct Vec4 {
     var wwww: Vec4 {get {return Vec4(x: w, y: w, z: w, w: w)}}
 }
 
+// Make it easier to interpret Vec4 as a string
+extension Vec4: Printable, DebugPrintable {
+    var description:      String {get {return "(\(x), \(y), \(z), \(w))"}}
+    var debugDescription: String {get {return "Vec4(x: \(x), y: \(y), z: \(z), w: \(w))"}}
+}
+
 // Vec2 Prefix Operators
 @prefix func - (v: Vec4) -> Vec4 {return Vec4(x: -v.x, y: -v.y, z: -v.z, w: -v.w)}
 
