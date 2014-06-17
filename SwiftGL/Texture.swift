@@ -26,7 +26,7 @@ class Texture {
     }
     
     func load(#filename: CFString) -> Bool {
-        return load(filename: filename)
+        return load(filename: filename, antialias: false, flipVertical: false)
     }
     
     func load(#filename: CFString, antialias: Bool) -> Bool {
