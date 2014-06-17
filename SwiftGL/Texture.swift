@@ -25,9 +25,21 @@ class Texture {
         glDeleteTextures(1, &id)
     }
     
+    func load(#filename: CFString) -> Bool {
+        return load(filename: filename)
+    }
+    
+    func load(#filename: CFString, antialias: Bool) -> Bool {
+        return load(filename: filename, antialias: antialias, flipVertical: false)
+    }
+    
+    func load(#filename: CFString, flipVertical: Bool) -> Bool {
+        return load(filename: filename, antialias: false, flipVertical: flipVertical)
+    }
+    
     /// @return true on success
-    func load(filename: CFString, antialias: Bool = true, flipVertical: Bool = false) -> Bool {
-        let imageData = swglLoadTexture(filename, &width, &height)
+    func load(#filename: CFString, antialias: Bool, flipVertical: Bool) -> Bool {
+        let imageData = swglLoadTexture(filename, &width, &height, flipVertical)
         
         glBindTexture(GLenum(GL_TEXTURE_2D), id)
         glPixelStorei(GLenum(GL_UNPACK_ROW_LENGTH), GLint(width))

@@ -29,4 +29,4 @@ BOOL swglVerifyProgram(unsigned int program);
 
 #pragma mark - Texture Support Functions
 
-void *swglLoadTexture(NSString *filename, GLsizei *width, GLsizei *height);
+void *swglLoadTexture(NSString *filename, GLsizei *width, GLsizei *height, BOOL flipVertical);

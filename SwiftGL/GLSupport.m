@@ -69,7 +69,7 @@ BOOL swglVerifyProgram(unsigned int program) {
     return true;
 }
 
-void *swglLoadTexture(NSString *filename, GLsizei *widthOut, GLsizei *heightOut) {
+void *swglLoadTexture(NSString *filename, GLsizei *widthOut, GLsizei *heightOut, BOOL flipVertical) {
     CFURLRef url = CFBundleCopyResourceURL(CFBundleGetMainBundle(), (CFStringRef) filename, CFSTR(""), NULL);
     CGImageSourceRef imageSource = CGImageSourceCreateWithURL(url, NULL);
     CGImageRef image = CGImageSourceCreateImageAtIndex(imageSource, 0, NULL);
@@ -82,8 +82,12 @@ void *swglLoadTexture(NSString *filename, GLsizei *widthOut, GLsizei *heightOut)
     CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef ctx = CGBitmapContextCreate(imageData, width, height, 8, width * 4, colourSpace, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedFirst);
     CFRelease(colourSpace);
-    CGContextTranslateCTM(ctx, 0, height);
-    CGContextScaleCTM(ctx, 1.0f, -1.0f);
+    
+    if (flipVertical) {
+        CGContextTranslateCTM(ctx, 0, height);
+        CGContextScaleCTM(ctx, 1.0f, -1.0f);
+    }
+    
     CGContextSetBlendMode(ctx, kCGBlendModeCopy);
     CGContextDrawImage(ctx, rect, image);
     CGContextRelease(ctx);
