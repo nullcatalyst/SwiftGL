@@ -109,12 +109,12 @@ class Shader {
     func bind(#uniform: GLuniform, v: Vec3) {glProgramUniform3fv(id, uniform, 1, toPtr([v]))}
     func bind(#uniform: GLuniform, v: Vec4) {glProgramUniform4fv(id, uniform, 1, toPtr([v]))}
     
-    func bind(#uniform: GLuniform, m: Mat4, transpose: GLboolean = GLboolean(GL_FALSE)) {glProgramUniformMatrix4fv(id, uniform, 1, transpose, toPtr([m]))}
+    func bind(#uniform: GLuniform, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, uniform, 1, transpose, toPtr([m]))}
     
     func bind(#uniform: GLuniform, texture: Texture, index: GLint = 0) {
         glProgramUniform1i(id, uniform, index)
-        glActiveTexture(GLenum(GL_TEXTURE0 + index))
-        glBindTexture(GLenum(GL_TEXTURE_2D), texture.id)
+        glActiveTexture(GL_TEXTURE0 + GLenum(index))
+        glBindTexture(GL_TEXTURE_2D, texture.id)
     }
     
     // Bind Uniforms using String
@@ -126,11 +126,11 @@ class Shader {
     func bind(#uniform: String, v: Vec3) {glProgramUniform3fv(id, self.uniform(uniform), 1, toPtr([v]))}
     func bind(#uniform: String, v: Vec4) {glProgramUniform4fv(id, self.uniform(uniform), 1, toPtr([v]))}
     
-    func bind(#uniform: String, m: Mat4, transpose: GLboolean = GLboolean(GL_FALSE)) {glProgramUniformMatrix4fv(id, self.uniform(uniform), 1, transpose, toPtr([m]))}
+    func bind(#uniform: String, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, self.uniform(uniform), 1, transpose, toPtr([m]))}
     
     func bind(#uniform: String, texture: Texture, index: GLint = 0) {
         glProgramUniform1i(id, self.uniform(uniform), index)
-        glActiveTexture(GLenum(GL_TEXTURE0 + index))
-        glBindTexture(GLenum(GL_TEXTURE_2D), texture.id)
+        glActiveTexture(GL_TEXTURE0 + GLenum(index))
+        glBindTexture(GL_TEXTURE_2D, texture.id)
     }
 }

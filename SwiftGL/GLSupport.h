@@ -24,7 +24,7 @@ const GLvoid *COffsetPtr(GLsizeiptr offset);
 
 #pragma mark - Shader Support Functions
 
-unsigned int swglCompileShader(int type, NSString *source);
+unsigned int swglCompileShader(GLenum type, NSString *source);
 BOOL swglVerifyProgram(unsigned int program);
 
 #pragma mark - Texture Support Functions

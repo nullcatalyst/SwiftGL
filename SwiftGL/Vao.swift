@@ -32,26 +32,26 @@ protocol GLType {
 }
 
 extension CFloat: GLType {
-    static var glType: GLenum {get {return GLenum(GL_FLOAT)}}
-    static var glNormalized: GLboolean {get {return GLboolean(GL_FALSE)}}
+    static var glType: GLenum {get {return GL_FLOAT}}
+    static var glNormalized: GLboolean {get {return GL_FALSE}}
     static var glSize: GLint {get {return 1}}
 }
 
 extension Vec2: GLType {
-    static var glType: GLenum {get {return GLenum(GL_FLOAT)}}
-    static var glNormalized: GLboolean {get {return GLboolean(GL_FALSE)}}
+    static var glType: GLenum {get {return GL_FLOAT}}
+    static var glNormalized: GLboolean {get {return GL_FALSE}}
     static var glSize: GLint {get {return 2}}
 }
 
 extension Vec3: GLType {
-    static var glType: GLenum {get {return GLenum(GL_FLOAT)}}
-    static var glNormalized: GLboolean {get {return GLboolean(GL_FALSE)}}
+    static var glType: GLenum {get {return GL_FLOAT}}
+    static var glNormalized: GLboolean {get {return GL_FALSE}}
     static var glSize: GLint {get {return 3}}
 }
 
 extension Vec4: GLType {
-    static var glType: GLenum {get {return GLenum(GL_FLOAT)}}
-    static var glNormalized: GLboolean {get {return GLboolean(GL_FALSE)}}
+    static var glType: GLenum {get {return GL_FLOAT}}
+    static var glNormalized: GLboolean {get {return GL_FALSE}}
     static var glSize: GLint {get {return 4}}
 }
 
@@ -60,7 +60,7 @@ extension Vao {
         glBindVertexArray(id)
         glEnableVertexAttribArray(attribute)
         
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), vbo.id)
+        glBindBuffer(GL_ARRAY_BUFFER, vbo.id)
         glVertexAttribPointer(attribute, type.glSize, type.glType, type.glNormalized, GLsizei(vbo.stride), COffsetPtr(offset))
     }
 }
@@ -68,6 +68,6 @@ extension Vao {
 extension Vao {
     func bindElements(vbo: Vbo) {
         glBindVertexArray(id)
-        glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), vbo.id)
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo.id)
     }
 }

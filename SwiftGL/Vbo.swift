@@ -27,8 +27,8 @@ class Vbo {
     func reset() {
         count  = 0
         stride = 0
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), id)
-        glBufferData(GLenum(GL_ARRAY_BUFFER), 0, nil, GLenum(GL_DYNAMIC_DRAW))
+        glBindBuffer(GL_ARRAY_BUFFER, id)
+        glBufferData(GL_ARRAY_BUFFER, 0, nil, GL_DYNAMIC_DRAW)
     }
 }
 
@@ -40,16 +40,16 @@ extension Vbo {
         self.count  = count
         self.stride = sizeof(T)
         var ptr = CConstVoidPointer(self, data.value)
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), id)
-        glBufferData(GLenum(GL_ARRAY_BUFFER), stride * count, ptr, GLenum(GL_DYNAMIC_DRAW))
+        glBindBuffer(GL_ARRAY_BUFFER, id)
+        glBufferData(GL_ARRAY_BUFFER, stride * count, ptr, GL_DYNAMIC_DRAW)
     }
     
     func bindSubData <T> (data: CConstPointer<T>, start: GLsizeiptr, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
         var ptr = CConstVoidPointer(self, data.value)
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), id)
-        glBufferSubData(GLenum(GL_ARRAY_BUFFER), stride * start, stride * count, ptr)
+        glBindBuffer(GL_ARRAY_BUFFER, id)
+        glBufferSubData(GL_ARRAY_BUFFER, stride * start, stride * count, ptr)
     }
 }
 
@@ -58,15 +58,15 @@ extension Vbo {
         self.count  = count
         self.stride = sizeof(T)
         var ptr = CConstVoidPointer(self, data.value)
-        glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), id)
-        glBufferData(GLenum(GL_ELEMENT_ARRAY_BUFFER), stride * count, ptr, GLenum(GL_STATIC_DRAW))
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id)
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, stride * count, ptr, GL_STATIC_DRAW)
     }
     
     func bindSubElements <T> (data: CConstPointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
         var ptr = CConstVoidPointer(self, data.value)
-        glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), id)
-        glBufferSubData(GLenum(GL_ELEMENT_ARRAY_BUFFER), stride * count, stride * count, ptr)
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id)
+        glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, stride * count, stride * count, ptr)
     }
 }

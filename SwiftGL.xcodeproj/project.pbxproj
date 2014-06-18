@@ -22,6 +22,7 @@
 		D2AB3AF21946795100655A34 /* Vbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AF11946795100655A34 /* Vbo.swift */; };
 		D2AB3AF419468EDA00655A34 /* Vao.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AF319468EDA00655A34 /* Vao.swift */; };
 		D2B38FAF194E063800722470 /* Texture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B38FAE194E063800722470 /* Texture.swift */; };
+		D2CA623319512D24007B2DC2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA623219512D24007B2DC2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		D2AB3AF11946795100655A34 /* Vbo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vbo.swift; sourceTree = "<group>"; };
 		D2AB3AF319468EDA00655A34 /* Vao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vao.swift; sourceTree = "<group>"; };
 		D2B38FAE194E063800722470 /* Texture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Texture.swift; sourceTree = "<group>"; };
+		D2CA623219512D24007B2DC2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AB3ABA1944F05700655A34 /* SwiftGL.h */,
+				D2CA623219512D24007B2DC2 /* Constants.swift */,
 				D2AB3AE71945263000655A34 /* Float.swift */,
 				D2AB3AD11944F08E00655A34 /* Vec2.swift */,
 				D2AB3AE3194501D300655A34 /* Vec3.swift */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2AB3AF0194544CD00655A34 /* GLSupport.m in Sources */,
+				D2CA623319512D24007B2DC2 /* Constants.swift in Sources */,
 				D2B38FAF194E063800722470 /* Texture.swift in Sources */,
 				D2AB3AE81945263000655A34 /* Float.swift in Sources */,
 				D20662C11947D8D2001D2FAC /* Mat4.swift in Sources */,

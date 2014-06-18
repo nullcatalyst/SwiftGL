@@ -19,7 +19,7 @@ const GLvoid *COffsetPtr(GLsizeiptr offset) {
     return (const void *) offset;
 }
 
-unsigned int swglCompileShader(int type, NSString *source) {
+unsigned int swglCompileShader(GLenum type, NSString *source) {
     const char *csource = [source cStringUsingEncoding:NSASCIIStringEncoding];
     
     GLuint shader = glCreateShader(type);
