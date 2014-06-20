@@ -24,7 +24,7 @@ class Shader {
     }
     
     /// @return true on success
-    func compile(vertexSource: String, fragmentSource: String) -> Bool {
+    func compile(#vertexSource: String, fragmentSource: String) -> Bool {
         glDeleteProgram(id)
         id = glCreateProgram();
         
@@ -45,7 +45,7 @@ class Shader {
     }
     
     /// @return true on success
-    func compile(vertexSource: String, fragmentSource: String, bindAttibutes: (GLprogram) -> Void) -> Bool {
+    func compile(#vertexSource: String, fragmentSource: String, bindAttibutes: (GLprogram) -> Void) -> Bool {
         glDeleteProgram(id)
         id = glCreateProgram();
         
@@ -69,19 +69,19 @@ class Shader {
     }
     
     /// @return true on success
-    func load(vertexFile: String, fragmentFile: String) -> Bool {
+    func load(#vertexFile: String, fragmentFile: String) -> Bool {
         var vertexSource: String   = NSString(contentsOfFile: vertexFile,   encoding: NSASCIIStringEncoding, error: nil)
         var fragmentSource: String = NSString(contentsOfFile: fragmentFile, encoding: NSASCIIStringEncoding, error: nil)
         
-        return self.compile(vertexSource, fragmentSource: fragmentSource)
+        return self.compile(vertexSource: vertexSource, fragmentSource: fragmentSource)
     }
     
     /// @return true on success
-    func load(vertexFile: String, fragmentFile: String, bindAttibutes: (GLprogram) -> Void) -> Bool {
+    func load(#vertexFile: String, fragmentFile: String, bindAttibutes: (GLprogram) -> Void) -> Bool {
         var vertexSource: String   = NSString(contentsOfFile: vertexFile,   encoding: NSASCIIStringEncoding, error: nil)
         var fragmentSource: String = NSString(contentsOfFile: fragmentFile, encoding: NSASCIIStringEncoding, error: nil)
         
-        return self.compile(vertexSource, fragmentSource: fragmentSource, bindAttibutes)
+        return self.compile(vertexSource: vertexSource, fragmentSource: fragmentSource, bindAttibutes)
     }
     
     func bind() {
