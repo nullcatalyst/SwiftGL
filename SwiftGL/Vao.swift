@@ -71,3 +71,10 @@ extension Vao {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo.id)
     }
 }
+
+extension Vao {
+    func bindInstanced <T: GLType> (#attribute: GLuint, type: T.Type, vbo: Vbo, offset: GLsizeiptr, divisor: GLuint = 1) {
+        bind(attribute: attribute, type: type, vbo: vbo, offset: offset)
+        glVertexAttribDivisor(attribute, divisor)
+    }
+}
