@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Scott Bennett. All rights reserved.
 //
 
-#import <OpenGL/gl3.h>
+#import <SwiftGL/SwiftGL.h>
 
 #pragma mark - Conversions
 

@@ -23,6 +23,8 @@
 		D2AB3AF419468EDA00655A34 /* Vao.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AF319468EDA00655A34 /* Vao.swift */; };
 		D2B38FAF194E063800722470 /* Texture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B38FAE194E063800722470 /* Texture.swift */; };
 		D2CA623319512D24007B2DC2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA623219512D24007B2DC2 /* Constants.swift */; };
+		D2EE43481953BEF0007CC56F /* SwiftGL.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3ABA1944F05700655A34 /* SwiftGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EE434A1953BF64007CC56F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EE43491953BF64007CC56F /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		D2AB3AF319468EDA00655A34 /* Vao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vao.swift; sourceTree = "<group>"; };
 		D2B38FAE194E063800722470 /* Texture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Texture.swift; sourceTree = "<group>"; };
 		D2CA623219512D24007B2DC2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D2EE432F1953BE91007CC56F /* SwiftGL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2EE43491953BF64007CC56F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2EE432B1953BE91007CC56F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2EE434A1953BF64007CC56F /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AB3AEB194536EB00655A34 /* OpenGL.framework */,
+				D2EE43491953BF64007CC56F /* OpenGLES.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -104,6 +117,7 @@
 			children = (
 				D2AB3AB51944F05700655A34 /* SwiftGL.framework */,
 				D2AB3AC01944F05700655A34 /* SwiftGLTests.xctest */,
+				D2EE432F1953BE91007CC56F /* SwiftGL.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,12 +179,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2EE432C1953BE91007CC56F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2EE43481953BEF0007CC56F /* SwiftGL.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2AB3AB41944F05700655A34 /* SwiftGL */ = {
+		D2AB3AB41944F05700655A34 /* SwiftGL-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D2AB3ACB1944F05700655A34 /* Build configuration list for PBXNativeTarget "SwiftGL" */;
+			buildConfigurationList = D2AB3ACB1944F05700655A34 /* Build configuration list for PBXNativeTarget "SwiftGL-OSX" */;
 			buildPhases = (
 				D2AB3AB01944F05700655A34 /* Sources */,
 				D2AB3AB11944F05700655A34 /* Frameworks */,
@@ -181,7 +203,7 @@
 			);
 			dependencies = (
 			);
-			name = SwiftGL;
+			name = "SwiftGL-OSX";
 			productName = SwiftGL;
 			productReference = D2AB3AB51944F05700655A34 /* SwiftGL.framework */;
 			productType = "com.apple.product-type.framework";
@@ -204,6 +226,24 @@
 			productReference = D2AB3AC01944F05700655A34 /* SwiftGLTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D2EE432E1953BE91007CC56F /* SwiftGL-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2EE43461953BE91007CC56F /* Build configuration list for PBXNativeTarget "SwiftGL-iOS" */;
+			buildPhases = (
+				D2EE432A1953BE91007CC56F /* Sources */,
+				D2EE432B1953BE91007CC56F /* Frameworks */,
+				D2EE432C1953BE91007CC56F /* Headers */,
+				D2EE432D1953BE91007CC56F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftGL-iOS";
+			productName = "SwiftGL-iOS";
+			productReference = D2EE432F1953BE91007CC56F /* SwiftGL.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -220,6 +260,9 @@
 						CreatedOnToolsVersion = 6.0;
 						TestTargetID = D2AB3AB41944F05700655A34;
 					};
+					D2EE432E1953BE91007CC56F = {
+						CreatedOnToolsVersion = 6.0;
+					};
 				};
 			};
 			buildConfigurationList = D2AB3AAF1944F05700655A34 /* Build configuration list for PBXProject "SwiftGL" */;
@@ -234,7 +277,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AB3AB41944F05700655A34 /* SwiftGL */,
+				D2AB3AB41944F05700655A34 /* SwiftGL-OSX */,
+				D2EE432E1953BE91007CC56F /* SwiftGL-iOS */,
 				D2AB3ABF1944F05700655A34 /* SwiftGLTests */,
 			);
 		};
@@ -250,6 +294,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D2AB3ABE1944F05700655A34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2EE432D1953BE91007CC56F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -285,12 +336,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2EE432A1953BE91007CC56F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		D2AB3AC31944F05700655A34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D2AB3AB41944F05700655A34 /* SwiftGL */;
+			target = D2AB3AB41944F05700655A34 /* SwiftGL-OSX */;
 			targetProxy = D2AB3AC21944F05700655A34 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -333,6 +391,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = SwiftGL;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -371,6 +430,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftGL;
 				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -390,7 +450,6 @@
 				INFOPLIST_FILE = SwiftGL/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = SwiftGL/GLSupport.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -410,7 +469,6 @@
 				INFOPLIST_FILE = SwiftGL/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = SwiftGL/GLSupport.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Ofast";
@@ -451,6 +509,49 @@
 			};
 			name = Release;
 		};
+		D2EE43421953BE91007CC56F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftGL/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2EE43431953BE91007CC56F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftGL/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -463,7 +564,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D2AB3ACB1944F05700655A34 /* Build configuration list for PBXNativeTarget "SwiftGL" */ = {
+		D2AB3ACB1944F05700655A34 /* Build configuration list for PBXNativeTarget "SwiftGL-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D2AB3ACC1944F05700655A34 /* Debug */,
@@ -480,6 +581,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D2EE43461953BE91007CC56F /* Build configuration list for PBXNativeTarget "SwiftGL-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2EE43421953BE91007CC56F /* Debug */,
+				D2EE43431953BE91007CC56F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
