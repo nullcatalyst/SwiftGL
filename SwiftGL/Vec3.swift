@@ -57,8 +57,8 @@ struct Vec3 {
         get {
             return sqrt(self.length2)
         }
-        set(l) {
-            self = l * normalize(self)
+        set {
+            self = length * normalize(self)
         }
     }
     

@@ -46,6 +46,48 @@ struct Vec4 {
         self.w = w
     }
     
+    init(xy: Vec2, z: CFloat, w: CFloat) {
+        self.x = xy.x
+        self.y = xy.y
+        self.z = z
+        self.w = w
+    }
+    
+    init(x: CFloat, yz: Vec2, w: CFloat) {
+        self.x = x
+        self.y = yz.x
+        self.z = yz.y
+        self.w = w
+    }
+    
+    init(x: CFloat, y: CFloat, zw: Vec2) {
+        self.x = x
+        self.y = y
+        self.z = zw.x
+        self.w = zw.y
+    }
+    
+    init(xy: Vec2, zw: Vec2) {
+        self.x = xy.x
+        self.y = xy.y
+        self.z = zw.x
+        self.w = zw.y
+    }
+    
+    init(xyz: Vec3, w: CFloat) {
+        self.x = xyz.x
+        self.y = xyz.y
+        self.z = xyz.z
+        self.w = w
+    }
+    
+    init(x: CFloat, yzw: Vec3) {
+        self.x = x
+        self.y = yzw.x
+        self.z = yzw.y
+        self.w = yzw.z
+    }
+    
     var length2: CFloat {
         get {
             return x * x + y * y + z * z + w * w
@@ -56,8 +98,8 @@ struct Vec4 {
         get {
             return sqrt(self.length2)
         }
-        set(l) {
-            self = l * normalize(self)
+        set {
+            self = length * normalize(self)
         }
     }
     
