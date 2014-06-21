@@ -25,6 +25,7 @@
 		D2CA623319512D24007B2DC2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA623219512D24007B2DC2 /* Constants.swift */; };
 		D2EE43481953BEF0007CC56F /* SwiftGL.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3ABA1944F05700655A34 /* SwiftGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2EE434A1953BF64007CC56F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EE43491953BF64007CC56F /* OpenGLES.framework */; };
+		D2EE43551953E42F007CC56F /* GLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EE43541953E42F007CC56F /* GLTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		D2CA623219512D24007B2DC2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D2EE432F1953BE91007CC56F /* SwiftGL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EE43491953BF64007CC56F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
+		D2EE434F1953DF1B007CC56F /* SwiftGLTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftGLTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		D2EE43541953E42F007CC56F /* GLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +157,9 @@
 		D2AB3AC41944F05700655A34 /* SwiftGLTests */ = {
 			isa = PBXGroup;
 			children = (
+				D2EE434F1953DF1B007CC56F /* SwiftGLTests-Bridging-Header.h */,
 				D2AB3AC71944F05700655A34 /* SwiftGLTests.swift */,
+				D2EE43541953E42F007CC56F /* GLTest.m */,
 				D2AB3AC51944F05700655A34 /* Supporting Files */,
 			);
 			path = SwiftGLTests;
@@ -332,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2EE43551953E42F007CC56F /* GLTest.m in Sources */,
 				D2AB3AC81944F05700655A34 /* SwiftGLTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +484,7 @@
 		D2AB3ACF1944F05700655A34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -491,12 +498,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftGLTests/SwiftGLTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D2AB3AD01944F05700655A34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -506,6 +516,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftGLTests/SwiftGLTests-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -589,6 +600,7 @@
 				D2EE43431953BE91007CC56F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
