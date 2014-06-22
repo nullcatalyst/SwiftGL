@@ -62,15 +62,13 @@ class SwiftGLTests: XCTestCase {
         if context {
             println("Context is valid")
         }
-        
+        /*
         var ogl: CFloat[] = [
             0, 0, 0, 0,
             0, 0, 0, 0,
             0, 0, 0, 0,
             0, 0, 0, 0,
         ]
-        
-//        var ogl = Mat4.identity()
         var sgl = Mat4.identity()
         
         glMatrixMode(GLenum(GL_PROJECTION))
@@ -90,8 +88,17 @@ class SwiftGLTests: XCTestCase {
         println(sgl.y)
         println(sgl.z)
         println(sgl.w)
-        
+        */
 //        XCTAssertEqual(oglMatrix, sglMatrix, "OpenGL Matrix does not match SwiftGL Matrix")
+    }
+    
+    func testColorMix() {
+        let white = Color(r: 255, g: 255, b: 255, a: 255)
+        let black = Color(r: 0, g: 0, b: 0, a: 255)
+        let grey  = Color(r: 127, g: 127, b: 127, a: 255)
+        
+        XCTAssertEqual(Color(rf: 0.5, gf: 0.5, bf: 0.5), grey)
+        XCTAssertEqual(mix(black, white, CFloat(0.5)), grey)
     }
     
 //    func testPerformanceExample() {
