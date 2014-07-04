@@ -8,6 +8,12 @@
 
 import Foundation
 
+#if os(OSX)
+import OpenGL
+#else
+import OpenGLES
+#endif
+
 class Vbo {
     var id: GLuint
     var count: GLsizeiptr

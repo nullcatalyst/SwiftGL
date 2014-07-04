@@ -9,6 +9,12 @@
 import Foundation
 import CoreGraphics
 
+#if os(OSX)
+import OpenGL
+#else
+import OpenGLES
+#endif
+
 class Texture {
     var id: GLuint
     var width: GLsizei
@@ -56,7 +62,11 @@ class Texture {
         glTexParameteri(GL_TEXTURE_2D, GLenum(GL_TEXTURE_WRAP_S), GL_CLAMP_TO_EDGE)
         glTexParameteri(GL_TEXTURE_2D, GLenum(GL_TEXTURE_WRAP_T), GL_CLAMP_TO_EDGE)
         
+        #if os(OSX)
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GLenum(GL_BGRA), GLenum(GL_UNSIGNED_INT_8_8_8_8_REV), CConstVoidPointer(self, imageData.value))
+        #else
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GLenum(GL_BGRA), GLenum(GL_UNSIGNED_SHORT_4_4_4_4_REV), CConstVoidPointer(self, imageData.value))
+        #endif
         
         if antialias {
             glGenerateMipmap(GL_TEXTURE_2D)

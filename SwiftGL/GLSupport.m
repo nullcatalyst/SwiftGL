@@ -8,6 +8,8 @@
 
 #import <stdio.h>
 #import <Foundation/Foundation.h>
+#import <ImageIO/CGImageSource.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 #import "GLSupport.h"
 
@@ -77,10 +79,16 @@ void *swglLoadTexture(NSString *filename, GLsizei *widthOut, GLsizei *heightOut,
     GLsizei width  = (GLsizei) CGImageGetWidth (image);
     GLsizei height = (GLsizei) CGImageGetHeight(image);
     CGRect rect = CGRectMake(0.0f, 0.0f, width, height);
-    
-    void *imageData = malloc(width * height * 4);
     CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
+    
+#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
+    void *imageData = malloc(width * height * 2);
+    CGContextRef ctx = CGBitmapContextCreate(imageData, width, height, 4, width * 4, colourSpace, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedFirst);
+#else
+    void *imageData = malloc(width * height * 4);
     CGContextRef ctx = CGBitmapContextCreate(imageData, width, height, 8, width * 4, colourSpace, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedFirst);
+#endif
+    
     CFRelease(colourSpace);
     
     if (flipVertical) {

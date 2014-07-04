@@ -8,6 +8,12 @@
 
 import Foundation
 
+#if os(OSX)
+import OpenGL
+#else
+import OpenGLES
+#endif
+
 struct Color {
     var r: GLubyte
     var g: GLubyte

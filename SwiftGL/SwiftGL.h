@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Scott Bennett. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for SwiftGL.
 FOUNDATION_EXPORT double SwiftGLVersionNumber;

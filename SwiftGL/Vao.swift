@@ -8,6 +8,12 @@
 
 import Foundation
 
+#if os(OSX)
+import OpenGL
+#else
+import OpenGLES
+#endif
+
 class Vao {
     var id: GLuint
     
