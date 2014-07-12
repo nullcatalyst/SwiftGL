@@ -42,37 +42,33 @@ class Vbo {
 //       Two separate VBOs must be used (then bound to the same VAO)
 
 extension Vbo {
-    func bind <T> (data: CConstPointer<T>, count: GLsizeiptr) {
+    func bind <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
-        var ptr = CConstVoidPointer(self, data.value)
         glBindBuffer(GL_ARRAY_BUFFER, id)
-        glBufferData(GL_ARRAY_BUFFER, stride * count, ptr, GL_DYNAMIC_DRAW)
+        glBufferData(GL_ARRAY_BUFFER, stride * count, data, GL_DYNAMIC_DRAW)
     }
     
-    func bindSubData <T> (data: CConstPointer<T>, start: GLsizeiptr, count: GLsizeiptr) {
+    func bindSubData <T> (data: ConstUnsafePointer<T>, start: GLsizeiptr, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
-        var ptr = CConstVoidPointer(self, data.value)
         glBindBuffer(GL_ARRAY_BUFFER, id)
-        glBufferSubData(GL_ARRAY_BUFFER, stride * start, stride * count, ptr)
+        glBufferSubData(GL_ARRAY_BUFFER, stride * start, stride * count, data)
     }
 }
 
 extension Vbo {
-    func bindElements <T> (data: CConstPointer<T>, count: GLsizeiptr) {
+    func bindElements <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
-        var ptr = CConstVoidPointer(self, data.value)
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id)
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, stride * count, ptr, GL_STATIC_DRAW)
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, stride * count, data, GL_STATIC_DRAW)
     }
     
-    func bindSubElements <T> (data: CConstPointer<T>, count: GLsizeiptr) {
+    func bindSubElements <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
-        var ptr = CConstVoidPointer(self, data.value)
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id)
-        glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, stride * count, stride * count, ptr)
+        glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, stride * count, stride * count, data)
     }
 }

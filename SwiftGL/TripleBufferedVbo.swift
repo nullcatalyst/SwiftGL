@@ -16,7 +16,7 @@ import OpenGLES
 
 class TripleBufferedVbo<T> {
     let vbo = [Vbo(), Vbo(), Vbo()]
-    let buffer: T[][] = [[], [], []]
+    var buffer: Array<Array<T>> = [[], [], []]
     var next: Int // The buffer currently being used to render
     var prev: Int // This buffer has already been rendered, and can readily be updated
     

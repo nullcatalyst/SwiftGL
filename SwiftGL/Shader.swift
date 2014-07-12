@@ -13,27 +13,27 @@ import OpenGL
 #else
 import OpenGLES
 
-func glProgramUniform1i(program: GLuint, location: GLint, x: GLint)                                       {return glProgramUniform1iEXT(program, location, x)}
-func glProgramUniform2i(program: GLuint, location: GLint, x: GLint, y: GLint)                             {return glProgramUniform2iEXT(program, location, x, y)}
-func glProgramUniform3i(program: GLuint, location: GLint, x: GLint, y: GLint, z: GLint)                   {return glProgramUniform3iEXT(program, location, x, y, z)}
-func glProgramUniform4i(program: GLuint, location: GLint, x: GLint, y: GLint, z: GLint, w: GLint)         {return glProgramUniform4iEXT(program, location, x, y, z, w)}
+func glProgramUniform1i(program: GLuint, location: GLint, x: GLint)                                            {return glProgramUniform1iEXT(program, location, x)}
+func glProgramUniform2i(program: GLuint, location: GLint, x: GLint, y: GLint)                                  {return glProgramUniform2iEXT(program, location, x, y)}
+func glProgramUniform3i(program: GLuint, location: GLint, x: GLint, y: GLint, z: GLint)                        {return glProgramUniform3iEXT(program, location, x, y, z)}
+func glProgramUniform4i(program: GLuint, location: GLint, x: GLint, y: GLint, z: GLint, w: GLint)              {return glProgramUniform4iEXT(program, location, x, y, z, w)}
 
-func glProgramUniform1iv(program: GLuint, location: GLint, count: GLsizei, value: CConstPointer<GLint>)   {return glProgramUniform1iv(program, location, count, value)}
-func glProgramUniform2iv(program: GLuint, location: GLint, count: GLsizei, value: CConstPointer<GLint>)   {return glProgramUniform2iv(program, location, count, value)}
-func glProgramUniform3iv(program: GLuint, location: GLint, count: GLsizei, value: CConstPointer<GLint>)   {return glProgramUniform3iv(program, location, count, value)}
-func glProgramUniform4iv(program: GLuint, location: GLint, count: GLsizei, value: CConstPointer<GLint>)   {return glProgramUniform4iv(program, location, count, value)}
+func glProgramUniform1iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform1iv(program, location, count, value)}
+func glProgramUniform2iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform2iv(program, location, count, value)}
+func glProgramUniform3iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform3iv(program, location, count, value)}
+func glProgramUniform4iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform4iv(program, location, count, value)}
 
-func glProgramUniform1f(program: GLuint, location: GLint, x: GLfloat)                                     {return glProgramUniform1fEXT(program, location, x)}
-func glProgramUniform2f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat)                         {return glProgramUniform2fEXT(program, location, x, y)}
-func glProgramUniform3f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat, z: GLfloat)             {return glProgramUniform3fEXT(program, location, x, y, z)}
-func glProgramUniform4f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat) {return glProgramUniform4fEXT(program, location, x, y, z, w)}
+func glProgramUniform1f(program: GLuint, location: GLint, x: GLfloat)                                          {return glProgramUniform1fEXT(program, location, x)}
+func glProgramUniform2f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat)                              {return glProgramUniform2fEXT(program, location, x, y)}
+func glProgramUniform3f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat, z: GLfloat)                  {return glProgramUniform3fEXT(program, location, x, y, z)}
+func glProgramUniform4f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat)      {return glProgramUniform4fEXT(program, location, x, y, z, w)}
 
-func glProgramUniform1fv(program: GLuint, location: GLint, count: GLsizei, value: CConstPointer<GLfloat>) {return glProgramUniform1fv(program, location, count, value)}
-func glProgramUniform2fv(program: GLuint, location: GLint, count: GLsizei, value: CConstPointer<GLfloat>) {return glProgramUniform2fv(program, location, count, value)}
-func glProgramUniform3fv(program: GLuint, location: GLint, count: GLsizei, value: CConstPointer<GLfloat>) {return glProgramUniform3fv(program, location, count, value)}
-func glProgramUniform4fv(program: GLuint, location: GLint, count: GLsizei, value: CConstPointer<GLfloat>) {return glProgramUniform4fv(program, location, count, value)}
+func glProgramUniform1fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform1fv(program, location, count, value)}
+func glProgramUniform2fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform2fv(program, location, count, value)}
+func glProgramUniform3fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform3fv(program, location, count, value)}
+func glProgramUniform4fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform4fv(program, location, count, value)}
 
-func glProgramUniformMatrix4fv(program: GLuint, location: GLint, count: GLsizei, transpose: GLboolean, value: CConstPointer<GLfloat>) {
+func glProgramUniformMatrix4fv(program: GLuint, location: GLint, count: GLsizei, transpose: GLboolean, value: ConstUnsafePointer<GLfloat>) {
     return glProgramUniformMatrix4fvEXT(program, location, count, transpose, value)
 }
 
@@ -127,20 +127,16 @@ class Shader {
         return glGetUniformLocation(id, CStringPtr(name))
     }
     
-    func toPtr(data: CConstVoidPointer) -> CConstPointer<CFloat> {
-        return CConstPointer<CFloat>(self, data.value)
-    }
-    
     // Bind Uniforms using Uniform Location
     func bind(#uniform: GLuniform, x: CFloat) {glProgramUniform1f(id, uniform, x)}
     func bind(#uniform: GLuniform, x: CFloat, y: CFloat) {glProgramUniform2f(id, uniform, x, y)}
     func bind(#uniform: GLuniform, x: CFloat, y: CFloat, z: CFloat) {glProgramUniform3f(id, uniform, x, y, z)}
     func bind(#uniform: GLuniform, x: CFloat, y: CFloat, z: CFloat, w: CFloat) {glProgramUniform4f(id, uniform, x, y, z, w)}
-    func bind(#uniform: GLuniform, v: Vec2) {glProgramUniform2fv(id, uniform, 1, toPtr([v]))}
-    func bind(#uniform: GLuniform, v: Vec3) {glProgramUniform3fv(id, uniform, 1, toPtr([v]))}
-    func bind(#uniform: GLuniform, v: Vec4) {glProgramUniform4fv(id, uniform, 1, toPtr([v]))}
+    func bind(#uniform: GLuniform, v: Vec2) {glProgramUniform2fv(id, uniform, 1, ConstUnsafePointer([v]))}
+    func bind(#uniform: GLuniform, v: Vec3) {glProgramUniform3fv(id, uniform, 1, ConstUnsafePointer([v]))}
+    func bind(#uniform: GLuniform, v: Vec4) {glProgramUniform4fv(id, uniform, 1, ConstUnsafePointer([v]))}
     
-    func bind(#uniform: GLuniform, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, uniform, 1, transpose, toPtr([m]))}
+    func bind(#uniform: GLuniform, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, uniform, 1, transpose, ConstUnsafePointer([m]))}
     
     func bind(#uniform: GLuniform, texture: Texture, index: GLint = 0) {
         glProgramUniform1i(id, uniform, index)
@@ -153,11 +149,11 @@ class Shader {
     func bind(#uniform: String, x: CFloat, y: CFloat) {glProgramUniform2f(id, self.uniform(uniform), x, y)}
     func bind(#uniform: String, x: CFloat, y: CFloat, z: CFloat) {glProgramUniform3f(id, self.uniform(uniform), x, y, z)}
     func bind(#uniform: String, x: CFloat, y: CFloat, z: CFloat, w: CFloat) {glProgramUniform4f(id, self.uniform(uniform), x, y, z, w)}
-    func bind(#uniform: String, v: Vec2) {glProgramUniform2fv(id, self.uniform(uniform), 1, toPtr([v]))}
-    func bind(#uniform: String, v: Vec3) {glProgramUniform3fv(id, self.uniform(uniform), 1, toPtr([v]))}
-    func bind(#uniform: String, v: Vec4) {glProgramUniform4fv(id, self.uniform(uniform), 1, toPtr([v]))}
+    func bind(#uniform: String, v: Vec2) {glProgramUniform2fv(id, self.uniform(uniform), 1, ConstUnsafePointer([v]))}
+    func bind(#uniform: String, v: Vec3) {glProgramUniform3fv(id, self.uniform(uniform), 1, ConstUnsafePointer([v]))}
+    func bind(#uniform: String, v: Vec4) {glProgramUniform4fv(id, self.uniform(uniform), 1, ConstUnsafePointer([v]))}
     
-    func bind(#uniform: String, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, self.uniform(uniform), 1, transpose, toPtr([m]))}
+    func bind(#uniform: String, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, self.uniform(uniform), 1, transpose, ConstUnsafePointer([m]))}
     
     func bind(#uniform: String, texture: Texture, index: GLint = 0) {
         glProgramUniform1i(id, self.uniform(uniform), index)
