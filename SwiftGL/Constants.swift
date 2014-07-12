@@ -8,6 +8,28 @@
 
 import Foundation
 
+// glDebug(filename: __FILE__, line: __LINE__)
+func glDebug(filename: String, line: CInt) {
+    var error = glGetError()
+    while error != GLenum(GL_NO_ERROR) {
+        var errMsg: String
+        
+        switch error {
+            case GL_INVALID_ENUM:      errMsg = "GL_INVALID_ENUM"
+            case GL_INVALID_VALUE:     errMsg = "GL_INVALID_VALUE"
+            case GL_INVALID_OPERATION: errMsg = "GL_INVALID_OPERATION"
+            case GL_INVALID_FRAMEBUFFER_OPERATION: errMsg = "GL_INVALID_FRAMEBUFFER_OPERATION"
+            case GL_OUT_OF_MEMORY:     errMsg = "GL_OUT_OF_MEMORY"
+            case GL_STACK_UNDERFLOW:   errMsg = "GL_STACK_UNDERFLOW"
+            case GL_STACK_OVERFLOW:    errMsg = "GL_STACK_OVERFLOW"
+            default:                   errMsg = NSString(format: "0x%2X", error) as String
+        }
+        
+        println("ERROR: \(filename):\(line) - \(errMsg)")
+        error = glGetError()
+    }
+}
+
 #if os(OSX)
 
 import OpenGL
@@ -15,6 +37,16 @@ import OpenGL
 // Boolean Constants
 let GL_FALSE                = GLboolean(OpenGL.GL_FALSE)
 let GL_TRUE                 = GLboolean(OpenGL.GL_TRUE)
+
+// Error Constants
+let GL_NO_ERROR             = GLenum(OpenGL.GL_NO_ERROR)
+let GL_INVALID_ENUM         = GLenum(OpenGL.GL_INVALID_ENUM)
+let GL_INVALID_VALUE        = GLenum(OpenGL.GL_INVALID_VALUE)
+let GL_INVALID_OPERATION    = GLenum(OpenGL.GL_INVALID_OPERATION)
+let GL_INVALID_FRAMEBUFFER_OPERATION = GLenum(OpenGL.GL_INVALID_FRAMEBUFFER_OPERATION)
+let GL_OUT_OF_MEMORY        = GLenum(OpenGL.GL_OUT_OF_MEMORY)
+let GL_STACK_UNDERFLOW      = GLenum(OpenGL.GL_STACK_UNDERFLOW)
+let GL_STACK_OVERFLOW       = GLenum(OpenGL.GL_STACK_OVERFLOW)
 
 // Clear Buffer Constants
 let GL_COLOR_BUFFER_BIT     = GLbitfield(OpenGL.GL_COLOR_BUFFER_BIT)
@@ -89,6 +121,16 @@ import OpenGLES
 // Boolean Constants
 let GL_FALSE                = GLboolean(OpenGLES.GL_FALSE)
 let GL_TRUE                 = GLboolean(OpenGLES.GL_TRUE)
+
+// Error Constants
+let GL_NO_ERROR             = GLenum(OpenGLES.GL_NO_ERROR)
+let GL_INVALID_ENUM         = GLenum(OpenGLES.GL_INVALID_ENUM)
+let GL_INVALID_VALUE        = GLenum(OpenGLES.GL_INVALID_VALUE)
+let GL_INVALID_OPERATION    = GLenum(OpenGLES.GL_INVALID_OPERATION)
+let GL_INVALID_FRAMEBUFFER_OPERATION = GLenum(OpenGLES.GL_INVALID_FRAMEBUFFER_OPERATION)
+let GL_OUT_OF_MEMORY        = GLenum(OpenGLES.GL_OUT_OF_MEMORY)
+let GL_STACK_UNDERFLOW      = GLenum(OpenGLES.GL_STACK_UNDERFLOW)
+let GL_STACK_OVERFLOW       = GLenum(OpenGLES.GL_STACK_OVERFLOW)
 
 // Clear Buffer Constants
 let GL_COLOR_BUFFER_BIT     = GLbitfield(OpenGLES.GL_COLOR_BUFFER_BIT)
