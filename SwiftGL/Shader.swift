@@ -18,20 +18,20 @@ func glProgramUniform2i(program: GLuint, location: GLint, x: GLint, y: GLint)   
 func glProgramUniform3i(program: GLuint, location: GLint, x: GLint, y: GLint, z: GLint)                        {return glProgramUniform3iEXT(program, location, x, y, z)}
 func glProgramUniform4i(program: GLuint, location: GLint, x: GLint, y: GLint, z: GLint, w: GLint)              {return glProgramUniform4iEXT(program, location, x, y, z, w)}
 
-func glProgramUniform1iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform1iv(program, location, count, value)}
-func glProgramUniform2iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform2iv(program, location, count, value)}
-func glProgramUniform3iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform3iv(program, location, count, value)}
-func glProgramUniform4iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform4iv(program, location, count, value)}
+func glProgramUniform1iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform1ivEXT(program, location, count, value)}
+func glProgramUniform2iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform2ivEXT(program, location, count, value)}
+func glProgramUniform3iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform3ivEXT(program, location, count, value)}
+func glProgramUniform4iv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLint>)   {return glProgramUniform4ivEXT(program, location, count, value)}
 
 func glProgramUniform1f(program: GLuint, location: GLint, x: GLfloat)                                          {return glProgramUniform1fEXT(program, location, x)}
 func glProgramUniform2f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat)                              {return glProgramUniform2fEXT(program, location, x, y)}
 func glProgramUniform3f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat, z: GLfloat)                  {return glProgramUniform3fEXT(program, location, x, y, z)}
 func glProgramUniform4f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat)      {return glProgramUniform4fEXT(program, location, x, y, z, w)}
 
-func glProgramUniform1fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform1fv(program, location, count, value)}
-func glProgramUniform2fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform2fv(program, location, count, value)}
-func glProgramUniform3fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform3fv(program, location, count, value)}
-func glProgramUniform4fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform4fv(program, location, count, value)}
+func glProgramUniform1fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform1fvEXT(program, location, count, value)}
+func glProgramUniform2fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform2fvEXT(program, location, count, value)}
+func glProgramUniform3fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform3fvEXT(program, location, count, value)}
+func glProgramUniform4fv(program: GLuint, location: GLint, count: GLsizei, value: ConstUnsafePointer<GLfloat>) {return glProgramUniform4fvEXT(program, location, count, value)}
 
 func glProgramUniformMatrix4fv(program: GLuint, location: GLint, count: GLsizei, transpose: GLboolean, value: ConstUnsafePointer<GLfloat>) {
     return glProgramUniformMatrix4fvEXT(program, location, count, transpose, value)
