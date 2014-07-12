@@ -65,7 +65,7 @@ class Texture {
         #if os(OSX)
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GLenum(GL_BGRA), GLenum(GL_UNSIGNED_INT_8_8_8_8_REV), ConstUnsafePointer(imageData.value))
         #else
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GLenum(GL_BGRA), GLenum(GL_UNSIGNED_SHORT_4_4_4_4_REV), ConstUnsafePointer(imageData.value))
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GLenum(GL_RGBA), GL_UNSIGNED_BYTE, ConstUnsafePointer(imageData.value))
         #endif
         
         if antialias {

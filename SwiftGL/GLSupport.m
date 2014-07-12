@@ -82,8 +82,8 @@ void *swglLoadTexture(NSString *filename, GLsizei *widthOut, GLsizei *heightOut,
     CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
     
 #ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
-    void *imageData = malloc(width * height * 2);
-    CGContextRef ctx = CGBitmapContextCreate(imageData, width, height, 4, width * 4, colourSpace, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedFirst);
+    void *imageData = malloc(width * height * 4);
+    CGContextRef ctx = CGBitmapContextCreate(imageData, width, height, 8, width * 4, colourSpace, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedFirst);
 #else
     void *imageData = malloc(width * height * 4);
     CGContextRef ctx = CGBitmapContextCreate(imageData, width, height, 8, width * 4, colourSpace, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedFirst);
@@ -104,5 +104,6 @@ void *swglLoadTexture(NSString *filename, GLsizei *widthOut, GLsizei *heightOut,
     if (widthOut  != NULL) *widthOut  = width;
     if (heightOut != NULL) *heightOut = height;
     
+    // The caller is required to free the imageData buffer
     return imageData;
 }
