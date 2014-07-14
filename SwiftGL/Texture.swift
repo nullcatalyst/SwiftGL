@@ -48,8 +48,6 @@ class Texture {
         let imageData = swglLoadTexture(filename, &width, &height, flipVertical)
         
         glBindTexture(GL_TEXTURE_2D, id)
-        glPixelStorei(GLenum(GL_UNPACK_ROW_LENGTH), GLint(width))
-        glPixelStorei(GLenum(GL_UNPACK_ALIGNMENT), 1)
         
         if antialias {
             glTexParameteri(GL_TEXTURE_2D, GLenum(GL_TEXTURE_MIN_FILTER), GL_LINEAR_MIPMAP_LINEAR)
