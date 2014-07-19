@@ -11,6 +11,8 @@ import Darwin
 struct Mat4 {
     var x, y, z, w: Vec4
     
+    // Explicit Initializers
+    
     init(xCol: Vec4, yCol: Vec4, zCol: Vec4, wCol: Vec4) {
         self.x = xCol
         self.y = yCol
@@ -26,6 +28,25 @@ struct Mat4 {
         self.y = Vec4(x: yx, y: yy, z: yz, w: yw)
         self.z = Vec4(x: zx, y: zy, z: zz, w: zw)
         self.w = Vec4(x: wx, y: wy, z: wz, w: ww)
+    }
+    
+    // Implicit Initializers
+    
+    init(_ xCol: Vec4, _ yCol: Vec4, _ zCol: Vec4, _ wCol: Vec4) {
+        self.x = xCol
+        self.y = yCol
+        self.z = zCol
+        self.w = wCol
+    }
+    
+    init(_ xx: CFloat, _ yx: CFloat, _ zx: CFloat, _ wx: CFloat,
+         _ xy: CFloat, _ yy: CFloat, _ zy: CFloat, _ wy: CFloat,
+         _ xz: CFloat, _ yz: CFloat, _ zz: CFloat, _ wz: CFloat,
+         _ xw: CFloat, _ yw: CFloat, _ zw: CFloat, _ ww: CFloat) {
+            self.x = Vec4(x: xx, y: xy, z: xz, w: xw)
+            self.y = Vec4(x: yx, y: yy, z: yz, w: yw)
+            self.z = Vec4(x: zx, y: zy, z: zz, w: zw)
+            self.w = Vec4(x: wx, y: wy, z: wz, w: ww)
     }
 }
 

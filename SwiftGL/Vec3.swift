@@ -17,10 +17,18 @@ struct Vec3 {
         self.z = 0
     }
     
+    // Explicit Initializers
+    
     init(s: CFloat) {
         self.x = s
         self.y = s
         self.z = s
+    }
+    
+    init(x: CFloat) {
+        self.x = x
+        self.y = 0
+        self.z = 0
     }
     
     init(x: CFloat, y: CFloat) {
@@ -42,6 +50,38 @@ struct Vec3 {
     }
     
     init(x: CFloat, yz: Vec2) {
+        self.x = x
+        self.y = yz.x
+        self.z = yz.y
+    }
+    
+    // Implicit Initializers
+    
+    init(_ x: CFloat) {
+        self.x = x
+        self.y = 0
+        self.z = 0
+    }
+    
+    init(_ x: CFloat, _ y: CFloat) {
+        self.x = x
+        self.y = y
+        self.z = 0
+    }
+    
+    init(_ x: CFloat, _ y: CFloat, _ z: CFloat) {
+        self.x = x
+        self.y = y
+        self.z = z
+    }
+    
+    init(_ xy: Vec2, _ z: CFloat) {
+        self.x = xy.x
+        self.y = xy.y
+        self.z = z
+    }
+    
+    init(_ x: CFloat, _ yz: Vec2) {
         self.x = x
         self.y = yz.x
         self.z = yz.y

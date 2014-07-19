@@ -18,11 +18,20 @@ struct Vec4 {
         self.w = 0
     }
     
+    // Explicit Initializers
+    
     init(s: CFloat) {
         self.x = s
         self.y = s
         self.z = s
         self.w = s
+    }
+    
+    init(x: CFloat) {
+        self.x = x
+        self.y = 0
+        self.z = 0
+        self.w = 1
     }
     
     init(x: CFloat, y: CFloat) {
@@ -82,6 +91,78 @@ struct Vec4 {
     }
     
     init(x: CFloat, yzw: Vec3) {
+        self.x = x
+        self.y = yzw.x
+        self.z = yzw.y
+        self.w = yzw.z
+    }
+    
+    // Implicit Initializers
+    
+    init(_ x: CFloat) {
+        self.x = x
+        self.y = 0
+        self.z = 0
+        self.w = 1
+    }
+    
+    init(_ x: CFloat, _ y: CFloat) {
+        self.x = x
+        self.y = y
+        self.z = 0
+        self.w = 1
+    }
+    
+    init(_ x: CFloat, _ y: CFloat, _ z: CFloat) {
+        self.x = x
+        self.y = y
+        self.z = z
+        self.w = 1
+    }
+    
+    init(_ x: CFloat, _ y: CFloat, _ z: CFloat, _ w: CFloat) {
+        self.x = x
+        self.y = y
+        self.z = z
+        self.w = w
+    }
+    
+    init(_ xy: Vec2, _ z: CFloat, _ w: CFloat) {
+        self.x = xy.x
+        self.y = xy.y
+        self.z = z
+        self.w = w
+    }
+    
+    init(_ x: CFloat, _ yz: Vec2, _ w: CFloat) {
+        self.x = x
+        self.y = yz.x
+        self.z = yz.y
+        self.w = w
+    }
+    
+    init(_ x: CFloat, _ y: CFloat, _ zw: Vec2) {
+        self.x = x
+        self.y = y
+        self.z = zw.x
+        self.w = zw.y
+    }
+    
+    init(_ xy: Vec2, _ zw: Vec2) {
+        self.x = xy.x
+        self.y = xy.y
+        self.z = zw.x
+        self.w = zw.y
+    }
+    
+    init(_ xyz: Vec3, _ w: CFloat) {
+        self.x = xyz.x
+        self.y = xyz.y
+        self.z = xyz.z
+        self.w = w
+    }
+    
+    init(_ x: CFloat, _ yzw: Vec3) {
         self.x = x
         self.y = yzw.x
         self.z = yzw.y

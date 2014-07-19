@@ -16,12 +16,31 @@ struct Vec2 {
         self.y = 0
     }
     
+    // Explicit Initializers
+    
     init(s: CFloat) {
         self.x = s
         self.y = s
     }
     
+    init(x: CFloat) {
+        self.x = x
+        self.y = 0
+    }
+    
     init(x: CFloat, y: CFloat) {
+        self.x = x
+        self.y = y
+    }
+    
+    // Implicit Initializers
+    
+    init(_ x: CFloat) {
+        self.x = x
+        self.y = 0
+    }
+    
+    init(_ x: CFloat, _ y: CFloat) {
         self.x = x
         self.y = y
     }
