@@ -67,7 +67,7 @@ extension Vao {
         glEnableVertexAttribArray(attribute)
         
         glBindBuffer(GL_ARRAY_BUFFER, vbo.id)
-        glVertexAttribPointer(attribute, type.glSize, type.glType, type.glNormalized, GLsizei(vbo.stride), COffsetPtr(offset))
+        glVertexAttribPointer(attribute, type.glSize, type.glType, type.glNormalized, GLsizei(vbo.stride), ConstUnsafePointer<()>(offset))
     }
 }
 

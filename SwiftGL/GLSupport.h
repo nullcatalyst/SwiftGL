@@ -19,9 +19,6 @@
  * I recommend you try not to rely on them existing
  */
 
-const char *CStringPtr(const NSString *string);
-const GLvoid *COffsetPtr(GLsizeiptr offset);
-
 #pragma mark - Shader Support Functions
 
 unsigned int swglCompileShader(GLenum type, NSString *source);

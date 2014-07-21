@@ -120,11 +120,11 @@ class Shader {
     }
     
     func attribute(name: String) -> GLint {
-        return glGetAttribLocation(id, CStringPtr(name))
+        return glGetAttribLocation(id, CString(UnsafePointer<CChar>(name.cStringUsingEncoding(NSASCIIStringEncoding)!)))
     }
     
     func uniform(name: String) -> GLuniform {
-        return glGetUniformLocation(id, CStringPtr(name))
+        return glGetUniformLocation(id, CString(UnsafePointer<CChar>(name.cStringUsingEncoding(NSASCIIStringEncoding)!)))
     }
     
     // Bind Uniforms using Uniform Location

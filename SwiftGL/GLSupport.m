@@ -13,14 +13,6 @@
 
 #import "GLSupport.h"
 
-const char *CStringPtr(const NSString *string) {
-    return [string cStringUsingEncoding:NSASCIIStringEncoding];
-}
-
-const GLvoid *COffsetPtr(GLsizeiptr offset) {
-    return (const void *) offset;
-}
-
 unsigned int swglCompileShader(GLenum type, NSString *source) {
     const char *csource = [source cStringUsingEncoding:NSASCIIStringEncoding];
     
