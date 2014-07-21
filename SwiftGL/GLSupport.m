@@ -11,7 +11,7 @@
 #import <ImageIO/CGImageSource.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-#import "GLSupport.h"
+#import "SwiftGL-Bridge.h"
 
 unsigned int swglCompileShader(GLenum type, NSString *source) {
     const char *csource = [source cStringUsingEncoding:NSASCIIStringEncoding];
@@ -38,29 +38,6 @@ unsigned int swglCompileShader(GLenum type, NSString *source) {
     }
     
     return shader;
-}
-
-BOOL swglVerifyProgram(unsigned int program) {
-#ifdef DEBUG
-    // Assert that the id was successfully linked
-    GLint logLength;
-    glGetProgramiv(program, GL_INFO_LOG_LENGTH, &logLength);
-    if (logLength > 0) {
-        GLchar *log = (GLchar *) malloc(logLength);
-        glGetProgramInfoLog(program, logLength, &logLength, log);
-        fprintf(stderr, "Program link log:\n%s\n", log);
-        free(log);
-    }
-#endif /* defined(DEBUG) */
-    
-    GLint status;
-    glGetProgramiv(program, GL_LINK_STATUS, &status);
-    if (status == 0) {
-        fprintf(stderr, "Failed to link shader program");
-        return false;
-    }
-    
-    return true;
 }
 
 void *swglLoadTexture(NSString *filename, GLsizei *widthOut, GLsizei *heightOut, BOOL flipVertical) {

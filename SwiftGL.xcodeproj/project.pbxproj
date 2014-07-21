@@ -71,7 +71,6 @@
 		D2AB3AE71945263000655A34 /* Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
 		D2AB3AE9194536CF00655A34 /* Shader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shader.swift; sourceTree = "<group>"; };
 		D2AB3AEB194536EB00655A34 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		D2AB3AED194544CD00655A34 /* GLSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSupport.h; sourceTree = "<group>"; };
 		D2AB3AEE194544CD00655A34 /* GLSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSupport.m; sourceTree = "<group>"; };
 		D2AB3AF11946795100655A34 /* Vbo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vbo.swift; sourceTree = "<group>"; };
 		D2AB3AF319468EDA00655A34 /* Vao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vao.swift; sourceTree = "<group>"; };
@@ -161,7 +160,6 @@
 				D2AB3AF319468EDA00655A34 /* Vao.swift */,
 				D2B38FAE194E063800722470 /* Texture.swift */,
 				D2D9EF1C19591A6700686399 /* TripleBufferedVbo.swift */,
-				D2AB3AED194544CD00655A34 /* GLSupport.h */,
 				D2AB3AEE194544CD00655A34 /* GLSupport.m */,
 				D2AB3AB81944F05700655A34 /* Supporting Files */,
 			);
