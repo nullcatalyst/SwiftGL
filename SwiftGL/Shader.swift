@@ -72,7 +72,7 @@ class Shader {
         
         glLinkProgram(id)
         
-        return swglVerifyProgram(id)
+        return Shader.verify(program: id)
     }
     
     /// @return true on success
@@ -96,7 +96,7 @@ class Shader {
         
         glLinkProgram(id)
         
-        return swglVerifyProgram(id)
+        return Shader.verify(program: id)
     }
     
     /// @return true on success
@@ -159,5 +159,30 @@ class Shader {
         glProgramUniform1i(id, self.uniform(uniform), index)
         glActiveTexture(GL_TEXTURE0 + GLenum(index))
         glBindTexture(GL_TEXTURE_2D, texture.id)
+    }
+    
+    class func verify(#program: GLprogram) -> Bool {
+//        #if DEBUG
+        // Assert that the program was successfully linked
+        var logLength: GLint = 0
+        glGetProgramiv(program, GLenum(GL_INFO_LOG_LENGTH), &logLength)
+        
+        if logLength > 0 {
+            let log = UnsafePointer<GLchar>.alloc(Int(logLength))
+            glGetProgramInfoLog(program, logLength, &logLength, log)
+            println("Program link log:\n\(log)")
+            log.dealloc(Int(logLength))
+        }
+//        #endif
+        
+        var status: GLint = 0
+        glGetProgramiv(program, GLenum(GL_LINK_STATUS), &status)
+        
+        if status == 0 {
+            println("Failed to link shader program")
+            return false
+        }
+        
+        return true
     }
 }
