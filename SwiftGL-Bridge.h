@@ -34,7 +34,3 @@
 #pragma mark - Shader Support Functions
 
 unsigned int swglCompileShader(GLenum type, NSString *source);
-
-#pragma mark - Texture Support Functions
-
-void *swglLoadTexture(NSString *filename, GLsizei *width, GLsizei *height, BOOL flipVertical);

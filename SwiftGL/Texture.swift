@@ -45,7 +45,7 @@ class Texture {
     
     /// @return true on success
     func load(#filename: CFString, antialias: Bool, flipVertical: Bool) -> Bool {
-        let imageData = swglLoadTexture(filename, &width, &height, flipVertical)
+        let imageData = Texture.load(filename: filename, width: &width, height: &height, flipVertical: flipVertical)
         
         glBindTexture(GL_TEXTURE_2D, id)
         
@@ -72,5 +72,31 @@ class Texture {
         
         free(imageData)
         return false
+    }
+    
+    class func load(#filename: String, inout width: GLsizei, inout height: GLsizei, flipVertical: Bool) -> UnsafePointer<()> {
+        let url = CFBundleCopyResourceURL(CFBundleGetMainBundle(), filename.bridgeToObjectiveC(), "", nil)
+        let imageSource = CGImageSourceCreateWithURL(url, nil).takeRetainedValue()
+        let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil).takeRetainedValue()
+        
+        width  = GLsizei(CGImageGetWidth(image))
+        height = GLsizei(CGImageGetHeight(image))
+        
+        let rect = CGRectMake(0, 0, CGFloat(width), CGFloat(height))
+        let colourSpace = CGColorSpaceCreateDeviceRGB()
+        
+        let imageData = malloc(UInt(width * height * 4))
+        let ctx = CGBitmapContextCreate(imageData, UInt(width), UInt(height), 8, UInt(width * 4), colourSpace, CGBitmapInfo.ByteOrderDefault | CGBitmapInfo(CGImageAlphaInfo.PremultipliedFirst.toRaw()))
+        
+        if flipVertical {
+            CGContextTranslateCTM(ctx, 0, CGFloat(height))
+            CGContextScaleCTM(ctx, 1, -1)
+        }
+        
+        CGContextSetBlendMode(ctx, kCGBlendModeCopy)
+        CGContextDrawImage(ctx, rect, image)
+        
+        // The caller is required to free the imageData buffer
+        return imageData
     }
 }
