@@ -11,7 +11,7 @@
 #import <ImageIO/CGImageSource.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-#import "SwiftGL-Bridge.h"
+#import "SwiftGL.h"
 
 unsigned int swglCompileShader(GLenum type, NSString *source) {
     const char *csource = [source cStringUsingEncoding:NSASCIIStringEncoding];

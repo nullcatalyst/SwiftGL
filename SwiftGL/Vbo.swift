@@ -14,12 +14,12 @@ import OpenGL
 import OpenGLES
 #endif
 
-class Vbo {
+public class Vbo {
     var id: GLuint
-    var count: GLsizeiptr
+    public var count: GLsizeiptr
     var stride: GLsizeiptr
     
-    init() {
+    public init() {
         id     = 0
         count  = 0
         stride = 0
@@ -30,7 +30,7 @@ class Vbo {
         glDeleteBuffers(1, &id)
     }
     
-    func reset() {
+    public func reset() {
         count  = 0
         stride = 0
         glBindBuffer(GL_ARRAY_BUFFER, id)
@@ -41,15 +41,15 @@ class Vbo {
 // NOTE: You cannot bind both vertex data and element data to the same VBO,
 //       Two separate VBOs must be used (then bound to the same VAO)
 
-extension Vbo {
-    func bind <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
+public extension Vbo {
+    public func bind <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
         glBindBuffer(GL_ARRAY_BUFFER, id)
         glBufferData(GL_ARRAY_BUFFER, stride * count, data, GL_DYNAMIC_DRAW)
     }
     
-    func bindSubData <T> (data: ConstUnsafePointer<T>, start: GLsizeiptr, count: GLsizeiptr) {
+    public func bindSubData <T> (data: ConstUnsafePointer<T>, start: GLsizeiptr, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
         glBindBuffer(GL_ARRAY_BUFFER, id)
@@ -57,15 +57,15 @@ extension Vbo {
     }
 }
 
-extension Vbo {
-    func bindElements <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
+public extension Vbo {
+    public func bindElements <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id)
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, stride * count, data, GL_STATIC_DRAW)
     }
     
-    func bindSubElements <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
+    public func bindSubElements <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id)

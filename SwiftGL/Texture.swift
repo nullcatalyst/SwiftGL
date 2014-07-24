@@ -13,14 +13,15 @@ import CoreGraphics
 import OpenGL
 #else
 import OpenGLES
+import ImageIO
 #endif
 
-class Texture {
+public class Texture {
     var id: GLuint
     var width: GLsizei
     var height: GLsizei
     
-    init() {
+    public init() {
         id = 0
         width = 0
         height = 0
@@ -31,21 +32,21 @@ class Texture {
         glDeleteTextures(1, &id)
     }
     
-    func load(#filename: CFString) -> Bool {
+    public func load(#filename: String) -> Bool {
         return load(filename: filename, antialias: false, flipVertical: false)
     }
     
-    func load(#filename: CFString, antialias: Bool) -> Bool {
+    public func load(#filename: String, antialias: Bool) -> Bool {
         return load(filename: filename, antialias: antialias, flipVertical: false)
     }
     
-    func load(#filename: CFString, flipVertical: Bool) -> Bool {
+    public func load(#filename: String, flipVertical: Bool) -> Bool {
         return load(filename: filename, antialias: false, flipVertical: flipVertical)
     }
     
     /// @return true on success
-    func load(#filename: CFString, antialias: Bool, flipVertical: Bool) -> Bool {
-        let imageData = Texture.load(filename: filename, width: &width, height: &height, flipVertical: flipVertical)
+    public func load(#filename: String, antialias: Bool, flipVertical: Bool) -> Bool {
+        let imageData = Texture.Load(filename: filename, width: &width, height: &height, flipVertical: flipVertical)
         
         glBindTexture(GL_TEXTURE_2D, id)
         
@@ -61,9 +62,9 @@ class Texture {
         glTexParameteri(GL_TEXTURE_2D, GLenum(GL_TEXTURE_WRAP_T), GL_CLAMP_TO_EDGE)
         
         #if os(OSX)
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GLenum(GL_BGRA), GLenum(GL_UNSIGNED_INT_8_8_8_8_REV), ConstUnsafePointer(imageData.value))
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GLenum(GL_BGRA), GLenum(GL_UNSIGNED_INT_8_8_8_8_REV), ConstUnsafePointer(imageData))
         #else
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GLenum(GL_RGBA), GL_UNSIGNED_BYTE, ConstUnsafePointer(imageData.value))
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GLenum(GL_RGBA), GL_UNSIGNED_BYTE, ConstUnsafePointer(imageData))
         #endif
         
         if antialias {
@@ -74,7 +75,7 @@ class Texture {
         return false
     }
     
-    class func load(#filename: String, inout width: GLsizei, inout height: GLsizei, flipVertical: Bool) -> UnsafePointer<()> {
+    private class func Load(#filename: String, inout width: GLsizei, inout height: GLsizei, flipVertical: Bool) -> UnsafePointer<()> {
         let url = CFBundleCopyResourceURL(CFBundleGetMainBundle(), filename.bridgeToObjectiveC(), "", nil)
         let imageSource = CGImageSourceCreateWithURL(url, nil).takeRetainedValue()
         let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil).takeRetainedValue()
@@ -82,14 +83,15 @@ class Texture {
         width  = GLsizei(CGImageGetWidth(image))
         height = GLsizei(CGImageGetHeight(image))
         
-        let rect = CGRectMake(0, 0, CGFloat(width), CGFloat(height))
+        let zero: CGFloat = 0
+        let rect = CGRectMake(zero, zero, CGFloat(Int(width)), CGFloat(Int(height)))
         let colourSpace = CGColorSpaceCreateDeviceRGB()
         
         let imageData = malloc(UInt(width * height * 4))
         let ctx = CGBitmapContextCreate(imageData, UInt(width), UInt(height), 8, UInt(width * 4), colourSpace, CGBitmapInfo.ByteOrderDefault | CGBitmapInfo(CGImageAlphaInfo.PremultipliedFirst.toRaw()))
         
         if flipVertical {
-            CGContextTranslateCTM(ctx, 0, CGFloat(height))
+            CGContextTranslateCTM(ctx, zero, CGFloat(Int(height)))
             CGContextScaleCTM(ctx, 1, -1)
         }
         

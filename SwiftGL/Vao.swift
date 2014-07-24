@@ -14,10 +14,10 @@ import OpenGL
 import OpenGLES
 #endif
 
-class Vao {
+public class Vao {
     var id: GLuint
     
-    init() {
+    public init() {
         id = 0
         glGenVertexArrays(1, &id)
     }
@@ -26,43 +26,43 @@ class Vao {
         glDeleteVertexArrays(1, &id)
     }
     
-    func bind() {
+    public func bind() {
         glBindVertexArray(id);
     }
 }
 
-protocol GLType {
+public protocol GLType {
     class var glType: GLenum {get}
     class var glNormalized: GLboolean {get}
     class var glSize: GLint {get}
 }
 
 extension CFloat: GLType {
-    static var glType: GLenum {get {return GL_FLOAT}}
-    static var glNormalized: GLboolean {get {return GL_FALSE}}
-    static var glSize: GLint {get {return 1}}
+    public static var glType: GLenum {get {return GL_FLOAT}}
+    public static var glNormalized: GLboolean {get {return GL_FALSE}}
+    public static var glSize: GLint {get {return 1}}
 }
 
 extension Vec2: GLType {
-    static var glType: GLenum {get {return GL_FLOAT}}
-    static var glNormalized: GLboolean {get {return GL_FALSE}}
-    static var glSize: GLint {get {return 2}}
+    public static var glType: GLenum {get {return GL_FLOAT}}
+    public static var glNormalized: GLboolean {get {return GL_FALSE}}
+    public static var glSize: GLint {get {return 2}}
 }
 
 extension Vec3: GLType {
-    static var glType: GLenum {get {return GL_FLOAT}}
-    static var glNormalized: GLboolean {get {return GL_FALSE}}
-    static var glSize: GLint {get {return 3}}
+    public static var glType: GLenum {get {return GL_FLOAT}}
+    public static var glNormalized: GLboolean {get {return GL_FALSE}}
+    public static var glSize: GLint {get {return 3}}
 }
 
 extension Vec4: GLType {
-    static var glType: GLenum {get {return GL_FLOAT}}
-    static var glNormalized: GLboolean {get {return GL_FALSE}}
-    static var glSize: GLint {get {return 4}}
+    public static var glType: GLenum {get {return GL_FLOAT}}
+    public static var glNormalized: GLboolean {get {return GL_FALSE}}
+    public static var glSize: GLint {get {return 4}}
 }
 
-extension Vao {
-    func bind <T: GLType> (#attribute: GLuint, type: T.Type, vbo: Vbo, offset: GLsizeiptr) {
+public extension Vao {
+    public func bind <T: GLType> (#attribute: GLuint, type: T.Type, vbo: Vbo, offset: GLsizeiptr) {
         glBindVertexArray(id)
         glEnableVertexAttribArray(attribute)
         
@@ -71,15 +71,15 @@ extension Vao {
     }
 }
 
-extension Vao {
-    func bindElements(vbo: Vbo) {
+public extension Vao {
+    public func bindElements(vbo: Vbo) {
         glBindVertexArray(id)
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo.id)
     }
 }
 
-extension Vao {
-    func bindInstanced <T: GLType> (#attribute: GLuint, type: T.Type, vbo: Vbo, offset: GLsizeiptr, divisor: GLuint = 1) {
+public extension Vao {
+    public func bindInstanced <T: GLType> (#attribute: GLuint, type: T.Type, vbo: Vbo, offset: GLsizeiptr, divisor: GLuint = 1) {
         bind(attribute: attribute, type: type, vbo: vbo, offset: offset)
         glVertexAttribDivisor(attribute, divisor)
     }

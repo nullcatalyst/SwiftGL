@@ -8,22 +8,22 @@
 
 import Darwin
 
-struct Mat4 {
-    var x, y, z, w: Vec4
+public struct Mat4 {
+    public var x, y, z, w: Vec4
     
     // Explicit Initializers
     
-    init(xCol: Vec4, yCol: Vec4, zCol: Vec4, wCol: Vec4) {
+    public init(xCol: Vec4, yCol: Vec4, zCol: Vec4, wCol: Vec4) {
         self.x = xCol
         self.y = yCol
         self.z = zCol
         self.w = wCol
     }
     
-    init(xx: CFloat, yx: CFloat, zx: CFloat, wx: CFloat,
-         xy: CFloat, yy: CFloat, zy: CFloat, wy: CFloat,
-         xz: CFloat, yz: CFloat, zz: CFloat, wz: CFloat,
-         xw: CFloat, yw: CFloat, zw: CFloat, ww: CFloat) {
+    public init(xx: CFloat, yx: CFloat, zx: CFloat, wx: CFloat,
+                xy: CFloat, yy: CFloat, zy: CFloat, wy: CFloat,
+                xz: CFloat, yz: CFloat, zz: CFloat, wz: CFloat,
+                xw: CFloat, yw: CFloat, zw: CFloat, ww: CFloat) {
         self.x = Vec4(x: xx, y: xy, z: xz, w: xw)
         self.y = Vec4(x: yx, y: yy, z: yz, w: yw)
         self.z = Vec4(x: zx, y: zy, z: zz, w: zw)
@@ -32,17 +32,17 @@ struct Mat4 {
     
     // Implicit Initializers
     
-    init(_ xCol: Vec4, _ yCol: Vec4, _ zCol: Vec4, _ wCol: Vec4) {
+    public init(_ xCol: Vec4, _ yCol: Vec4, _ zCol: Vec4, _ wCol: Vec4) {
         self.x = xCol
         self.y = yCol
         self.z = zCol
         self.w = wCol
     }
     
-    init(_ xx: CFloat, _ yx: CFloat, _ zx: CFloat, _ wx: CFloat,
-         _ xy: CFloat, _ yy: CFloat, _ zy: CFloat, _ wy: CFloat,
-         _ xz: CFloat, _ yz: CFloat, _ zz: CFloat, _ wz: CFloat,
-         _ xw: CFloat, _ yw: CFloat, _ zw: CFloat, _ ww: CFloat) {
+    public init(_ xx: CFloat, _ yx: CFloat, _ zx: CFloat, _ wx: CFloat,
+                _ xy: CFloat, _ yy: CFloat, _ zy: CFloat, _ wy: CFloat,
+                _ xz: CFloat, _ yz: CFloat, _ zz: CFloat, _ wz: CFloat,
+                _ xw: CFloat, _ yw: CFloat, _ zw: CFloat, _ ww: CFloat) {
             self.x = Vec4(x: xx, y: xy, z: xz, w: xw)
             self.y = Vec4(x: yx, y: yy, z: yz, w: yw)
             self.z = Vec4(x: zx, y: zy, z: zz, w: zw)
@@ -50,14 +50,14 @@ struct Mat4 {
     }
 }
 
-@infix func * (m: Mat4, v: Vec4) -> Vec4 {
+@infix public func * (m: Mat4, v: Vec4) -> Vec4 {
     return Vec4(x: m.x.x * v.x + m.y.x * v.y + m.z.x * v.z + m.w.x * v.w,
                 y: m.x.y * v.x + m.y.y * v.y + m.z.y * v.z + m.w.y * v.w,
                 z: m.x.z * v.x + m.y.z * v.y + m.z.z * v.z + m.w.z * v.w,
                 w: m.x.w * v.x + m.y.w * v.y + m.z.w * v.z + m.w.w * v.w)
 }
 
-@infix func * (a: Mat4, b: Mat4) -> Mat4 {
+@infix public func * (a: Mat4, b: Mat4) -> Mat4 {
     return Mat4(xx: a.x.x * b.x.x + a.y.x * b.x.y + a.z.x * b.x.z + a.w.x * b.x.w,
 				yx: a.x.x * b.y.x + a.y.x * b.y.y + a.z.x * b.y.z + a.w.x * b.y.w,
 				zx: a.x.x * b.z.x + a.y.x * b.z.y + a.z.x * b.z.z + a.w.x * b.z.w,
@@ -76,19 +76,19 @@ struct Mat4 {
                 ww: a.x.w * b.w.x + a.y.w * b.w.y + a.z.w * b.w.z + a.w.w * b.w.w)
 }
 
-@assignment func *= (inout a: Mat4, b: Mat4) {
+@assignment public func *= (inout a: Mat4, b: Mat4) {
     a = a * b
 }
 
-extension Mat4 { // Affine transformations
-    static func identity() -> Mat4 {
+public extension Mat4 { // Affine transformations
+    public static func identity() -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: 1, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: 1, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func rotateX(radians: CFloat) -> Mat4 {
+    public static func rotateX(radians: CFloat) -> Mat4 {
         var c = cos(radians)
         var s = sin(radians)
         return Mat4(xx: 1, yx: 0, zx:  0, wx: 0,
@@ -97,7 +97,7 @@ extension Mat4 { // Affine transformations
                     xw: 0, yw: 0, zw:  0, ww: 1)
     }
     
-    static func rotateY(radians: CFloat) -> Mat4 {
+    public static func rotateY(radians: CFloat) -> Mat4 {
         var c = cos(radians)
         var s = sin(radians)
         return Mat4(xx:  c, yx: 0, zx: s, wx: 0,
@@ -106,7 +106,7 @@ extension Mat4 { // Affine transformations
                     xw:  0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func rotateZ(radians: CFloat) -> Mat4 {
+    public static func rotateZ(radians: CFloat) -> Mat4 {
         var c = cos(radians)
         var s = sin(radians)
         return Mat4(xx: c, yx: -s, zx: 0, wx: 0,
@@ -115,7 +115,7 @@ extension Mat4 { // Affine transformations
                     xw: 0, yw:  0, zw: 0, ww: 1)
     }
     
-    static func rotate(radians: CFloat, x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
+    public static func rotate(radians: CFloat, x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
         var v = normalize(Vec3(x: x, y: y, z: z))
         var c = cos(radians)
         var p = 1 - c
@@ -126,7 +126,7 @@ extension Mat4 { // Affine transformations
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func rotate(radians: CFloat, v: Vec3) -> Mat4 {
+    public static func rotate(radians: CFloat, v: Vec3) -> Mat4 {
         var u = normalize(v)
         var c = cos(radians)
         var p = 1 - c
@@ -137,63 +137,63 @@ extension Mat4 { // Affine transformations
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func translate(#x: CFloat, y: CFloat) -> Mat4 {
+    public static func translate(#x: CFloat, y: CFloat) -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: x,
                     xy: 0, yy: 1, zy: 0, wy: y,
                     xz: 0, yz: 0, zz: 1, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func translate(#x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
+    public static func translate(#x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: x,
                     xy: 0, yy: 1, zy: 0, wy: y,
                     xz: 0, yz: 0, zz: 1, wz: z,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func translate(offset: Vec2) -> Mat4 {
+    public static func translate(offset: Vec2) -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: offset.x,
                     xy: 0, yy: 1, zy: 0, wy: offset.y,
                     xz: 0, yz: 0, zz: 1, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func translate(offset: Vec3) -> Mat4 {
+    public static func translate(offset: Vec3) -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: offset.x,
                     xy: 0, yy: 1, zy: 0, wy: offset.y,
                     xz: 0, yz: 0, zz: 1, wz: offset.z,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func scale(s: CFloat) -> Mat4 {
+    public static func scale(s: CFloat) -> Mat4 {
         return Mat4(xx: s, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: s, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: s, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func scale(#x: CFloat, y: CFloat) -> Mat4 {
+    public static func scale(#x: CFloat, y: CFloat) -> Mat4 {
         return Mat4(xx: x, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: y, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: 1, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func scale(#x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
+    public static func scale(#x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
         return Mat4(xx: x, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: y, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: z, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func scale(scale: Vec2) -> Mat4 {
+    public static func scale(scale: Vec2) -> Mat4 {
         return Mat4(xx: scale.x, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: scale.y, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: 1, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func scale(scale: Vec3) -> Mat4 {
+    public static func scale(scale: Vec3) -> Mat4 {
         return Mat4(xx: scale.x, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: scale.y, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: scale.z, wz: 0,
@@ -201,15 +201,15 @@ extension Mat4 { // Affine transformations
     }
 }
 
-extension Mat4 { // Projection transformations
-    static func ortho(#width: CFloat, height: CFloat, depth: CFloat) -> Mat4 {
+public extension Mat4 { // Projection transformations
+    public static func ortho(#width: CFloat, height: CFloat, depth: CFloat) -> Mat4 {
         return Mat4(xx: 0.5 / width, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: 0.5 / height, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: -0.5 / depth, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func ortho(#width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func ortho(#width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
         var fan = far + near
         var fsn = far - near
         return Mat4(xx: 0.5 / width, yx: 0, zx: 0, wx: 0,
@@ -218,7 +218,7 @@ extension Mat4 { // Projection transformations
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func ortho(#left: CFloat, right: CFloat, bottom: CFloat, top: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func ortho(#left: CFloat, right: CFloat, bottom: CFloat, top: CFloat, near: CFloat, far: CFloat) -> Mat4 {
         var ral = right + left
         var rsl = right - left
         var tab = top + bottom
@@ -231,7 +231,7 @@ extension Mat4 { // Projection transformations
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    static func frustum(#width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func frustum(#width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
         var fan = far + near
         var fsn = far - near
         return Mat4(xx: near / width, yx: 0, zx: 0, wx: 0,
@@ -240,7 +240,7 @@ extension Mat4 { // Projection transformations
                     xw: 0, yw: 0, zw: -1, ww: 0)
     }
     
-    static func frustum(#left: CFloat, right: CFloat, bottom: CFloat, top: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func frustum(#left: CFloat, right: CFloat, bottom: CFloat, top: CFloat, near: CFloat, far: CFloat) -> Mat4 {
         var ral = right + left
         var rsl = right - left
         var tsb = top - bottom
@@ -253,7 +253,7 @@ extension Mat4 { // Projection transformations
                     xw: 0, yw: 0, zw: -1, ww: 0)
     }
     
-    static func perspective(#fovy: CFloat, aspect: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func perspective(#fovy: CFloat, aspect: CFloat, near: CFloat, far: CFloat) -> Mat4 {
         var cot = 1 / tan(fovy / 2)
         
         return Mat4(xx: cot / aspect, yx: 0, zx: 0, wx: 0,
@@ -262,7 +262,7 @@ extension Mat4 { // Projection transformations
                     xw: 0, yw: 0, zw: -1, ww: 0)
     }
     
-    static func perspective(#fovy: CFloat, width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func perspective(#fovy: CFloat, width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
         var cot = 1 / tan(fovy / 2)
         var aspect = width / height
         
@@ -272,7 +272,7 @@ extension Mat4 { // Projection transformations
                     xw: 0, yw: 0, zw: -1, ww: 0)
     }
     
-    static func lookAt(#eye: Vec3, center: Vec3, up: Vec3) -> Mat4 {
+    public static func lookAt(#eye: Vec3, center: Vec3, up: Vec3) -> Mat4 {
         var n = normalize(eye - center)
         var u = normalize(cross(up, n))
         var v = cross(n, u)

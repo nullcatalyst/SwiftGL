@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D21F3F641980AAC400965ECA /* GLSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = D21F3F631980AAC400965ECA /* GLSupport.m */; };
 		D262B7FE19663A37004A2997 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA623219512D24007B2DC2 /* Constants.swift */; };
 		D262B7FF19663A37004A2997 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AE71945263000655A34 /* Float.swift */; };
 		D262B80019663A37004A2997 /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AD11944F08E00655A34 /* Vec2.swift */; };
@@ -18,8 +19,6 @@
 		D262B80619663A37004A2997 /* Vbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AF11946795100655A34 /* Vbo.swift */; };
 		D262B80719663A37004A2997 /* Vao.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AF319468EDA00655A34 /* Vao.swift */; };
 		D262B80819663A37004A2997 /* Texture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B38FAE194E063800722470 /* Texture.swift */; };
-		D262B80919663A37004A2997 /* TripleBufferedVbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D9EF1C19591A6700686399 /* TripleBufferedVbo.swift */; };
-		D262B80A19663A37004A2997 /* GLSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AEE194544CD00655A34 /* GLSupport.m */; };
 		D262B80B19663A52004A2997 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA623219512D24007B2DC2 /* Constants.swift */; };
 		D262B80C19663A52004A2997 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AE71945263000655A34 /* Float.swift */; };
 		D262B80D19663A52004A2997 /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AD11944F08E00655A34 /* Vec2.swift */; };
@@ -31,8 +30,6 @@
 		D262B81319663A52004A2997 /* Vbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AF11946795100655A34 /* Vbo.swift */; };
 		D262B81419663A52004A2997 /* Vao.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AF319468EDA00655A34 /* Vao.swift */; };
 		D262B81519663A52004A2997 /* Texture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B38FAE194E063800722470 /* Texture.swift */; };
-		D262B81619663A52004A2997 /* TripleBufferedVbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D9EF1C19591A6700686399 /* TripleBufferedVbo.swift */; };
-		D262B81719663A52004A2997 /* GLSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AEE194544CD00655A34 /* GLSupport.m */; };
 		D262B81819663F6A004A2997 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3ADF194500D900655A34 /* LICENSE */; };
 		D2AB3ABB1944F05700655A34 /* SwiftGL.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3ABA1944F05700655A34 /* SwiftGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2AB3AC11944F05700655A34 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AB51944F05700655A34 /* SwiftGL.framework */; };
@@ -56,7 +53,7 @@
 
 /* Begin PBXFileReference section */
 		D20662C01947D8D2001D2FAC /* Mat4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mat4.swift; sourceTree = "<group>"; };
-		D262B82B196645FC004A2997 /* SwiftGL-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftGL-Bridge.h"; sourceTree = "<group>"; };
+		D21F3F631980AAC400965ECA /* GLSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSupport.m; sourceTree = "<group>"; };
 		D2AB3AB51944F05700655A34 /* SwiftGL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB3AB91944F05700655A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AB3ABA1944F05700655A34 /* SwiftGL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftGL.h; sourceTree = "<group>"; };
@@ -71,13 +68,11 @@
 		D2AB3AE71945263000655A34 /* Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
 		D2AB3AE9194536CF00655A34 /* Shader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shader.swift; sourceTree = "<group>"; };
 		D2AB3AEB194536EB00655A34 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		D2AB3AEE194544CD00655A34 /* GLSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSupport.m; sourceTree = "<group>"; };
 		D2AB3AF11946795100655A34 /* Vbo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vbo.swift; sourceTree = "<group>"; };
 		D2AB3AF319468EDA00655A34 /* Vao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vao.swift; sourceTree = "<group>"; };
 		D2AD3C3119575EC700798AEE /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D2B38FAE194E063800722470 /* Texture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Texture.swift; sourceTree = "<group>"; };
 		D2CA623219512D24007B2DC2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		D2D9EF1C19591A6700686399 /* TripleBufferedVbo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripleBufferedVbo.swift; sourceTree = "<group>"; };
 		D2EE432F1953BE91007CC56F /* SwiftGL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EE43491953BF64007CC56F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		D2EE434F1953DF1B007CC56F /* SwiftGLTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftGLTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -126,7 +121,6 @@
 			children = (
 				D2AB3ADF194500D900655A34 /* LICENSE */,
 				D2AB3AE0194500D900655A34 /* README.md */,
-				D262B82B196645FC004A2997 /* SwiftGL-Bridge.h */,
 				D2AB3AB71944F05700655A34 /* SwiftGL */,
 				D2AB3AC41944F05700655A34 /* SwiftGLTests */,
 				D20662C41947D963001D2FAC /* Frameworks */,
@@ -147,6 +141,7 @@
 		D2AB3AB71944F05700655A34 /* SwiftGL */ = {
 			isa = PBXGroup;
 			children = (
+				D21F3F631980AAC400965ECA /* GLSupport.m */,
 				D2AB3ABA1944F05700655A34 /* SwiftGL.h */,
 				D2CA623219512D24007B2DC2 /* Constants.swift */,
 				D2AB3AE71945263000655A34 /* Float.swift */,
@@ -159,8 +154,6 @@
 				D2AB3AF11946795100655A34 /* Vbo.swift */,
 				D2AB3AF319468EDA00655A34 /* Vao.swift */,
 				D2B38FAE194E063800722470 /* Texture.swift */,
-				D2D9EF1C19591A6700686399 /* TripleBufferedVbo.swift */,
-				D2AB3AEE194544CD00655A34 /* GLSupport.m */,
 				D2AB3AB81944F05700655A34 /* Supporting Files */,
 			);
 			path = SwiftGL;
@@ -342,6 +335,7 @@
 			files = (
 				D262B80B19663A52004A2997 /* Constants.swift in Sources */,
 				D262B80C19663A52004A2997 /* Float.swift in Sources */,
+				D21F3F641980AAC400965ECA /* GLSupport.m in Sources */,
 				D262B80D19663A52004A2997 /* Vec2.swift in Sources */,
 				D262B80E19663A52004A2997 /* Vec3.swift in Sources */,
 				D262B80F19663A52004A2997 /* Vec4.swift in Sources */,
@@ -351,8 +345,6 @@
 				D262B81319663A52004A2997 /* Vbo.swift in Sources */,
 				D262B81419663A52004A2997 /* Vao.swift in Sources */,
 				D262B81519663A52004A2997 /* Texture.swift in Sources */,
-				D262B81619663A52004A2997 /* TripleBufferedVbo.swift in Sources */,
-				D262B81719663A52004A2997 /* GLSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,8 +372,6 @@
 				D262B80619663A37004A2997 /* Vbo.swift in Sources */,
 				D262B80719663A37004A2997 /* Vao.swift in Sources */,
 				D262B80819663A37004A2997 /* Texture.swift in Sources */,
-				D262B80919663A37004A2997 /* TripleBufferedVbo.swift in Sources */,
-				D262B80A19663A37004A2997 /* GLSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +425,6 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SwiftGL;
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftGL-Bridge.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -475,7 +464,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = SwiftGL;
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftGL-Bridge.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Ofast";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
