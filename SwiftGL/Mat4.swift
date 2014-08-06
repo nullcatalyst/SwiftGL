@@ -50,14 +50,14 @@ public struct Mat4 {
     }
 }
 
-@infix public func * (m: Mat4, v: Vec4) -> Vec4 {
+public func * (m: Mat4, v: Vec4) -> Vec4 {
     return Vec4(x: m.x.x * v.x + m.y.x * v.y + m.z.x * v.z + m.w.x * v.w,
                 y: m.x.y * v.x + m.y.y * v.y + m.z.y * v.z + m.w.y * v.w,
                 z: m.x.z * v.x + m.y.z * v.y + m.z.z * v.z + m.w.z * v.w,
                 w: m.x.w * v.x + m.y.w * v.y + m.z.w * v.z + m.w.w * v.w)
 }
 
-@infix public func * (a: Mat4, b: Mat4) -> Mat4 {
+public func * (a: Mat4, b: Mat4) -> Mat4 {
     return Mat4(xx: a.x.x * b.x.x + a.y.x * b.x.y + a.z.x * b.x.z + a.w.x * b.x.w,
 				yx: a.x.x * b.y.x + a.y.x * b.y.y + a.z.x * b.y.z + a.w.x * b.y.w,
 				zx: a.x.x * b.z.x + a.y.x * b.z.y + a.z.x * b.z.z + a.w.x * b.z.w,
@@ -76,7 +76,7 @@ public struct Mat4 {
                 ww: a.x.w * b.w.x + a.y.w * b.w.y + a.z.w * b.w.z + a.w.w * b.w.w)
 }
 
-@assignment public func *= (inout a: Mat4, b: Mat4) {
+public func *= (inout a: Mat4, b: Mat4) {
     a = a * b
 }
 

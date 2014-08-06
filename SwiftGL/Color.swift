@@ -79,18 +79,18 @@ public struct Color {
 
 // Allow checking if two colors are equal
 extension Color: Equatable {}
-@infix public func == (a: Color, b: Color) -> Bool {return a.r == b.r && a.g == b.g && a.b == b.b && a.a == b.a}
+public func == (a: Color, b: Color) -> Bool {return a.r == b.r && a.g == b.g && a.b == b.b && a.a == b.a}
 
 // Color Infix Operators
-@infix public func + (a: Color, b: Color) -> Color {return Color(r: a.r + b.r, g: a.g + b.g, b: a.b + b.b, a: a.a + b.a)}
-@infix public func - (a: Color, b: Color) -> Color {return Color(r: a.r - b.r, g: a.g - b.g, b: a.b - b.b, a: a.a - b.a)}
-@infix public func * (a: Color, b: Color) -> Color {return Color(r: a.r * b.r, g: a.g * b.g, b: a.b * b.b, a: a.a * b.a)}
-@infix public func / (a: Color, b: Color) -> Color {return Color(r: a.r / b.r, g: a.g / b.g, b: a.b / b.b, a: a.a / b.a)}
+public func + (a: Color, b: Color) -> Color {return Color(r: a.r + b.r, g: a.g + b.g, b: a.b + b.b, a: a.a + b.a)}
+public func - (a: Color, b: Color) -> Color {return Color(r: a.r - b.r, g: a.g - b.g, b: a.b - b.b, a: a.a - b.a)}
+public func * (a: Color, b: Color) -> Color {return Color(r: a.r * b.r, g: a.g * b.g, b: a.b * b.b, a: a.a * b.a)}
+public func / (a: Color, b: Color) -> Color {return Color(r: a.r / b.r, g: a.g / b.g, b: a.b / b.b, a: a.a / b.a)}
 
 // Color Scalar Operators
-@infix public func * (s: CFloat, c: Color) -> Color {return Color(rgba: s * c.vec)}
-@infix public func * (c: Color, s: CFloat) -> Color {return Color(rgba: c.vec * s)}
-@infix public func / (c: Color, s: CFloat) -> Color {return Color(rgba: c.vec / s)}
+public func * (s: CFloat, c: Color) -> Color {return Color(rgba: s * c.vec)}
+public func * (c: Color, s: CFloat) -> Color {return Color(rgba: c.vec * s)}
+public func / (c: Color, s: CFloat) -> Color {return Color(rgba: c.vec / s)}
 
 public func mix(a: Color, b: Color, t: Color)  -> Color {return mix(a, b, t.vec)}
 public func mix(a: Color, b: Color, t: Vec4)   -> Color {return a + Color(rgba: (b - a).vec * t)}

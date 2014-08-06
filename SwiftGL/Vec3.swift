@@ -233,27 +233,27 @@ extension Vec3: Printable, DebugPrintable {
 }
 
 // Vec3 Prefix Operators
-@prefix public func - (v: Vec3) -> Vec3 {return Vec3(x: -v.x, y: -v.y, z: -v.z)}
+public prefix func - (v: Vec3) -> Vec3 {return Vec3(x: -v.x, y: -v.y, z: -v.z)}
 
 // Vec3 Infix Operators
-@infix public func + (a: Vec3, b: Vec3) -> Vec3 {return Vec3(x: a.x + b.x, y: a.y + b.y, z: a.z + b.z)}
-@infix public func - (a: Vec3, b: Vec3) -> Vec3 {return Vec3(x: a.x - b.x, y: a.y - b.y, z: a.z - b.z)}
-@infix public func * (a: Vec3, b: Vec3) -> Vec3 {return Vec3(x: a.x * b.x, y: a.y * b.y, z: a.z * b.z)}
-@infix public func / (a: Vec3, b: Vec3) -> Vec3 {return Vec3(x: a.x / b.x, y: a.y / b.y, z: a.z / b.z)}
+public func + (a: Vec3, b: Vec3) -> Vec3 {return Vec3(x: a.x + b.x, y: a.y + b.y, z: a.z + b.z)}
+public func - (a: Vec3, b: Vec3) -> Vec3 {return Vec3(x: a.x - b.x, y: a.y - b.y, z: a.z - b.z)}
+public func * (a: Vec3, b: Vec3) -> Vec3 {return Vec3(x: a.x * b.x, y: a.y * b.y, z: a.z * b.z)}
+public func / (a: Vec3, b: Vec3) -> Vec3 {return Vec3(x: a.x / b.x, y: a.y / b.y, z: a.z / b.z)}
 
 // Vec3 Scalar Operators
-@infix public func * (s: CFloat, v: Vec3) -> Vec3 {return Vec3(x: s * v.x, y: s * v.y, z: s * v.z)}
-@infix public func * (v: Vec3, s: CFloat) -> Vec3 {return Vec3(x: v.x * s, y: v.y * s, z: v.z * s)}
-@infix public func / (v: Vec3, s: CFloat) -> Vec3 {return Vec3(x: v.x / s, y: v.y / s, z: v.z / s)}
+public func * (s: CFloat, v: Vec3) -> Vec3 {return Vec3(x: s * v.x, y: s * v.y, z: s * v.z)}
+public func * (v: Vec3, s: CFloat) -> Vec3 {return Vec3(x: v.x * s, y: v.y * s, z: v.z * s)}
+public func / (v: Vec3, s: CFloat) -> Vec3 {return Vec3(x: v.x / s, y: v.y / s, z: v.z / s)}
 
 // Vec3 Assignment Operators
-@assignment public func += (inout a: Vec3, b: Vec3) {a = a + b}
-@assignment public func -= (inout a: Vec3, b: Vec3) {a = a - b}
-@assignment public func *= (inout a: Vec3, b: Vec3) {a = a * b}
-@assignment public func /= (inout a: Vec3, b: Vec3) {a = a / b}
+public func += (inout a: Vec3, b: Vec3) {a = a + b}
+public func -= (inout a: Vec3, b: Vec3) {a = a - b}
+public func *= (inout a: Vec3, b: Vec3) {a = a * b}
+public func /= (inout a: Vec3, b: Vec3) {a = a / b}
 
-@assignment public func *= (inout a: Vec3, b: CFloat) {a = a * b}
-@assignment public func /= (inout a: Vec3, b: CFloat) {a = a / b}
+public func *= (inout a: Vec3, b: CFloat) {a = a * b}
+public func /= (inout a: Vec3, b: CFloat) {a = a / b}
 
 // Functions which operate on Vec3
 public func length(v: Vec3) -> CFloat {return v.length}

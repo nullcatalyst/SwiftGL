@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Scott Bennett. All rights reserved.
 //
 
-import Darwin
+import Cocoa
 
 #if os(OSX)
 import OpenGL
@@ -132,11 +132,11 @@ public class Shader {
     public func bind(#uniform: GLuniform, x: CFloat, y: CFloat) {glProgramUniform2f(id, uniform, x, y)}
     public func bind(#uniform: GLuniform, x: CFloat, y: CFloat, z: CFloat) {glProgramUniform3f(id, uniform, x, y, z)}
     public func bind(#uniform: GLuniform, x: CFloat, y: CFloat, z: CFloat, w: CFloat) {glProgramUniform4f(id, uniform, x, y, z, w)}
-    public func bind(#uniform: GLuniform, v: Vec2) {glProgramUniform2fv(id, uniform, 1, ConstUnsafePointer([v]))}
-    public func bind(#uniform: GLuniform, v: Vec3) {glProgramUniform3fv(id, uniform, 1, ConstUnsafePointer([v]))}
-    public func bind(#uniform: GLuniform, v: Vec4) {glProgramUniform4fv(id, uniform, 1, ConstUnsafePointer([v]))}
+    public func bind(#uniform: GLuniform, v: Vec2) {glProgramUniform2fv(id, uniform, 1, UnsafePointer([v]))}
+    public func bind(#uniform: GLuniform, v: Vec3) {glProgramUniform3fv(id, uniform, 1, UnsafePointer([v]))}
+    public func bind(#uniform: GLuniform, v: Vec4) {glProgramUniform4fv(id, uniform, 1, UnsafePointer([v]))}
     
-    public func bind(#uniform: GLuniform, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, uniform, 1, transpose, ConstUnsafePointer([m]))}
+    public func bind(#uniform: GLuniform, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, uniform, 1, transpose, UnsafePointer([m]))}
     
     public func bind(#uniform: GLuniform, texture: Texture, index: GLint = 0) {
         glProgramUniform1i(id, uniform, index)
@@ -149,11 +149,11 @@ public class Shader {
     public func bind(#uniform: String, x: CFloat, y: CFloat) {glProgramUniform2f(id, self.uniform(uniform), x, y)}
     public func bind(#uniform: String, x: CFloat, y: CFloat, z: CFloat) {glProgramUniform3f(id, self.uniform(uniform), x, y, z)}
     public func bind(#uniform: String, x: CFloat, y: CFloat, z: CFloat, w: CFloat) {glProgramUniform4f(id, self.uniform(uniform), x, y, z, w)}
-    public func bind(#uniform: String, v: Vec2) {glProgramUniform2fv(id, self.uniform(uniform), 1, ConstUnsafePointer([v]))}
-    public func bind(#uniform: String, v: Vec3) {glProgramUniform3fv(id, self.uniform(uniform), 1, ConstUnsafePointer([v]))}
-    public func bind(#uniform: String, v: Vec4) {glProgramUniform4fv(id, self.uniform(uniform), 1, ConstUnsafePointer([v]))}
+    public func bind(#uniform: String, v: Vec2) {glProgramUniform2fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}
+    public func bind(#uniform: String, v: Vec3) {glProgramUniform3fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}
+    public func bind(#uniform: String, v: Vec4) {glProgramUniform4fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}
     
-    public func bind(#uniform: String, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, self.uniform(uniform), 1, transpose, ConstUnsafePointer([m]))}
+    public func bind(#uniform: String, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, self.uniform(uniform), 1, transpose, UnsafePointer([m]))}
     
     public func bind(#uniform: String, texture: Texture, index: GLint = 0) {
         glProgramUniform1i(id, self.uniform(uniform), index)
@@ -200,10 +200,10 @@ public class Shader {
         glGetProgramiv(program, GLenum(GL_INFO_LOG_LENGTH), &logLength)
         
         if logLength > 0 {
-            let log = UnsafePointer<CChar>(malloc(UInt(logLength)))
+            let log = UnsafeMutablePointer<CChar>(malloc(UInt(logLength)))
             glGetProgramInfoLog(program, logLength, &logLength, log)
             println("Program link log:\n\(String.stringWithCString(log, encoding: NSASCIIStringEncoding)!)")
-            log.dealloc(Int(logLength))
+            free(log)
         }
 //        #endif
         

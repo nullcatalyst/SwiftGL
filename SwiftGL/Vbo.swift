@@ -42,14 +42,14 @@ public class Vbo {
 //       Two separate VBOs must be used (then bound to the same VAO)
 
 public extension Vbo {
-    public func bind <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
+    public func bind <T> (data: UnsafePointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
         glBindBuffer(GL_ARRAY_BUFFER, id)
         glBufferData(GL_ARRAY_BUFFER, stride * count, data, GL_DYNAMIC_DRAW)
     }
     
-    public func bindSubData <T> (data: ConstUnsafePointer<T>, start: GLsizeiptr, count: GLsizeiptr) {
+    public func bindSubData <T> (data: UnsafePointer<T>, start: GLsizeiptr, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
         glBindBuffer(GL_ARRAY_BUFFER, id)
@@ -58,14 +58,14 @@ public extension Vbo {
 }
 
 public extension Vbo {
-    public func bindElements <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
+    public func bindElements <T> (data: UnsafePointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id)
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, stride * count, data, GL_STATIC_DRAW)
     }
     
-    public func bindSubElements <T> (data: ConstUnsafePointer<T>, count: GLsizeiptr) {
+    public func bindSubElements <T> (data: UnsafePointer<T>, count: GLsizeiptr) {
         self.count  = count
         self.stride = sizeof(T)
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id)

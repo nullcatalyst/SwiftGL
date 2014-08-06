@@ -8,7 +8,7 @@
 
 #if os(OSX)
 
-import OpenGL
+import OpenGL.GL3
 
 // glDebug(__FILE__, __LINE__)
 public func glDebug(filename: String, line: CInt) {
@@ -22,7 +22,7 @@ public func glDebug(filename: String, line: CInt) {
             case GL_INVALID_OPERATION: errMsg = "GL_INVALID_OPERATION"
             case GL_INVALID_FRAMEBUFFER_OPERATION: errMsg = "GL_INVALID_FRAMEBUFFER_OPERATION"
             case GL_OUT_OF_MEMORY:     errMsg = "GL_OUT_OF_MEMORY"
-            default:                   errMsg = NSString(format: "0x%2X", error) as String
+            default:                   errMsg = String(format: "0x%2X", error)
         }
         
         println("ERROR: \(filename):\(line) - \(errMsg)")
@@ -110,7 +110,7 @@ public let GL_FRONT_AND_BACK       = GLenum(OpenGL.GL_FRONT_AND_BACK)
 
 #else
 
-import OpenGLES
+import OpenGLES.ES2.GL
 
 // glDebug(__FILE__, __LINE__)
 public func glDebug(filename: String, line: CInt) {

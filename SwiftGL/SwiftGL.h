@@ -22,4 +22,4 @@ FOUNDATION_EXPORT const unsigned char SwiftGLVersionString[];
     #import <OpenGL/gl3.h>
 #endif
 
-unsigned int swglCompileShader(GLenum type, NSString *source);
+GLuint swglCompileShader(GLenum type, NSString *source);

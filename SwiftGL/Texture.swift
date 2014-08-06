@@ -62,9 +62,9 @@ public class Texture {
         glTexParameteri(GL_TEXTURE_2D, GLenum(GL_TEXTURE_WRAP_T), GL_CLAMP_TO_EDGE)
         
         #if os(OSX)
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GLenum(GL_BGRA), GLenum(GL_UNSIGNED_INT_8_8_8_8_REV), ConstUnsafePointer(imageData))
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GLenum(GL_BGRA), GLenum(GL_UNSIGNED_INT_8_8_8_8_REV), UnsafePointer(imageData))
         #else
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GLenum(GL_RGBA), GL_UNSIGNED_BYTE, ConstUnsafePointer(imageData))
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GLenum(GL_RGBA), GL_UNSIGNED_BYTE, UnsafePointer(imageData))
         #endif
         
         if antialias {
@@ -75,8 +75,8 @@ public class Texture {
         return false
     }
     
-    private class func Load(#filename: String, inout width: GLsizei, inout height: GLsizei, flipVertical: Bool) -> UnsafePointer<()> {
-        let url = CFBundleCopyResourceURL(CFBundleGetMainBundle(), filename.bridgeToObjectiveC(), "", nil)
+    private class func Load(#filename: String, inout width: GLsizei, inout height: GLsizei, flipVertical: Bool) -> UnsafeMutablePointer<()> {
+        let url = CFBundleCopyResourceURL(CFBundleGetMainBundle(), filename as NSString, "", nil)
         let imageSource = CGImageSourceCreateWithURL(url, nil).takeRetainedValue()
         let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil).takeRetainedValue()
         
@@ -87,7 +87,7 @@ public class Texture {
         let rect = CGRectMake(zero, zero, CGFloat(Int(width)), CGFloat(Int(height)))
         let colourSpace = CGColorSpaceCreateDeviceRGB()
         
-        let imageData = malloc(UInt(width * height * 4))
+        let imageData: UnsafeMutablePointer<()> = malloc(UInt(width * height * 4))
         let ctx = CGBitmapContextCreate(imageData, UInt(width), UInt(height), 8, UInt(width * 4), colourSpace, CGBitmapInfo.ByteOrderDefault | CGBitmapInfo(CGImageAlphaInfo.PremultipliedFirst.toRaw()))
         
         if flipVertical {
