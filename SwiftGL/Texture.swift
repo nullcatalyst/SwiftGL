@@ -77,8 +77,14 @@ public class Texture {
     
     private class func Load(#filename: String, inout width: GLsizei, inout height: GLsizei, flipVertical: Bool) -> UnsafeMutablePointer<()> {
         let url = CFBundleCopyResourceURL(CFBundleGetMainBundle(), filename as NSString, "", nil)
+        
+        #if os(OSX)
+        let imageSource = CGImageSourceCreateWithURL(url, nil).takeUnretainedValue()
+        let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil).takeUnretainedValue()
+        #else
         let imageSource = CGImageSourceCreateWithURL(url, nil)
         let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil)
+        #endif
         
         width  = GLsizei(CGImageGetWidth(image))
         height = GLsizei(CGImageGetHeight(image))
