@@ -36,6 +36,7 @@
 		D2AB3AC81944F05700655A34 /* SwiftGLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AC71944F05700655A34 /* SwiftGLTests.swift */; };
 		D2AB3AE1194500D900655A34 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3ADF194500D900655A34 /* LICENSE */; };
 		D2AB3AEC194536EB00655A34 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AEB194536EB00655A34 /* OpenGL.framework */; };
+		D2C128231992E9A200AC2E38 /* GLSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = D21F3F631980AAC400965ECA /* GLSupport.m */; };
 		D2EE43481953BEF0007CC56F /* SwiftGL.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3ABA1944F05700655A34 /* SwiftGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2EE434A1953BF64007CC56F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EE43491953BF64007CC56F /* OpenGLES.framework */; };
 		D2EE43551953E42F007CC56F /* GLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EE43541953E42F007CC56F /* GLTest.m */; };
@@ -141,8 +142,8 @@
 		D2AB3AB71944F05700655A34 /* SwiftGL */ = {
 			isa = PBXGroup;
 			children = (
-				D21F3F631980AAC400965ECA /* GLSupport.m */,
 				D2AB3ABA1944F05700655A34 /* SwiftGL.h */,
+				D21F3F631980AAC400965ECA /* GLSupport.m */,
 				D2CA623219512D24007B2DC2 /* Constants.swift */,
 				D2AB3AE71945263000655A34 /* Float.swift */,
 				D2AB3AD11944F08E00655A34 /* Vec2.swift */,
@@ -361,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C128231992E9A200AC2E38 /* GLSupport.m in Sources */,
 				D262B7FE19663A37004A2997 /* Constants.swift in Sources */,
 				D262B7FF19663A37004A2997 /* Float.swift in Sources */,
 				D262B80019663A37004A2997 /* Vec2.swift in Sources */,

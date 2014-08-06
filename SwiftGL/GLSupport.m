@@ -13,7 +13,7 @@
 
 #import "SwiftGL.h"
 
-unsigned int swglCompileShader(GLenum type, NSString *source) {
+GLuint swglCompileShader(GLenum type, NSString *source) {
     const char *csource = [source cStringUsingEncoding:NSASCIIStringEncoding];
     
     GLuint shader = glCreateShader(type);

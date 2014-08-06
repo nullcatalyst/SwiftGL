@@ -110,7 +110,7 @@ public let GL_FRONT_AND_BACK       = GLenum(OpenGL.GL_FRONT_AND_BACK)
 
 #else
 
-import OpenGLES.ES2.GL
+import OpenGLES.ES2.gl
 
 // glDebug(__FILE__, __LINE__)
 public func glDebug(filename: String, line: CInt) {
