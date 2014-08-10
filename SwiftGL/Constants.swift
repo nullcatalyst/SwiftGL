@@ -126,7 +126,7 @@ public func glDebug(filename: String, line: CInt) {
             case GL_OUT_OF_MEMORY:     errMsg = "GL_OUT_OF_MEMORY"
             case GL_STACK_UNDERFLOW:   errMsg = "GL_STACK_UNDERFLOW"
             case GL_STACK_OVERFLOW:    errMsg = "GL_STACK_OVERFLOW"
-            default:                   errMsg = NSString(format: "0x%2X", error) as String
+            default:                   errMsg = String(format: "0x%2X", error)
         }
         
         println("ERROR: \(filename):\(line) - \(errMsg)")

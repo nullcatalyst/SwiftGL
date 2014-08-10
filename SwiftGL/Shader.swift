@@ -109,8 +109,8 @@ public class Shader {
     
     /// @return true on success
     public func load(#vertexFile: String, fragmentFile: String, bindAttibutes: (GLprogram) -> Void) -> Bool {
-        let vertexSource: String   = NSString(contentsOfFile: vertexFile,   encoding: NSASCIIStringEncoding, error: nil)
-        let fragmentSource: String = NSString(contentsOfFile: fragmentFile, encoding: NSASCIIStringEncoding, error: nil)
+        let vertexSource: String   = String.stringWithContentsOfFile(vertexFile,   encoding: NSASCIIStringEncoding, error: nil)!
+        let fragmentSource: String = String.stringWithContentsOfFile(fragmentFile, encoding: NSASCIIStringEncoding, error: nil)!
         
         return self.compile(vertexSource: vertexSource, fragmentSource: fragmentSource, bindAttibutes)
     }
