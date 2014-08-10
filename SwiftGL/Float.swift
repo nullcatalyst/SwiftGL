@@ -17,9 +17,18 @@ public func sign(value: CFloat) -> CFloat {return (value > 0 ? 1 : (value < 0 ? 
 
 // Overload some mathematical functions to make them easier to call without having to worry about as many casts
 public func sqrt(value: CFloat)  -> CFloat {return sqrtf(value);}
+
 public func sin(radians: CFloat) -> CFloat {return sinf(radians)}
 public func cos(radians: CFloat) -> CFloat {return cosf(radians)}
 public func tan(radians: CFloat) -> CFloat {return tanf(radians)}
+
+public func sin(#radians: CFloat) -> CFloat {return sinf(radians)}
+public func cos(#radians: CFloat) -> CFloat {return cosf(radians)}
+public func tan(#radians: CFloat) -> CFloat {return tanf(radians)}
+
+public func sin(#degrees: CFloat) -> CFloat {return sinf(radians(degrees))}
+public func cos(#degrees: CFloat) -> CFloat {return cosf(radians(degrees))}
+public func tan(#degrees: CFloat) -> CFloat {return tanf(radians(degrees))}
 
 public func mix(a: CFloat, b: CFloat, t: CFloat) -> CFloat {return a + (b - a) * t}
 

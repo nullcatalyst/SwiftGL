@@ -59,8 +59,8 @@ public class Shader {
         glDeleteProgram(id)
         id = glCreateProgram();
         
-        var vertexShader   = Shader.compile(type: GL_VERTEX_SHADER,   source: vertexSource)
-        var fragmentShader = Shader.compile(type: GL_FRAGMENT_SHADER, source: fragmentSource)
+        var vertexShader   = Shader.compile(GL_VERTEX_SHADER,   vertexSource)
+        var fragmentShader = Shader.compile(GL_FRAGMENT_SHADER, fragmentSource)
         
         // Attach the shaders to our id
         glAttachShader(id, vertexShader)
@@ -72,16 +72,16 @@ public class Shader {
         
         glLinkProgram(id)
         
-        return Shader.verify(program: id)
+        return Shader.verify(id)
     }
     
     /// @return true on success
-    public func compile(#vertexSource: String, fragmentSource: String, bindAttibutes: (GLprogram) -> Void) -> Bool {
+    public func compile(vertexSource: String, _ fragmentSource: String, _ bindAttibutes: (GLprogram) -> ()) -> Bool {
         glDeleteProgram(id)
         id = glCreateProgram();
         
-        var vertexShader   = Shader.compile(type: GL_VERTEX_SHADER,   source: vertexSource)
-        var fragmentShader = Shader.compile(type: GL_FRAGMENT_SHADER, source: fragmentSource)
+        var vertexShader   = Shader.compile(GL_VERTEX_SHADER,   vertexSource)
+        var fragmentShader = Shader.compile(GL_FRAGMENT_SHADER, fragmentSource)
         
         // Call the external function to bind all of the default shader attributes
         bindAttibutes(id)
@@ -96,11 +96,11 @@ public class Shader {
         
         glLinkProgram(id)
         
-        return Shader.verify(program: id)
+        return Shader.verify(id)
     }
     
     /// @return true on success
-    public func load(#vertexFile: String, fragmentFile: String) -> Bool {
+    public func load(vertexFile: String, _ fragmentFile: String) -> Bool {
         let vertexSource: String   = String.stringWithContentsOfFile(vertexFile,   encoding: NSASCIIStringEncoding, error: nil)!
         let fragmentSource: String = String.stringWithContentsOfFile(fragmentFile, encoding: NSASCIIStringEncoding, error: nil)!
         
@@ -108,11 +108,11 @@ public class Shader {
     }
     
     /// @return true on success
-    public func load(#vertexFile: String, fragmentFile: String, bindAttibutes: (GLprogram) -> Void) -> Bool {
+    public func load(vertexFile: String, _ fragmentFile: String, _ bindAttibutes: (GLprogram) -> ()) -> Bool {
         let vertexSource: String   = String.stringWithContentsOfFile(vertexFile,   encoding: NSASCIIStringEncoding, error: nil)!
         let fragmentSource: String = String.stringWithContentsOfFile(fragmentFile, encoding: NSASCIIStringEncoding, error: nil)!
         
-        return self.compile(vertexSource: vertexSource, fragmentSource: fragmentSource, bindAttibutes)
+        return self.compile(vertexSource, fragmentSource, bindAttibutes)
     }
     
     public func bind() {
@@ -128,40 +128,40 @@ public class Shader {
     }
     
     // Bind Uniforms using Uniform Location
-    public func bind(#uniform: GLuniform, x: CFloat) {glProgramUniform1f(id, uniform, x)}
-    public func bind(#uniform: GLuniform, x: CFloat, y: CFloat) {glProgramUniform2f(id, uniform, x, y)}
-    public func bind(#uniform: GLuniform, x: CFloat, y: CFloat, z: CFloat) {glProgramUniform3f(id, uniform, x, y, z)}
-    public func bind(#uniform: GLuniform, x: CFloat, y: CFloat, z: CFloat, w: CFloat) {glProgramUniform4f(id, uniform, x, y, z, w)}
-    public func bind(#uniform: GLuniform, v: Vec2) {glProgramUniform2fv(id, uniform, 1, UnsafePointer([v]))}
-    public func bind(#uniform: GLuniform, v: Vec3) {glProgramUniform3fv(id, uniform, 1, UnsafePointer([v]))}
-    public func bind(#uniform: GLuniform, v: Vec4) {glProgramUniform4fv(id, uniform, 1, UnsafePointer([v]))}
+    public func bind(uniform: GLuniform, _ x: CFloat) {glProgramUniform1f(id, uniform, x)}
+    public func bind(uniform: GLuniform, _ x: CFloat, _ y: CFloat) {glProgramUniform2f(id, uniform, x, y)}
+    public func bind(uniform: GLuniform, _ x: CFloat, _ y: CFloat, _ z: CFloat) {glProgramUniform3f(id, uniform, x, y, z)}
+    public func bind(uniform: GLuniform, _ x: CFloat, _ y: CFloat, _ z: CFloat, _ w: CFloat) {glProgramUniform4f(id, uniform, x, y, z, w)}
+    public func bind(uniform: GLuniform, _ v: Vec2) {glProgramUniform2fv(id, uniform, 1, UnsafePointer([v]))}
+    public func bind(uniform: GLuniform, _ v: Vec3) {glProgramUniform3fv(id, uniform, 1, UnsafePointer([v]))}
+    public func bind(uniform: GLuniform, _ v: Vec4) {glProgramUniform4fv(id, uniform, 1, UnsafePointer([v]))}
     
-    public func bind(#uniform: GLuniform, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, uniform, 1, transpose, UnsafePointer([m]))}
+    public func bind(uniform: GLuniform, _ m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, uniform, 1, transpose, UnsafePointer([m]))}
     
-    public func bind(#uniform: GLuniform, texture: Texture, index: GLint = 0) {
+    public func bind(uniform: GLuniform, _ texture: Texture, index: GLint = 0) {
         glProgramUniform1i(id, uniform, index)
         glActiveTexture(GL_TEXTURE0 + GLenum(index))
         glBindTexture(GL_TEXTURE_2D, texture.id)
     }
     
     // Bind Uniforms using String
-    public func bind(#uniform: String, x: CFloat) {glProgramUniform1f(id, self.uniform(uniform), x)}
-    public func bind(#uniform: String, x: CFloat, y: CFloat) {glProgramUniform2f(id, self.uniform(uniform), x, y)}
-    public func bind(#uniform: String, x: CFloat, y: CFloat, z: CFloat) {glProgramUniform3f(id, self.uniform(uniform), x, y, z)}
-    public func bind(#uniform: String, x: CFloat, y: CFloat, z: CFloat, w: CFloat) {glProgramUniform4f(id, self.uniform(uniform), x, y, z, w)}
-    public func bind(#uniform: String, v: Vec2) {glProgramUniform2fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}
-    public func bind(#uniform: String, v: Vec3) {glProgramUniform3fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}
-    public func bind(#uniform: String, v: Vec4) {glProgramUniform4fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}
+    public func bind(uniform: String, _ x: CFloat) {glProgramUniform1f(id, self.uniform(uniform), x)}
+    public func bind(uniform: String, _ x: CFloat, _ y: CFloat) {glProgramUniform2f(id, self.uniform(uniform), x, y)}
+    public func bind(uniform: String, _ x: CFloat, _ y: CFloat, _ z: CFloat) {glProgramUniform3f(id, self.uniform(uniform), x, y, z)}
+    public func bind(uniform: String, _ x: CFloat, _ y: CFloat, _ z: CFloat, _ w: CFloat) {glProgramUniform4f(id, self.uniform(uniform), x, y, z, w)}
+    public func bind(uniform: String, _ v: Vec2) {glProgramUniform2fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}
+    public func bind(uniform: String, _ v: Vec3) {glProgramUniform3fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}
+    public func bind(uniform: String, _ v: Vec4) {glProgramUniform4fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}
     
-    public func bind(#uniform: String, m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, self.uniform(uniform), 1, transpose, UnsafePointer([m]))}
+    public func bind(uniform: String, _ m: Mat4, transpose: GLboolean = GL_FALSE) {glProgramUniformMatrix4fv(id, self.uniform(uniform), 1, transpose, UnsafePointer([m]))}
     
-    public func bind(#uniform: String, texture: Texture, index: GLint = 0) {
+    public func bind(uniform: String, _ texture: Texture, index: GLint = 0) {
         glProgramUniform1i(id, self.uniform(uniform), index)
         glActiveTexture(GL_TEXTURE0 + GLenum(index))
         glBindTexture(GL_TEXTURE_2D, texture.id)
     }
     
-    private class func compile(#type: GLenum, source: String) -> GLprogram {
+    private class func compile(type: GLenum, _ source: String) -> GLprogram {
         /*if let csource = source.cStringUsingEncoding(NSASCIIStringEncoding) {
             var csrcptr = ConstUnsafePointer<CChar>(csource)
             var ptrptr: ConstUnsafePointer<ConstUnsafePointer<CChar>> = &csrcptr
@@ -193,7 +193,7 @@ public class Shader {
         return swglCompileShader(type, source)
     }
     
-    private class func verify(#program: GLprogram) -> Bool {
+    private class func verify(program: GLprogram) -> Bool {
 //        #if DEBUG
         // Assert that the program was successfully linked
         var logLength: GLint = 0

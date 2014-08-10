@@ -33,6 +33,8 @@ public struct Color {
         self.a = 0
     }
     
+    // Explicit initializers
+    
     public init(s: GLubyte) {
         self.r = s
         self.g = s
@@ -62,14 +64,32 @@ public struct Color {
         self.a = GLubyte(CFloat(GLubyte.max) * af)
     }
     
-    public init(rgb: Vec3, a: CFloat = 1) {
+    // Implicit initializers
+    
+    public init(_ hex: Int) {
+        // This expects the format to be 0xAARRGGBB
+        self.r = GLubyte((hex >> 16) & 0xFF)
+        self.g = GLubyte((hex >>  8) & 0xFF)
+        self.b = GLubyte((hex >>  0) & 0xFF)
+        self.a = GLubyte((hex >> 24) & 0xFF)
+        if a == 0 {a = 255}
+    }
+    
+    public init(_ r: GLubyte, _ g: GLubyte, _ b: GLubyte, _ a: GLubyte = GLubyte.max) {
+        self.r = r
+        self.g = g
+        self.b = b
+        self.a = a
+    }
+    
+    public init(_ rgb: Vec3, _ a: CFloat = 1) {
         self.r = GLubyte(CFloat(GLubyte.max) * rgb.x)
         self.g = GLubyte(CFloat(GLubyte.max) * rgb.y)
         self.b = GLubyte(CFloat(GLubyte.max) * rgb.z)
         self.a = GLubyte(CFloat(GLubyte.max) * a)
     }
     
-    public init(rgba: Vec4) {
+    public init(_ rgba: Vec4) {
         self.r = GLubyte(CFloat(GLubyte.max) * rgba.x)
         self.g = GLubyte(CFloat(GLubyte.max) * rgba.y)
         self.b = GLubyte(CFloat(GLubyte.max) * rgba.z)
@@ -88,10 +108,10 @@ public func * (a: Color, b: Color) -> Color {return Color(r: a.r * b.r, g: a.g *
 public func / (a: Color, b: Color) -> Color {return Color(r: a.r / b.r, g: a.g / b.g, b: a.b / b.b, a: a.a / b.a)}
 
 // Color Scalar Operators
-public func * (s: CFloat, c: Color) -> Color {return Color(rgba: s * c.vec)}
-public func * (c: Color, s: CFloat) -> Color {return Color(rgba: c.vec * s)}
-public func / (c: Color, s: CFloat) -> Color {return Color(rgba: c.vec / s)}
+public func * (s: CFloat, c: Color) -> Color {return Color(s * c.vec)}
+public func * (c: Color, s: CFloat) -> Color {return Color(c.vec * s)}
+public func / (c: Color, s: CFloat) -> Color {return Color(c.vec / s)}
 
 public func mix(a: Color, b: Color, t: Color)  -> Color {return mix(a, b, t.vec)}
-public func mix(a: Color, b: Color, t: Vec4)   -> Color {return a + Color(rgba: (b - a).vec * t)}
+public func mix(a: Color, b: Color, t: Vec4)   -> Color {return a + Color((b - a).vec * t)}
 public func mix(a: Color, b: Color, t: CFloat) -> Color {return a + (b - a) * t}
