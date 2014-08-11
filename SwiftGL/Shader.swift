@@ -13,20 +13,20 @@ import OpenGL
 import Foundation
 import OpenGLES
 
-func glProgramUniform1i(program: GLuint, location: GLint, x: GLint)                                            {return glProgramUniform1iEXT(program, location, x)}
-func glProgramUniform2i(program: GLuint, location: GLint, x: GLint, y: GLint)                                  {return glProgramUniform2iEXT(program, location, x, y)}
-func glProgramUniform3i(program: GLuint, location: GLint, x: GLint, y: GLint, z: GLint)                        {return glProgramUniform3iEXT(program, location, x, y, z)}
-func glProgramUniform4i(program: GLuint, location: GLint, x: GLint, y: GLint, z: GLint, w: GLint)              {return glProgramUniform4iEXT(program, location, x, y, z, w)}
+func glProgramUniform1i(program: GLuint, location: GLint, x: GLint)                                       {return glProgramUniform1iEXT(program, location, x)}
+func glProgramUniform2i(program: GLuint, location: GLint, x: GLint, y: GLint)                             {return glProgramUniform2iEXT(program, location, x, y)}
+func glProgramUniform3i(program: GLuint, location: GLint, x: GLint, y: GLint, z: GLint)                   {return glProgramUniform3iEXT(program, location, x, y, z)}
+func glProgramUniform4i(program: GLuint, location: GLint, x: GLint, y: GLint, z: GLint, w: GLint)         {return glProgramUniform4iEXT(program, location, x, y, z, w)}
 
 func glProgramUniform1iv(program: GLuint, location: GLint, count: GLsizei, value: UnsafePointer<GLint>)   {return glProgramUniform1ivEXT(program, location, count, value)}
 func glProgramUniform2iv(program: GLuint, location: GLint, count: GLsizei, value: UnsafePointer<GLint>)   {return glProgramUniform2ivEXT(program, location, count, value)}
 func glProgramUniform3iv(program: GLuint, location: GLint, count: GLsizei, value: UnsafePointer<GLint>)   {return glProgramUniform3ivEXT(program, location, count, value)}
 func glProgramUniform4iv(program: GLuint, location: GLint, count: GLsizei, value: UnsafePointer<GLint>)   {return glProgramUniform4ivEXT(program, location, count, value)}
 
-func glProgramUniform1f(program: GLuint, location: GLint, x: GLfloat)                                          {return glProgramUniform1fEXT(program, location, x)}
-func glProgramUniform2f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat)                              {return glProgramUniform2fEXT(program, location, x, y)}
-func glProgramUniform3f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat, z: GLfloat)                  {return glProgramUniform3fEXT(program, location, x, y, z)}
-func glProgramUniform4f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat)      {return glProgramUniform4fEXT(program, location, x, y, z, w)}
+func glProgramUniform1f(program: GLuint, location: GLint, x: GLfloat)                                     {return glProgramUniform1fEXT(program, location, x)}
+func glProgramUniform2f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat)                         {return glProgramUniform2fEXT(program, location, x, y)}
+func glProgramUniform3f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat, z: GLfloat)             {return glProgramUniform3fEXT(program, location, x, y, z)}
+func glProgramUniform4f(program: GLuint, location: GLint, x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat) {return glProgramUniform4fEXT(program, location, x, y, z, w)}
 
 func glProgramUniform1fv(program: GLuint, location: GLint, count: GLsizei, value: UnsafePointer<GLfloat>) {return glProgramUniform1fvEXT(program, location, count, value)}
 func glProgramUniform2fv(program: GLuint, location: GLint, count: GLsizei, value: UnsafePointer<GLfloat>) {return glProgramUniform2fvEXT(program, location, count, value)}
@@ -44,10 +44,26 @@ public class Shader {
     public typealias GLattrib  = GLint
     public typealias GLuniform = GLint
     
-    var id: GLprogram
+    var id: GLprogram = 0
     
     public init() {
-        id = 0
+        
+    }
+    
+    public init(vertexSource: String, fragmentSource: String) {
+        compile(vertexSource, fragmentSource)
+    }
+    
+    public init(vertexSource: String, fragmentSource: String, bindAttibutes: (GLprogram) -> ()) {
+        compile(vertexSource, fragmentSource, bindAttibutes)
+    }
+    
+    public init(vertexFile: String, fragmentFile: String) {
+        load(vertexFile, fragmentFile)
+    }
+    
+    public init(vertexFile: String, fragmentFile: String, bindAttibutes: (GLprogram) -> ()) {
+        load(vertexFile, fragmentFile, bindAttibutes)
     }
     
     deinit {
@@ -55,7 +71,7 @@ public class Shader {
     }
     
     /// @return true on success
-    public func compile(#vertexSource: String, fragmentSource: String) -> Bool {
+    public func compile(vertexSource: String, _ fragmentSource: String) -> Bool {
         glDeleteProgram(id)
         id = glCreateProgram();
         
@@ -100,11 +116,19 @@ public class Shader {
     }
     
     /// @return true on success
+    public func load(shader: String) -> Bool {
+        let vertexSource: String   = String.stringWithContentsOfFile(shader + ".vsh", encoding: NSASCIIStringEncoding, error: nil)!
+        let fragmentSource: String = String.stringWithContentsOfFile(shader + ".fsh", encoding: NSASCIIStringEncoding, error: nil)!
+        
+        return self.compile(vertexSource, fragmentSource)
+    }
+    
+    /// @return true on success
     public func load(vertexFile: String, _ fragmentFile: String) -> Bool {
         let vertexSource: String   = String.stringWithContentsOfFile(vertexFile,   encoding: NSASCIIStringEncoding, error: nil)!
         let fragmentSource: String = String.stringWithContentsOfFile(fragmentFile, encoding: NSASCIIStringEncoding, error: nil)!
         
-        return self.compile(vertexSource: vertexSource, fragmentSource: fragmentSource)
+        return self.compile(vertexSource, fragmentSource)
     }
     
     /// @return true on success
