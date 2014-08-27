@@ -185,36 +185,36 @@ public class Shader {
         glBindTexture(GL_TEXTURE_2D, texture.id)
     }
     
+    private class func ptr <T> (ptr: UnsafePointer<T>) -> UnsafePointer<T> {return ptr}
+    
     private class func compile(type: GLenum, _ source: String) -> GLprogram {
-        /*if let csource = source.cStringUsingEncoding(NSASCIIStringEncoding) {
-            var csrcptr = ConstUnsafePointer<CChar>(csource)
-            var ptrptr: ConstUnsafePointer<ConstUnsafePointer<CChar>> = &csrcptr
+        if let csource: [GLchar] = source.cStringUsingEncoding(NSASCIIStringEncoding) {
+            var cptr = ptr(csource)
+            
+            let shader = glCreateShader(type)
+            glShaderSource(shader, 1, &cptr, nil)
+            glCompileShader(shader)
+            
+            var logLength: GLint = 0
+            glGetShaderiv(shader, GLenum(GL_INFO_LOG_LENGTH), &logLength)
+            if logLength > 0 {
+                let log = UnsafeMutablePointer<CChar>(malloc(UInt(logLength)))
+                glGetShaderInfoLog(shader, logLength, &logLength, log)
+                println("Shader compile log: \(String.stringWithCString(log, encoding: NSASCIIStringEncoding)!)")
+                free(log)
+            }
+            
+            var status: GLint = 0
+            glGetShaderiv(shader, GLenum(GL_COMPILE_STATUS), &status)
+            if status == GLint(GL_FALSE) {
+                println("Failed to compile shader: \(csource)")
+                return 0
+            }
+            
+            return shader
         }
         
-        
-        let shader = glCreateShader(type)
-        glShaderSource(shader, 1, ptrptr, nil)
-        glCompileShader(shader)
-        
-        var logLength: GLint = 0
-        glGetShaderiv(shader, GLenum(GL_INFO_LOG_LENGTH), &logLength)
-        if logLength > 0 {
-            let log = UnsafePointer<CChar>(malloc(UInt(logLength)))
-            glGetShaderInfoLog(shader, logLength, &logLength, log)
-            println("Shader compile log: \(String.stringWithCString(log, encoding: NSASCIIStringEncoding)!)")
-            free(log)
-        }
-        
-        var status: GLint = 0
-        glGetShaderiv(shader, GLenum(GL_COMPILE_STATUS), &status)
-        if status == GLint(GL_FALSE) {
-            println("Failed to compile shader: \(csource)")
-            return 0
-        }
-        
-        return shader*/
-        
-        return swglCompileShader(type, source)
+        return 0
     }
     
     private class func verify(program: GLprogram) -> Bool {

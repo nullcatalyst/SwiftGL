@@ -15,11 +15,3 @@ FOUNDATION_EXPORT double SwiftGLVersionNumber;
 FOUNDATION_EXPORT const unsigned char SwiftGLVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SwiftGL/PublicHeader.h>
-
-#if TARGET_OS_IPHONE
-    #import <OpenGLES/ES2/gl.h>
-#elif TARGET_OS_MAC
-    #import <OpenGL/gl3.h>
-#endif
-
-GLuint swglCompileShader(GLenum type, NSString *source);

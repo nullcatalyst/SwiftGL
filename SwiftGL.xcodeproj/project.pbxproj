@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D21F3F641980AAC400965ECA /* GLSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = D21F3F631980AAC400965ECA /* GLSupport.m */; };
 		D262B7FE19663A37004A2997 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA623219512D24007B2DC2 /* Constants.swift */; };
 		D262B7FF19663A37004A2997 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AE71945263000655A34 /* Float.swift */; };
 		D262B80019663A37004A2997 /* Vec2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AD11944F08E00655A34 /* Vec2.swift */; };
@@ -48,13 +47,10 @@
 		D2A1901C1997F98800830CA4 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A190121997F98800830CA4 /* Vertex.swift */; };
 		D2A1901D1997F9C100830CA4 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AB51944F05700655A34 /* SwiftGL.framework */; };
 		D2A1901E1997F9C100830CA4 /* SwiftGL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AB51944F05700655A34 /* SwiftGL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2AB3ABB1944F05700655A34 /* SwiftGL.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3ABA1944F05700655A34 /* SwiftGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2AB3AC11944F05700655A34 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AB51944F05700655A34 /* SwiftGL.framework */; };
 		D2AB3AC81944F05700655A34 /* SwiftGLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AC71944F05700655A34 /* SwiftGLTests.swift */; };
 		D2AB3AE1194500D900655A34 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3ADF194500D900655A34 /* LICENSE */; };
 		D2AB3AEC194536EB00655A34 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AEB194536EB00655A34 /* OpenGL.framework */; };
-		D2C128231992E9A200AC2E38 /* GLSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = D21F3F631980AAC400965ECA /* GLSupport.m */; };
-		D2EE43481953BEF0007CC56F /* SwiftGL.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AB3ABA1944F05700655A34 /* SwiftGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2EE434A1953BF64007CC56F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EE43491953BF64007CC56F /* OpenGLES.framework */; };
 		D2EE43551953E42F007CC56F /* GLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EE43541953E42F007CC56F /* GLTest.m */; };
 /* End PBXBuildFile section */
@@ -92,7 +88,6 @@
 
 /* Begin PBXFileReference section */
 		D20662C01947D8D2001D2FAC /* Mat4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mat4.swift; sourceTree = "<group>"; };
-		D21F3F631980AAC400965ECA /* GLSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSupport.m; sourceTree = "<group>"; };
 		D2A18FDF1997F8E000830CA4 /* SwiftGL-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftGL-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A18FE21997F8E000830CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2A18FE81997F8E000830CA4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -114,7 +109,6 @@
 		D2A190121997F98800830CA4 /* Vertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
 		D2AB3AB51944F05700655A34 /* SwiftGL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB3AB91944F05700655A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2AB3ABA1944F05700655A34 /* SwiftGL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftGL.h; sourceTree = "<group>"; };
 		D2AB3AC01944F05700655A34 /* SwiftGLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB3AC61944F05700655A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AB3AC71944F05700655A34 /* SwiftGLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGLTests.swift; sourceTree = "<group>"; };
@@ -258,8 +252,6 @@
 		D2AB3AB71944F05700655A34 /* SwiftGL */ = {
 			isa = PBXGroup;
 			children = (
-				D2AB3ABA1944F05700655A34 /* SwiftGL.h */,
-				D21F3F631980AAC400965ECA /* GLSupport.m */,
 				D2CA623219512D24007B2DC2 /* Constants.swift */,
 				D2AB3AE71945263000655A34 /* Float.swift */,
 				D2AB3AD11944F08E00655A34 /* Vec2.swift */,
@@ -310,7 +302,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2AB3ABB1944F05700655A34 /* SwiftGL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +309,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2EE43481953BEF0007CC56F /* SwiftGL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,7 +495,6 @@
 			files = (
 				D262B80B19663A52004A2997 /* Constants.swift in Sources */,
 				D262B80C19663A52004A2997 /* Float.swift in Sources */,
-				D21F3F641980AAC400965ECA /* GLSupport.m in Sources */,
 				D262B80D19663A52004A2997 /* Vec2.swift in Sources */,
 				D262B80E19663A52004A2997 /* Vec3.swift in Sources */,
 				D262B80F19663A52004A2997 /* Vec4.swift in Sources */,
@@ -531,7 +520,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2C128231992E9A200AC2E38 /* GLSupport.m in Sources */,
 				D262B7FE19663A37004A2997 /* Constants.swift in Sources */,
 				D262B7FF19663A37004A2997 /* Float.swift in Sources */,
 				D262B80019663A37004A2997 /* Vec2.swift in Sources */,
@@ -648,7 +636,6 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SwiftGL;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -687,7 +674,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = SwiftGL;
-				SWIFT_OPTIMIZATION_LEVEL = "-Ofast";
+				SWIFT_OPTIMIZATION_LEVEL = "-Ounchecked";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -708,6 +695,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -747,7 +735,6 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftGLTests/SwiftGLTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -771,6 +758,7 @@
 		D2EE43421953BE91007CC56F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -781,6 +769,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -788,6 +777,7 @@
 		D2EE43431953BE91007CC56F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -813,6 +803,7 @@
 				D2A18FFA1997F8E100830CA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2AB3AAF1944F05700655A34 /* Build configuration list for PBXProject "SwiftGL" */ = {
 			isa = XCConfigurationList;

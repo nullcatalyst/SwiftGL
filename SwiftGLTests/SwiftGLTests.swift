@@ -57,7 +57,7 @@ class SwiftGLTests: XCTestCase {
     func testMatrix() {
         context.makeCurrentContext()
         
-        if context {
+        if context != nil {
             println("Context is valid")
         }
         /*

@@ -11,7 +11,7 @@
 import OpenGL.GL3
 
 // glDebug(__FILE__, __LINE__)
-public func glDebug(filename: String, line: CInt) {
+public func glDebug(filename: String, line: Int) {
     var error = glGetError()
     while error != GLenum(GL_NO_ERROR) {
         var errMsg: String
@@ -113,7 +113,7 @@ public let GL_FRONT_AND_BACK       = GLenum(OpenGL.GL_FRONT_AND_BACK)
 import OpenGLES.ES2.gl
 
 // glDebug(__FILE__, __LINE__)
-public func glDebug(filename: String, line: CInt) {
+public func glDebug(filename: String, line: Int) {
     var error = glGetError()
     while error != GLenum(GL_NO_ERROR) {
         var errMsg: String

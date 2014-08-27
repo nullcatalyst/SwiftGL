@@ -7,7 +7,6 @@
 //
 
 #import <OpenGL/gl.h>
-#import <SwiftGL/SwiftGL.h>
 
 void swglGetMatrix(float matrix[]) {
     glGetFloatv(GL_MODELVIEW_MATRIX, matrix);
