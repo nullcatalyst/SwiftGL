@@ -129,5 +129,11 @@ public func length(v: Vec2) -> CFloat {return v.length}
 public func length2(v: Vec2) -> CFloat {return v.length2}
 public func normalize(v: Vec2) -> Vec2 {return v / v.length}
 public func dot(a: Vec2, b: Vec2) -> CFloat {return a.x * b.x + a.y * b.y}
-public func mix(a: Vec2, b: Vec2, t: Vec2) -> Vec2 {return a + (b - a) * t}
+
+public func clamp(value: Vec2, min: CFloat, max: CFloat) -> Vec2 {return Vec2(clamp(value.x, min, max), clamp(value.y, min, max))}
 public func mix(a: Vec2, b: Vec2, t: CFloat) -> Vec2 {return a + (b - a) * t}
+public func smoothstep(a: Vec2, b: Vec2, t: CFloat) -> Vec2 {return mix(a, b, t * t * (3 - 2 * t))}
+
+public func clamp(value: Vec2, min: Vec2, max: Vec2) -> Vec2 {return Vec2(clamp(value.x, min.x, max.x), clamp(value.y, min.y, max.y))}
+public func mix(a: Vec2, b: Vec2, t: Vec2) -> Vec2 {return a + (b - a) * t}
+public func smoothstep(a: Vec2, b: Vec2, t: Vec2) -> Vec2 {return mix(a, b, t * t * (Vec2(s: 3) - 2 * t))}

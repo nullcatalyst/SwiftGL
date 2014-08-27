@@ -30,6 +30,6 @@ public func sin(#degrees: CFloat) -> CFloat {return sinf(radians(degrees))}
 public func cos(#degrees: CFloat) -> CFloat {return cosf(radians(degrees))}
 public func tan(#degrees: CFloat) -> CFloat {return tanf(radians(degrees))}
 
-public func mix(a: CFloat, b: CFloat, t: CFloat) -> CFloat {return a + (b - a) * t}
-
 public func clamp(value: CFloat, min: CFloat, max: CFloat) -> CFloat {return value < min ? min : (value > max ? max : value)}
+public func mix(a: CFloat, b: CFloat, t: CFloat) -> CFloat {return a + (b - a) * t}
+public func smoothstep(a: CFloat, b: CFloat, t: CFloat) -> CFloat {return mix(a, b, clamp(t * t * (3 - 2 * t), 0, 1))}
