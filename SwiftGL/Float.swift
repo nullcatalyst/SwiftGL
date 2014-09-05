@@ -8,28 +8,28 @@
 
 import Darwin
 
-public let Pi = CFloat(M_PI)
+public let Pi = Float(M_PI)
 
-public func radians(degrees: CFloat) -> CFloat {return degrees * Pi / 180}
-public func degrees(radians: CFloat) -> CFloat {return radians * 180 / Pi}
+public func radians(degrees: Float) -> Float {return degrees * Pi / 180}
+public func degrees(radians: Float) -> Float {return radians * 180 / Pi}
 
-public func sign(value: CFloat) -> CFloat {return (value > 0 ? 1 : (value < 0 ? -1 : 0))}
+public func sign(value: Float) -> Float {return (value > 0 ? 1 : (value < 0 ? -1 : 0))}
 
 // Overload some mathematical functions to make them easier to call without having to worry about as many casts
-public func sqrt(value: CFloat)  -> CFloat {return sqrtf(value);}
+public func sqrt(value: Float)  -> Float {return sqrtf(value);}
 
-public func sin(radians: CFloat) -> CFloat {return sinf(radians)}
-public func cos(radians: CFloat) -> CFloat {return cosf(radians)}
-public func tan(radians: CFloat) -> CFloat {return tanf(radians)}
+public func sin(radians: Float) -> Float {return sinf(radians)}
+public func cos(radians: Float) -> Float {return cosf(radians)}
+public func tan(radians: Float) -> Float {return tanf(radians)}
 
-public func sin(#radians: CFloat) -> CFloat {return sinf(radians)}
-public func cos(#radians: CFloat) -> CFloat {return cosf(radians)}
-public func tan(#radians: CFloat) -> CFloat {return tanf(radians)}
+public func sin(#radians: Float) -> Float {return sinf(radians)}
+public func cos(#radians: Float) -> Float {return cosf(radians)}
+public func tan(#radians: Float) -> Float {return tanf(radians)}
 
-public func sin(#degrees: CFloat) -> CFloat {return sinf(radians(degrees))}
-public func cos(#degrees: CFloat) -> CFloat {return cosf(radians(degrees))}
-public func tan(#degrees: CFloat) -> CFloat {return tanf(radians(degrees))}
+public func sin(#degrees: Float) -> Float {return sinf(radians(degrees))}
+public func cos(#degrees: Float) -> Float {return cosf(radians(degrees))}
+public func tan(#degrees: Float) -> Float {return tanf(radians(degrees))}
 
-public func clamp(value: CFloat, min: CFloat, max: CFloat) -> CFloat {return value < min ? min : (value > max ? max : value)}
-public func mix(a: CFloat, b: CFloat, t: CFloat) -> CFloat {return a + (b - a) * t}
-public func smoothstep(a: CFloat, b: CFloat, t: CFloat) -> CFloat {return mix(a, b, clamp(t * t * (3 - 2 * t), 0, 1))}
+public func clamp(value: Float, min: Float, max: Float) -> Float {return value < min ? min : (value > max ? max : value)}
+public func mix(a: Float, b: Float, t: Float) -> Float {return a + (b - a) * t}
+public func smoothstep(a: Float, b: Float, t: Float) -> Float {return mix(a, b, clamp(t * t * (3 - 2 * t), 0, 1))}

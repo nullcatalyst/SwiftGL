@@ -152,10 +152,10 @@ public class Shader {
     }
     
     // Bind Uniforms using Uniform Location
-    public func bind(uniform: GLuniform, _ x: CFloat) {glProgramUniform1f(id, uniform, x)}
-    public func bind(uniform: GLuniform, _ x: CFloat, _ y: CFloat) {glProgramUniform2f(id, uniform, x, y)}
-    public func bind(uniform: GLuniform, _ x: CFloat, _ y: CFloat, _ z: CFloat) {glProgramUniform3f(id, uniform, x, y, z)}
-    public func bind(uniform: GLuniform, _ x: CFloat, _ y: CFloat, _ z: CFloat, _ w: CFloat) {glProgramUniform4f(id, uniform, x, y, z, w)}
+    public func bind(uniform: GLuniform, _ x: Float) {glProgramUniform1f(id, uniform, x)}
+    public func bind(uniform: GLuniform, _ x: Float, _ y: Float) {glProgramUniform2f(id, uniform, x, y)}
+    public func bind(uniform: GLuniform, _ x: Float, _ y: Float, _ z: Float) {glProgramUniform3f(id, uniform, x, y, z)}
+    public func bind(uniform: GLuniform, _ x: Float, _ y: Float, _ z: Float, _ w: Float) {glProgramUniform4f(id, uniform, x, y, z, w)}
     public func bind(uniform: GLuniform, _ v: Vec2) {glProgramUniform2fv(id, uniform, 1, UnsafePointer([v]))}
     public func bind(uniform: GLuniform, _ v: Vec3) {glProgramUniform3fv(id, uniform, 1, UnsafePointer([v]))}
     public func bind(uniform: GLuniform, _ v: Vec4) {glProgramUniform4fv(id, uniform, 1, UnsafePointer([v]))}
@@ -169,10 +169,10 @@ public class Shader {
     }
     
     // Bind Uniforms using String
-    public func bind(uniform: String, _ x: CFloat) {glProgramUniform1f(id, self.uniform(uniform), x)}
-    public func bind(uniform: String, _ x: CFloat, _ y: CFloat) {glProgramUniform2f(id, self.uniform(uniform), x, y)}
-    public func bind(uniform: String, _ x: CFloat, _ y: CFloat, _ z: CFloat) {glProgramUniform3f(id, self.uniform(uniform), x, y, z)}
-    public func bind(uniform: String, _ x: CFloat, _ y: CFloat, _ z: CFloat, _ w: CFloat) {glProgramUniform4f(id, self.uniform(uniform), x, y, z, w)}
+    public func bind(uniform: String, _ x: Float) {glProgramUniform1f(id, self.uniform(uniform), x)}
+    public func bind(uniform: String, _ x: Float, _ y: Float) {glProgramUniform2f(id, self.uniform(uniform), x, y)}
+    public func bind(uniform: String, _ x: Float, _ y: Float, _ z: Float) {glProgramUniform3f(id, self.uniform(uniform), x, y, z)}
+    public func bind(uniform: String, _ x: Float, _ y: Float, _ z: Float, _ w: Float) {glProgramUniform4f(id, self.uniform(uniform), x, y, z, w)}
     public func bind(uniform: String, _ v: Vec2) {glProgramUniform2fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}
     public func bind(uniform: String, _ v: Vec3) {glProgramUniform3fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}
     public func bind(uniform: String, _ v: Vec4) {glProgramUniform4fv(id, self.uniform(uniform), 1, UnsafePointer([v]))}

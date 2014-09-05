@@ -9,7 +9,7 @@
 import Darwin
 
 public struct Vec4 {
-    public var x, y, z, w: CFloat
+    public var x, y, z, w: Float
     
     public init() {
         self.x = 0
@@ -20,56 +20,56 @@ public struct Vec4 {
     
     // Explicit Initializers
     
-    public init(s: CFloat) {
+    public init(s: Float) {
         self.x = s
         self.y = s
         self.z = s
         self.w = s
     }
     
-    public init(x: CFloat) {
+    public init(x: Float) {
         self.x = x
         self.y = 0
         self.z = 0
         self.w = 1
     }
     
-    public init(x: CFloat, y: CFloat) {
+    public init(x: Float, y: Float) {
         self.x = x
         self.y = y
         self.z = 0
         self.w = 1
     }
     
-    public init(x: CFloat, y: CFloat, z: CFloat) {
+    public init(x: Float, y: Float, z: Float) {
         self.x = x
         self.y = y
         self.z = z
         self.w = 1
     }
     
-    public init(x: CFloat, y: CFloat, z: CFloat, w: CFloat) {
+    public init(x: Float, y: Float, z: Float, w: Float) {
         self.x = x
         self.y = y
         self.z = z
         self.w = w
     }
     
-    public init(xy: Vec2, z: CFloat, w: CFloat) {
+    public init(xy: Vec2, z: Float, w: Float) {
         self.x = xy.x
         self.y = xy.y
         self.z = z
         self.w = w
     }
     
-    public init(x: CFloat, yz: Vec2, w: CFloat) {
+    public init(x: Float, yz: Vec2, w: Float) {
         self.x = x
         self.y = yz.x
         self.z = yz.y
         self.w = w
     }
     
-    public init(x: CFloat, y: CFloat, zw: Vec2) {
+    public init(x: Float, y: Float, zw: Vec2) {
         self.x = x
         self.y = y
         self.z = zw.x
@@ -83,14 +83,14 @@ public struct Vec4 {
         self.w = zw.y
     }
     
-    public init(xyz: Vec3, w: CFloat) {
+    public init(xyz: Vec3, w: Float) {
         self.x = xyz.x
         self.y = xyz.y
         self.z = xyz.z
         self.w = w
     }
     
-    public init(x: CFloat, yzw: Vec3) {
+    public init(x: Float, yzw: Vec3) {
         self.x = x
         self.y = yzw.x
         self.z = yzw.y
@@ -99,49 +99,49 @@ public struct Vec4 {
     
     // Implicit Initializers
     
-    public init(_ x: CFloat) {
+    public init(_ x: Float) {
         self.x = x
         self.y = 0
         self.z = 0
         self.w = 1
     }
     
-    public init(_ x: CFloat, _ y: CFloat) {
+    public init(_ x: Float, _ y: Float) {
         self.x = x
         self.y = y
         self.z = 0
         self.w = 1
     }
     
-    public init(_ x: CFloat, _ y: CFloat, _ z: CFloat) {
+    public init(_ x: Float, _ y: Float, _ z: Float) {
         self.x = x
         self.y = y
         self.z = z
         self.w = 1
     }
     
-    public init(_ x: CFloat, _ y: CFloat, _ z: CFloat, _ w: CFloat) {
+    public init(_ x: Float, _ y: Float, _ z: Float, _ w: Float) {
         self.x = x
         self.y = y
         self.z = z
         self.w = w
     }
     
-    public init(_ xy: Vec2, _ z: CFloat, _ w: CFloat) {
+    public init(_ xy: Vec2, _ z: Float, _ w: Float) {
         self.x = xy.x
         self.y = xy.y
         self.z = z
         self.w = w
     }
     
-    public init(_ x: CFloat, _ yz: Vec2, _ w: CFloat) {
+    public init(_ x: Float, _ yz: Vec2, _ w: Float) {
         self.x = x
         self.y = yz.x
         self.z = yz.y
         self.w = w
     }
     
-    public init(_ x: CFloat, _ y: CFloat, _ zw: Vec2) {
+    public init(_ x: Float, _ y: Float, _ zw: Vec2) {
         self.x = x
         self.y = y
         self.z = zw.x
@@ -155,27 +155,27 @@ public struct Vec4 {
         self.w = zw.y
     }
     
-    public init(_ xyz: Vec3, _ w: CFloat) {
+    public init(_ xyz: Vec3, _ w: Float) {
         self.x = xyz.x
         self.y = xyz.y
         self.z = xyz.z
         self.w = w
     }
     
-    public init(_ x: CFloat, _ yzw: Vec3) {
+    public init(_ x: Float, _ yzw: Vec3) {
         self.x = x
         self.y = yzw.x
         self.z = yzw.y
         self.w = yzw.z
     }
     
-    public var length2: CFloat {
+    public var length2: Float {
         get {
             return x * x + y * y + z * z + w * w
         }
     }
     
-    public var length: CFloat {
+    public var length: Float {
         get {
             return sqrt(self.length2)
         }
@@ -543,9 +543,9 @@ public func * (a: Vec4, b: Vec4) -> Vec4 {return Vec4(x: a.x * b.x, y: a.y * b.y
 public func / (a: Vec4, b: Vec4) -> Vec4 {return Vec4(x: a.x / b.x, y: a.y / b.y, z: a.z / b.z, w: a.w / b.w)}
 
 // Vec2 Scalar Operators
-public func * (s: CFloat, v: Vec4) -> Vec4 {return Vec4(x: s * v.x, y: s * v.y, z: s * v.z, w: s * v.w)}
-public func * (v: Vec4, s: CFloat) -> Vec4 {return Vec4(x: v.x * s, y: v.y * s, z: v.z * s, w: v.w * s)}
-public func / (v: Vec4, s: CFloat) -> Vec4 {return Vec4(x: v.x / s, y: v.y / s, z: v.z / s, w: v.w / s)}
+public func * (s: Float, v: Vec4) -> Vec4 {return Vec4(x: s * v.x, y: s * v.y, z: s * v.z, w: s * v.w)}
+public func * (v: Vec4, s: Float) -> Vec4 {return Vec4(x: v.x * s, y: v.y * s, z: v.z * s, w: v.w * s)}
+public func / (v: Vec4, s: Float) -> Vec4 {return Vec4(x: v.x / s, y: v.y / s, z: v.z / s, w: v.w / s)}
 
 // Vec4 Assignment Operators
 public func += (inout a: Vec4, b: Vec4) {a = a + b}
@@ -553,18 +553,18 @@ public func -= (inout a: Vec4, b: Vec4) {a = a - b}
 public func *= (inout a: Vec4, b: Vec4) {a = a * b}
 public func /= (inout a: Vec4, b: Vec4) {a = a / b}
 
-public func *= (inout a: Vec4, b: CFloat) {a = a * b}
-public func /= (inout a: Vec4, b: CFloat) {a = a / b}
+public func *= (inout a: Vec4, b: Float) {a = a * b}
+public func /= (inout a: Vec4, b: Float) {a = a / b}
 
 // Functions which operate on Vec2
-public func length(v: Vec4) -> CFloat {return v.length}
-public func length2(v: Vec4) -> CFloat {return v.length2}
+public func length(v: Vec4) -> Float {return v.length}
+public func length2(v: Vec4) -> Float {return v.length2}
 public func normalize(v: Vec4) -> Vec4 {return v / v.length}
-public func dot(a: Vec4, b: Vec4) -> CFloat {return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w}
+public func dot(a: Vec4, b: Vec4) -> Float {return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w}
 
-public func clamp(value: Vec4, min: CFloat, max: CFloat) -> Vec4 {return Vec4(clamp(value.x, min, max), clamp(value.y, min, max), clamp(value.z, min, max), clamp(value.w, min, max))}
-public func mix(a: Vec4, b: Vec4, t: CFloat) -> Vec4 {return a + (b - a) * t}
-public func smoothstep(a: Vec4, b: Vec4, t: CFloat) -> Vec4 {return mix(a, b, t * t * (3 - 2 * t))}
+public func clamp(value: Vec4, min: Float, max: Float) -> Vec4 {return Vec4(clamp(value.x, min, max), clamp(value.y, min, max), clamp(value.z, min, max), clamp(value.w, min, max))}
+public func mix(a: Vec4, b: Vec4, t: Float) -> Vec4 {return a + (b - a) * t}
+public func smoothstep(a: Vec4, b: Vec4, t: Float) -> Vec4 {return mix(a, b, t * t * (3 - 2 * t))}
 
 public func clamp(value: Vec4, min: Vec4, max: Vec4) -> Vec4 {return Vec4(clamp(value.x, min.x, max.x), clamp(value.y, min.y, max.y), clamp(value.z, min.z, max.z), clamp(value.w, min.w, max.w))}
 public func mix(a: Vec4, b: Vec4, t: Vec4) -> Vec4 {return a + (b - a) * t}

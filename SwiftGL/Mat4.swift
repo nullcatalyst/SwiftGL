@@ -20,10 +20,10 @@ public struct Mat4 {
         self.w = wCol
     }
     
-    public init(xx: CFloat, yx: CFloat, zx: CFloat, wx: CFloat,
-                xy: CFloat, yy: CFloat, zy: CFloat, wy: CFloat,
-                xz: CFloat, yz: CFloat, zz: CFloat, wz: CFloat,
-                xw: CFloat, yw: CFloat, zw: CFloat, ww: CFloat) {
+    public init(xx: Float, yx: Float, zx: Float, wx: Float,
+                xy: Float, yy: Float, zy: Float, wy: Float,
+                xz: Float, yz: Float, zz: Float, wz: Float,
+                xw: Float, yw: Float, zw: Float, ww: Float) {
         self.x = Vec4(x: xx, y: xy, z: xz, w: xw)
         self.y = Vec4(x: yx, y: yy, z: yz, w: yw)
         self.z = Vec4(x: zx, y: zy, z: zz, w: zw)
@@ -39,10 +39,10 @@ public struct Mat4 {
         self.w = wCol
     }
     
-    public init(_ xx: CFloat, _ yx: CFloat, _ zx: CFloat, _ wx: CFloat,
-                _ xy: CFloat, _ yy: CFloat, _ zy: CFloat, _ wy: CFloat,
-                _ xz: CFloat, _ yz: CFloat, _ zz: CFloat, _ wz: CFloat,
-                _ xw: CFloat, _ yw: CFloat, _ zw: CFloat, _ ww: CFloat) {
+    public init(_ xx: Float, _ yx: Float, _ zx: Float, _ wx: Float,
+                _ xy: Float, _ yy: Float, _ zy: Float, _ wy: Float,
+                _ xz: Float, _ yz: Float, _ zz: Float, _ wz: Float,
+                _ xw: Float, _ yw: Float, _ zw: Float, _ ww: Float) {
             self.x = Vec4(x: xx, y: xy, z: xz, w: xw)
             self.y = Vec4(x: yx, y: yy, z: yz, w: yw)
             self.z = Vec4(x: zx, y: zy, z: zz, w: zw)
@@ -88,7 +88,7 @@ public extension Mat4 { // Affine transformations
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    public static func rotateX(radians: CFloat) -> Mat4 {
+    public static func rotateX(radians: Float) -> Mat4 {
         var c = cos(radians)
         var s = sin(radians)
         return Mat4(xx: 1, yx: 0, zx:  0, wx: 0,
@@ -97,7 +97,7 @@ public extension Mat4 { // Affine transformations
                     xw: 0, yw: 0, zw:  0, ww: 1)
     }
     
-    public static func rotateY(radians: CFloat) -> Mat4 {
+    public static func rotateY(radians: Float) -> Mat4 {
         var c = cos(radians)
         var s = sin(radians)
         return Mat4(xx:  c, yx: 0, zx: s, wx: 0,
@@ -106,7 +106,7 @@ public extension Mat4 { // Affine transformations
                     xw:  0, yw: 0, zw: 0, ww: 1)
     }
     
-    public static func rotateZ(radians: CFloat) -> Mat4 {
+    public static func rotateZ(radians: Float) -> Mat4 {
         var c = cos(radians)
         var s = sin(radians)
         return Mat4(xx: c, yx: -s, zx: 0, wx: 0,
@@ -115,7 +115,7 @@ public extension Mat4 { // Affine transformations
                     xw: 0, yw:  0, zw: 0, ww: 1)
     }
     
-    public static func rotate(radians: CFloat, x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
+    public static func rotate(radians: Float, x: Float, y: Float, z: Float) -> Mat4 {
         var v = normalize(Vec3(x: x, y: y, z: z))
         var c = cos(radians)
         var p = 1 - c
@@ -126,7 +126,7 @@ public extension Mat4 { // Affine transformations
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    public static func rotate(radians: CFloat, v: Vec3) -> Mat4 {
+    public static func rotate(radians: Float, v: Vec3) -> Mat4 {
         var u = normalize(v)
         var c = cos(radians)
         var p = 1 - c
@@ -137,14 +137,14 @@ public extension Mat4 { // Affine transformations
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    public static func translate(#x: CFloat, y: CFloat) -> Mat4 {
+    public static func translate(#x: Float, y: Float) -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: x,
                     xy: 0, yy: 1, zy: 0, wy: y,
                     xz: 0, yz: 0, zz: 1, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    public static func translate(#x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
+    public static func translate(#x: Float, y: Float, z: Float) -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: x,
                     xy: 0, yy: 1, zy: 0, wy: y,
                     xz: 0, yz: 0, zz: 1, wz: z,
@@ -165,21 +165,21 @@ public extension Mat4 { // Affine transformations
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    public static func scale(s: CFloat) -> Mat4 {
+    public static func scale(s: Float) -> Mat4 {
         return Mat4(xx: s, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: s, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: s, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    public static func scale(#x: CFloat, y: CFloat) -> Mat4 {
+    public static func scale(#x: Float, y: Float) -> Mat4 {
         return Mat4(xx: x, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: y, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: 1, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    public static func scale(#x: CFloat, y: CFloat, z: CFloat) -> Mat4 {
+    public static func scale(#x: Float, y: Float, z: Float) -> Mat4 {
         return Mat4(xx: x, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: y, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: z, wz: 0,
@@ -202,14 +202,14 @@ public extension Mat4 { // Affine transformations
 }
 
 public extension Mat4 { // Projection transformations
-    public static func ortho(#width: CFloat, height: CFloat, depth: CFloat) -> Mat4 {
+    public static func ortho(#width: Float, height: Float, depth: Float) -> Mat4 {
         return Mat4(xx: 0.5 / width, yx: 0, zx: 0, wx: 0,
                     xy: 0, yy: 0.5 / height, zy: 0, wy: 0,
                     xz: 0, yz: 0, zz: -0.5 / depth, wz: 0,
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    public static func ortho(#width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func ortho(#width: Float, height: Float, near: Float, far: Float) -> Mat4 {
         var fan = far + near
         var fsn = far - near
         return Mat4(xx: 0.5 / width, yx: 0, zx: 0, wx: 0,
@@ -218,7 +218,7 @@ public extension Mat4 { // Projection transformations
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    public static func ortho(#left: CFloat, right: CFloat, bottom: CFloat, top: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func ortho(#left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float) -> Mat4 {
         var ral = right + left
         var rsl = right - left
         var tab = top + bottom
@@ -231,7 +231,7 @@ public extension Mat4 { // Projection transformations
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
     
-    public static func frustum(#width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func frustum(#width: Float, height: Float, near: Float, far: Float) -> Mat4 {
         var fan = far + near
         var fsn = far - near
         return Mat4(xx: near / width, yx: 0, zx: 0, wx: 0,
@@ -240,7 +240,7 @@ public extension Mat4 { // Projection transformations
                     xw: 0, yw: 0, zw: -1, ww: 0)
     }
     
-    public static func frustum(#left: CFloat, right: CFloat, bottom: CFloat, top: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func frustum(#left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float) -> Mat4 {
         var ral = right + left
         var rsl = right - left
         var tsb = top - bottom
@@ -253,7 +253,7 @@ public extension Mat4 { // Projection transformations
                     xw: 0, yw: 0, zw: -1, ww: 0)
     }
     
-    public static func perspective(#fovy: CFloat, aspect: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func perspective(#fovy: Float, aspect: Float, near: Float, far: Float) -> Mat4 {
         var cot = 1 / tan(fovy / 2)
         
         return Mat4(xx: cot / aspect, yx: 0, zx: 0, wx: 0,
@@ -262,7 +262,7 @@ public extension Mat4 { // Projection transformations
                     xw: 0, yw: 0, zw: -1, ww: 0)
     }
     
-    public static func perspective(#fovy: CFloat, width: CFloat, height: CFloat, near: CFloat, far: CFloat) -> Mat4 {
+    public static func perspective(#fovy: Float, width: Float, height: Float, near: Float, far: Float) -> Mat4 {
         var cot = 1 / tan(fovy / 2)
         var aspect = width / height
         

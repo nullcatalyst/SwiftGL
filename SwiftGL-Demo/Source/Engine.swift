@@ -8,14 +8,14 @@
 
 import Foundation
 
-var viewWidth: CFloat  = 1
-var viewHeight: CFloat = 1
+var viewWidth: Float  = 1
+var viewHeight: Float = 1
 var currentScene: Scene?
 
 @objc class Engine {
     // "Class variables are not yet supported"
-//    class var width: CFloat
-//    class var height: CFloat
+//    class var width: Float
+//    class var height: Float
 //    class var scene: Scene?
     
     class var scene: Scene? {
@@ -36,7 +36,7 @@ var currentScene: Scene?
         currentScene?.render()
     }
     
-    class func resize(#width: CFloat, height: CFloat) {
+    class func resize(#width: Float, height: Float) {
         viewWidth  = width
         viewHeight = height
         currentScene?.resize(width: viewWidth, height: viewHeight)

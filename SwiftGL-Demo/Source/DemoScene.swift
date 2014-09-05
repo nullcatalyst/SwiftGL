@@ -117,7 +117,7 @@ class DemoScene: Scene {
         glDrawElements(GL_TRIANGLE_STRIP, 34, GL_UNSIGNED_SHORT, nil)
     }
     
-    func resize(#width: CFloat, height: CFloat) {
+    func resize(#width: Float, height: Float) {
         projection = Mat4.perspective(fovy: radians(45), width: width, height: height, near: 1, far: 9)
     }
 }

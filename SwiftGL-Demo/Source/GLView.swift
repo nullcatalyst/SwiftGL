@@ -89,7 +89,7 @@ extension GLView {
 //        let viewRectPixels = convertRectToBacking(viewRectPoints)
 //        
 //        // Set the new dimensions in our renderer
-//        Engine.resize(width: CFloat(viewRectPixels.size.width), height: CFloat(viewRectPixels.size.height))
+//        Engine.resize(width: Float(viewRectPixels.size.width), height: Float(viewRectPixels.size.height))
 //        
 //        CGLUnlockContext(openGLContext.CGLContextObj)
 //    }

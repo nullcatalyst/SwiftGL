@@ -12,5 +12,5 @@ protocol Scene {
     func update()
     func render()
     
-    func resize(#width: CFloat, height: CFloat)
+    func resize(#width: Float, height: Float)
 }

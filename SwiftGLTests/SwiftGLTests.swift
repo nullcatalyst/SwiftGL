@@ -50,8 +50,8 @@ class SwiftGLTests: XCTestCase {
         XCTAssert(true, "Pass")
     }
     
-//    func toPtr(data: CConstVoidPointer) -> CConstPointer<CFloat> {
-//        return CConstPointer<CFloat>(self, data.value)
+//    func toPtr(data: CConstVoidPointer) -> CConstPointer<Float> {
+//        return CConstPointer<Float>(self, data.value)
 //    }
     
     func testMatrix() {
@@ -61,7 +61,7 @@ class SwiftGLTests: XCTestCase {
             println("Context is valid")
         }
         /*
-        var ogl: CFloat[] = [
+        var ogl: Float[] = [
             0, 0, 0, 0,
             0, 0, 0, 0,
             0, 0, 0, 0,
@@ -96,7 +96,7 @@ class SwiftGLTests: XCTestCase {
         let grey  = Color(r: 127, g: 127, b: 127, a: 255)
         
         XCTAssertEqual(Color(rf: 0.5, gf: 0.5, bf: 0.5), grey)
-        XCTAssertEqual(mix(black, white, CFloat(0.5)), grey)
+        XCTAssertEqual(mix(black, white, Float(0.5)), grey)
     }
     
 //    func testPerformanceExample() {

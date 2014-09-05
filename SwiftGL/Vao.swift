@@ -37,7 +37,7 @@ public protocol GLType {
     class var glSize: GLint {get}
 }
 
-extension CFloat: GLType {
+extension Float: GLType {
     public static var glType: GLenum {get {return GL_FLOAT}}
     public static var glNormalized: GLboolean {get {return GL_FALSE}}
     public static var glSize: GLint {get {return 1}}
