@@ -18,7 +18,7 @@ class SwiftGLTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        let attributes = [
+        let attributes: [NSOpenGLPixelFormatAttribute] = [
             // Must specify the 3.2 Core Profile to use OpenGL 3.2
 //            NSOpenGLPixelFormatAttribute(NSOpenGLPFAOpenGLProfile), NSOpenGLPixelFormatAttribute(NSOpenGLProfileVersion3_2Core),
             

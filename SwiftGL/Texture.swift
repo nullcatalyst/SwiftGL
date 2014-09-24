@@ -28,6 +28,12 @@ public class Texture {
         glGenTextures(1, &id)
     }
     
+    public convenience init(filename: String) {
+        self.init()
+        
+        load(filename: filename)
+    }
+    
     deinit {
         glDeleteTextures(1, &id)
     }
