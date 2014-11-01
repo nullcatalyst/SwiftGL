@@ -117,26 +117,35 @@ public class Shader {
     
     /// @return true on success
     public func load(shader: String) -> Bool {
-        let vertexSource: String   = String.stringWithContentsOfFile(shader + ".vsh", encoding: NSASCIIStringEncoding, error: nil)!
-        let fragmentSource: String = String.stringWithContentsOfFile(shader + ".fsh", encoding: NSASCIIStringEncoding, error: nil)!
+        if let vertexSource = String(contentsOfFile: shader + ".vsh",   encoding: NSASCIIStringEncoding, error: nil) {
+            if let fragmentSource = String(contentsOfFile: shader + ".fsh", encoding: NSASCIIStringEncoding, error: nil) {
+                return self.compile(vertexSource, fragmentSource)
+            }
+        }
         
-        return self.compile(vertexSource, fragmentSource)
+        return false
     }
     
     /// @return true on success
     public func load(vertexFile: String, _ fragmentFile: String) -> Bool {
-        let vertexSource: String   = String.stringWithContentsOfFile(vertexFile,   encoding: NSASCIIStringEncoding, error: nil)!
-        let fragmentSource: String = String.stringWithContentsOfFile(fragmentFile, encoding: NSASCIIStringEncoding, error: nil)!
+        if let vertexSource = String(contentsOfFile: vertexFile,   encoding: NSASCIIStringEncoding, error: nil) {
+            if let fragmentSource = String(contentsOfFile: fragmentFile, encoding: NSASCIIStringEncoding, error: nil) {
+                return self.compile(vertexSource, fragmentSource)
+            }
+        }
         
-        return self.compile(vertexSource, fragmentSource)
+        return false
     }
     
     /// @return true on success
     public func load(vertexFile: String, _ fragmentFile: String, _ bindAttibutes: (GLprogram) -> ()) -> Bool {
-        let vertexSource: String   = String.stringWithContentsOfFile(vertexFile,   encoding: NSASCIIStringEncoding, error: nil)!
-        let fragmentSource: String = String.stringWithContentsOfFile(fragmentFile, encoding: NSASCIIStringEncoding, error: nil)!
+        if let vertexSource = String(contentsOfFile: vertexFile,   encoding: NSASCIIStringEncoding, error: nil) {
+            if let fragmentSource = String(contentsOfFile: fragmentFile, encoding: NSASCIIStringEncoding, error: nil) {
+                return self.compile(vertexSource, fragmentSource, bindAttibutes)
+            }
+        }
         
-        return self.compile(vertexSource, fragmentSource, bindAttibutes)
+        return false
     }
     
     public func bind() {
@@ -200,7 +209,7 @@ public class Shader {
             if logLength > 0 {
                 let log = UnsafeMutablePointer<CChar>(malloc(UInt(logLength)))
                 glGetShaderInfoLog(shader, logLength, &logLength, log)
-                println("Shader compile log: \(String.stringWithCString(log, encoding: NSASCIIStringEncoding)!)")
+                println("Shader compile log: \(String(CString: log, encoding: NSASCIIStringEncoding)!)")
                 free(log)
             }
             
@@ -226,7 +235,7 @@ public class Shader {
         if logLength > 0 {
             let log = UnsafeMutablePointer<CChar>(malloc(UInt(logLength)))
             glGetProgramInfoLog(program, logLength, &logLength, log)
-            println("Program link log:\n\(String.stringWithCString(log, encoding: NSASCIIStringEncoding)!)")
+            println("Program link log:\n\(String(CString: log, encoding: NSASCIIStringEncoding)!)")
             free(log)
         }
 //        #endif

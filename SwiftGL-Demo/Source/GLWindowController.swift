@@ -14,10 +14,10 @@ class GLWindowController: NSWindowController {
     @IBOutlet var view: GLView!
     
     // Fullscreen window
-    @objc var fullscreenWindow: GLFullscreenWindow!
+    @objc var fullscreenWindow: GLFullscreenWindow?
     
     // Non-Fullscreen window (also the initial window)
-    @objc var standardWindow: NSWindow!
+    @objc var standardWindow: NSWindow?
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -27,7 +27,7 @@ class GLWindowController: NSWindowController {
     
     func goFullscreen() {
         // If app is already fullscreen...
-        if fullscreenWindow {
+        if fullscreenWindow != nil {
             // ...don't do anything
             return
         }
@@ -35,27 +35,29 @@ class GLWindowController: NSWindowController {
         // Allocate a new fullscreen window
         fullscreenWindow = GLFullscreenWindow()
         
-        // Resize the view to screensize
-        let viewRect = fullscreenWindow.frame
-        
-        // Set the view to the size of the fullscreen window
-        view.frame.size = viewRect.size
-        
-        // Set the view in the fullscreen window
-        fullscreenWindow.contentView = view
-        
-        standardWindow = self.window
-        
-        // Hide non-fullscreen window so it doesn't show up when switching out
-        // of this app (i.e. with CMD-TAB)
-        standardWindow.orderOut(self)
-        
-        // Set controller to the fullscreen window so that all input will go to
-        // this controller (self)
-        window = fullscreenWindow
-        
-        // Show the window and make it the key window for input
-        fullscreenWindow.makeKeyAndOrderFront(self)
+        if let fsWindow = fullscreenWindow {
+            // Resize the view to screensize
+            let viewRect = fsWindow.frame
+            
+            // Set the view to the size of the fullscreen window
+            view.frame.size = viewRect.size
+            
+            // Set the view in the fullscreen window
+            fsWindow.contentView = view
+            
+            standardWindow = self.window
+            
+            // Hide non-fullscreen window so it doesn't show up when switching out
+            // of this app (i.e. with CMD-TAB)
+            standardWindow?.orderOut(self)
+            
+            // Set controller to the fullscreen window so that all input will go to
+            // this controller (self)
+            window = fsWindow
+            
+            // Show the window and make it the key window for input
+            fsWindow.makeKeyAndOrderFront(self)
+        }
     }
     
     func goWindow() {
@@ -65,24 +67,26 @@ class GLWindowController: NSWindowController {
             return
         }
         
-        // Get the rectangle of the original window
-        let viewRect = standardWindow.frame
-        
-        // Set the view rect to the new size
-        view.frame = viewRect
-        
-        // Set controller to the standard window so that all input will go to
-        // this controller (self)
-        window = standardWindow
-        
-        // Set the content of the orginal window to the view
-        window.contentView = view
-        
-        // Show the window and make it the key window for input
-        window.makeKeyAndOrderFront(self)
-        
-        // Ensure we set fullscreen Window to nil so our checks for
-        // windowed vs. fullscreen mode elsewhere are correct
-        fullscreenWindow = nil
+        if let sWindow = standardWindow {
+            // Get the rectangle of the original window
+            let viewRect = sWindow.frame
+            
+            // Set the view rect to the new size
+            view.frame = viewRect
+            
+            // Set controller to the standard window so that all input will go to
+            // this controller (self)
+            window = sWindow
+            
+            // Set the content of the orginal window to the view
+            sWindow.contentView = view
+            
+            // Show the window and make it the key window for input
+            sWindow.makeKeyAndOrderFront(self)
+            
+            // Ensure we set fullscreen Window to nil so our checks for
+            // windowed vs. fullscreen mode elsewhere are correct
+            fullscreenWindow = nil
+        }
     }
 }

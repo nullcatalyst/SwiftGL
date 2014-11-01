@@ -13,7 +13,7 @@ class GLFullscreenWindow: NSWindow {
     
     init() {
         // Create a screen-sized window on the display you want to take over
-        let screenRect = NSScreen.mainScreen().frame
+        let screenRect = NSScreen.mainScreen()!.frame
         
         // Initialize the window making it size of the screen and borderless
         super.init(contentRect:screenRect, styleMask:NSBorderlessWindowMask, backing:.Buffered, defer:true)
@@ -28,7 +28,7 @@ class GLFullscreenWindow: NSWindow {
         hidesOnDeactivate = true
     }
     
-    required init(coder: NSCoder!) {
+    required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     

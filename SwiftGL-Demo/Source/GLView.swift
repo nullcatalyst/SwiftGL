@@ -21,7 +21,7 @@ extension GLView {
 //    }
     
     override public func awakeFromNib() {
-        let pf = NSOpenGLPixelFormat(attributes: [
+        let attributes: [NSOpenGLPixelFormatAttribute] = [
             // Must specify the 3.2 Core Profile to use OpenGL 3.2
             NSOpenGLPixelFormatAttribute(NSOpenGLPFAOpenGLProfile), NSOpenGLPixelFormatAttribute(NSOpenGLProfileVersion3_2Core),
             NSOpenGLPixelFormatAttribute(NSOpenGLPFADoubleBuffer),
@@ -31,23 +31,25 @@ extension GLView {
             NSOpenGLPixelFormatAttribute(NSOpenGLPFAMultisample),
             NSOpenGLPixelFormatAttribute(NSOpenGLPFASampleBuffers), NSOpenGLPixelFormatAttribute(1),
             NSOpenGLPixelFormatAttribute(NSOpenGLPFASamples), NSOpenGLPixelFormatAttribute(4),
-            NSOpenGLPixelFormatAttribute(0),
-        ])
+            NSOpenGLPixelFormatAttribute(0)
+        ]
         
-        let context = NSOpenGLContext(format: pf, shareContext: nil)
+        let pf = NSOpenGLPixelFormat(attributes: attributes)
         
-        // When we're using a CoreProfile context, crash if we call a legacy OpenGL function
-        // This will make it much more obvious where and when such a function call is made so
-        // that we can remove such calls.
-        // Without this we'd simply get GL_INVALID_OPERATION error for calling legacy functions
-        // but it would be more difficult to see where that function was called.
-        CGLEnable(context.CGLContextObj, kCGLCECrashOnRemovedFunctions)
-        
-        pixelFormat = pf
-        openGLContext = context
-        
-        // Opt-In to Retina resolution
-        wantsBestResolutionOpenGLSurface = true
+        if let context = NSOpenGLContext(format: pf, shareContext: nil) {
+            // When we're using a CoreProfile context, crash if we call a legacy OpenGL function
+            // This will make it much more obvious where and when such a function call is made so
+            // that we can remove such calls.
+            // Without this we'd simply get GL_INVALID_OPERATION error for calling legacy functions
+            // but it would be more difficult to see where that function was called.
+            CGLEnable(context.CGLContextObj, kCGLCECrashOnRemovedFunctions)
+            
+            pixelFormat = pf
+            openGLContext = context
+            
+            // Opt-In to Retina resolution
+            wantsBestResolutionOpenGLSurface = true
+        }
     }
     
 //    func initGL() {

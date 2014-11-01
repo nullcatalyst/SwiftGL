@@ -11,6 +11,13 @@ import Darwin
 public struct Mat4 {
     public var x, y, z, w: Vec4
     
+    public init() {
+        self.x = Vec4()
+        self.y = Vec4()
+        self.z = Vec4()
+        self.w = Vec4()
+    }
+    
     // Explicit Initializers
     
     public init(xCol: Vec4, yCol: Vec4, zCol: Vec4, wCol: Vec4) {

@@ -95,7 +95,7 @@ public class Texture {
         let colourSpace = CGColorSpaceCreateDeviceRGB()
         
         let imageData: UnsafeMutablePointer<()> = malloc(UInt(width * height * 4))
-        let ctx = CGBitmapContextCreate(imageData, UInt(width), UInt(height), 8, UInt(width * 4), colourSpace, CGBitmapInfo.ByteOrderDefault | CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.toRaw()))
+        let ctx = CGBitmapContextCreate(imageData, UInt(width), UInt(height), 8, UInt(width * 4), colourSpace, CGBitmapInfo.ByteOrderDefault | CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue))
         
         if flipVertical {
             CGContextTranslateCTM(ctx, zero, CGFloat(Int(height)))
