@@ -32,9 +32,9 @@ public class Vao {
 }
 
 public protocol GLType {
-    class var glType: GLenum {get}
-    class var glNormalized: GLboolean {get}
-    class var glSize: GLint {get}
+    static var glType: GLenum {get}
+    static var glNormalized: GLboolean {get}
+    static var glSize: GLint {get}
 }
 
 extension Float: GLType {

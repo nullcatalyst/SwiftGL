@@ -207,7 +207,7 @@ public class Shader {
             var logLength: GLint = 0
             glGetShaderiv(shader, GLenum(GL_INFO_LOG_LENGTH), &logLength)
             if logLength > 0 {
-                let log = UnsafeMutablePointer<CChar>(malloc(UInt(logLength)))
+                let log = UnsafeMutablePointer<CChar>(malloc(Int(logLength)))
                 glGetShaderInfoLog(shader, logLength, &logLength, log)
                 println("Shader compile log: \(String(CString: log, encoding: NSASCIIStringEncoding)!)")
                 free(log)
@@ -233,7 +233,7 @@ public class Shader {
         glGetProgramiv(program, GLenum(GL_INFO_LOG_LENGTH), &logLength)
         
         if logLength > 0 {
-            let log = UnsafeMutablePointer<CChar>(malloc(UInt(logLength)))
+            let log = UnsafeMutablePointer<CChar>(malloc(Int(logLength)))
             glGetProgramInfoLog(program, logLength, &logLength, log)
             println("Program link log:\n\(String(CString: log, encoding: NSASCIIStringEncoding)!)")
             free(log)

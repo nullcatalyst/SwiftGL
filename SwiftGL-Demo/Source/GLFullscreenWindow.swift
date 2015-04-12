@@ -32,15 +32,17 @@ class GLFullscreenWindow: NSWindow {
         super.init(coder: coder)
     }
     
-    func canBecomeKeyWindow() -> Bool {
-        // Return true so that this borderless window can receive input
-        return true
+    override var canBecomeKeyWindow: Bool {
+        get {
+            // Return true so that this borderless window can receive input
+            return true
+        }
     }
     
     override func keyDown(event: NSEvent) {
         // Implement keyDown since controller will not get [ESC] key event which
         // the controller uses to kill fullscreen
-        let windowController = self.windowController() as NSWindowController
+        let windowController = self.windowController() as! NSWindowController
         windowController.keyDown(event)
     }
 }
