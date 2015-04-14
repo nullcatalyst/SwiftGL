@@ -7,7 +7,12 @@
 //
 
 import Foundation
+
+#if os(OSX)
 import OpenGL
+#else
+import OpenGLES.ES2
+#endif
 
 /// IMPORTANT: The SwiftGL framework must be imported to be able to use it
 import SwiftGL
@@ -25,13 +30,16 @@ class DemoScene: Scene {
     
     init() {
         // Load the Shader files
-        shader.load("DemoShader1.vsh", "DemoShader1.fsh") {
+        if !(shader.load("DemoShader1.vsh", "DemoShader1.fsh") {
             program in
             // Here we will bind the attibute names to the correct position
             // Doing this will allow us to use the VBO/VAO with more than one shader, ensuring that the right
             // values get passed in to the correct shader variables
             glBindAttribLocation(program, AttribPosition, "Position")
             glBindAttribLocation(program, AttribColor,    "Color")
+        }) {
+            // You can take this out after. Useful for debugging
+            glDebug(__FILE__, __LINE__)
         }
         
         // Bind the vertices into the Vertex Buffer Object (VBO)

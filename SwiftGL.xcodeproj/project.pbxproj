@@ -30,21 +30,6 @@
 		D262B81419663A52004A2997 /* Vao.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3AF319468EDA00655A34 /* Vao.swift */; };
 		D262B81519663A52004A2997 /* Texture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B38FAE194E063800722470 /* Texture.swift */; };
 		D262B81819663F6A004A2997 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3ADF194500D900655A34 /* LICENSE */; };
-		D2A18FE91997F8E000830CA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A18FE81997F8E000830CA4 /* Images.xcassets */; };
-		D2A18FEC1997F8E000830CA4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2A18FEA1997F8E000830CA4 /* MainMenu.xib */; };
-		D2A190051997F95700830CA4 /* DemoShader1.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D2A190001997F95700830CA4 /* DemoShader1.fsh */; };
-		D2A190061997F95700830CA4 /* DemoShader1.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D2A190011997F95700830CA4 /* DemoShader1.vsh */; };
-		D2A190071997F95700830CA4 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A190041997F95700830CA4 /* GLView.m */; };
-		D2A190131997F98800830CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A190081997F98800830CA4 /* AppDelegate.swift */; };
-		D2A190141997F98800830CA4 /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A190091997F98800830CA4 /* DemoScene.swift */; };
-		D2A190151997F98800830CA4 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1900A1997F98800830CA4 /* Engine.swift */; };
-		D2A190161997F98800830CA4 /* GLFullscreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1900B1997F98800830CA4 /* GLFullscreenWindow.swift */; };
-		D2A190171997F98800830CA4 /* GLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1900C1997F98800830CA4 /* GLView.swift */; };
-		D2A190181997F98800830CA4 /* GLWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A1900D1997F98800830CA4 /* GLWindowController.m */; };
-		D2A190191997F98800830CA4 /* GLWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1900E1997F98800830CA4 /* GLWindowController.swift */; };
-		D2A1901A1997F98800830CA4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1900F1997F98800830CA4 /* main.swift */; };
-		D2A1901B1997F98800830CA4 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A190101997F98800830CA4 /* Scene.swift */; };
-		D2A1901C1997F98800830CA4 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A190121997F98800830CA4 /* Vertex.swift */; };
 		D2A1901D1997F9C100830CA4 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AB51944F05700655A34 /* SwiftGL.framework */; };
 		D2A1901E1997F9C100830CA4 /* SwiftGL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AB51944F05700655A34 /* SwiftGL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2AB3AC11944F05700655A34 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AB51944F05700655A34 /* SwiftGL.framework */; };
@@ -53,6 +38,35 @@
 		D2AB3AEC194536EB00655A34 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3AEB194536EB00655A34 /* OpenGL.framework */; };
 		D2EE434A1953BF64007CC56F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EE43491953BF64007CC56F /* OpenGLES.framework */; };
 		D2EE43551953E42F007CC56F /* GLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EE43541953E42F007CC56F /* GLTest.m */; };
+		D2F664161ADD7607003C1925 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F663F01ADD7607003C1925 /* LaunchScreen.xib */; };
+		D2F664181ADD7607003C1925 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F663F21ADD7607003C1925 /* Main.storyboard */; };
+		D2F6641A1ADD7607003C1925 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2F663F41ADD7607003C1925 /* Images.xcassets */; };
+		D2F6641D1ADD7607003C1925 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F663F71ADD7607003C1925 /* MainMenu.xib */; };
+		D2F6641E1ADD7607003C1925 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F663F71ADD7607003C1925 /* MainMenu.xib */; };
+		D2F6641F1ADD7607003C1925 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2F663F91ADD7607003C1925 /* Images.xcassets */; };
+		D2F664241ADD7607003C1925 /* DemoShader1.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D2F663FD1ADD7607003C1925 /* DemoShader1.fsh */; };
+		D2F664261ADD7607003C1925 /* DemoShader1.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D2F663FE1ADD7607003C1925 /* DemoShader1.vsh */; };
+		D2F664271ADD7607003C1925 /* DemoShader1.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D2F664001ADD7607003C1925 /* DemoShader1.fsh */; };
+		D2F664291ADD7607003C1925 /* DemoShader1.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D2F664011ADD7607003C1925 /* DemoShader1.vsh */; };
+		D2F6642B1ADD7607003C1925 /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664041ADD7607003C1925 /* DemoScene.swift */; };
+		D2F6642C1ADD7607003C1925 /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664041ADD7607003C1925 /* DemoScene.swift */; };
+		D2F6642D1ADD7607003C1925 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664051ADD7607003C1925 /* Engine.swift */; };
+		D2F6642E1ADD7607003C1925 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664051ADD7607003C1925 /* Engine.swift */; };
+		D2F6642F1ADD7607003C1925 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664061ADD7607003C1925 /* Scene.swift */; };
+		D2F664301ADD7607003C1925 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664061ADD7607003C1925 /* Scene.swift */; };
+		D2F664311ADD7607003C1925 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664071ADD7607003C1925 /* Vertex.swift */; };
+		D2F664321ADD7607003C1925 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664071ADD7607003C1925 /* Vertex.swift */; };
+		D2F664341ADD7607003C1925 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664091ADD7607003C1925 /* AppDelegate.swift */; };
+		D2F664361ADD7607003C1925 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6640A1ADD7607003C1925 /* GameViewController.swift */; };
+		D2F664371ADD7607003C1925 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6640C1ADD7607003C1925 /* AppDelegate.swift */; };
+		D2F664391ADD7607003C1925 /* GLFullscreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6640D1ADD7607003C1925 /* GLFullscreenWindow.swift */; };
+		D2F6643B1ADD7607003C1925 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F6640F1ADD7607003C1925 /* GLView.m */; };
+		D2F6643D1ADD7607003C1925 /* GLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664101ADD7607003C1925 /* GLView.swift */; };
+		D2F6643F1ADD7607003C1925 /* GLWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F664111ADD7607003C1925 /* GLWindowController.m */; };
+		D2F664411ADD7607003C1925 /* GLWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664121ADD7607003C1925 /* GLWindowController.swift */; };
+		D2F664431ADD7607003C1925 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F664131ADD7607003C1925 /* main.swift */; };
+		D2F664451ADD7633003C1925 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EE432F1953BE91007CC56F /* SwiftGL.framework */; };
+		D2F664461ADD7633003C1925 /* SwiftGL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2EE432F1953BE91007CC56F /* SwiftGL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +84,13 @@
 			remoteGlobalIDString = D2AB3AB41944F05700655A34;
 			remoteInfo = SwiftGL;
 		};
+		D2F664471ADD7633003C1925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2AB3AAC1944F05700655A34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2EE432E1953BE91007CC56F;
+			remoteInfo = "SwiftGL-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,29 +105,22 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2F664491ADD7633003C1925 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2F664461ADD7633003C1925 /* SwiftGL.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D20662C01947D8D2001D2FAC /* Mat4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mat4.swift; sourceTree = "<group>"; };
-		D2A18FDF1997F8E000830CA4 /* SwiftGL-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftGL-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2A18FE21997F8E000830CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2A18FE81997F8E000830CA4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D2A18FEB1997F8E000830CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		D2A190001997F95700830CA4 /* DemoShader1.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoShader1.fsh; sourceTree = "<group>"; };
-		D2A190011997F95700830CA4 /* DemoShader1.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoShader1.vsh; sourceTree = "<group>"; };
-		D2A190031997F95700830CA4 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
-		D2A190041997F95700830CA4 /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLView.m; sourceTree = "<group>"; };
-		D2A190081997F98800830CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D2A190091997F98800830CA4 /* DemoScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoScene.swift; sourceTree = "<group>"; };
-		D2A1900A1997F98800830CA4 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
-		D2A1900B1997F98800830CA4 /* GLFullscreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLFullscreenWindow.swift; sourceTree = "<group>"; };
-		D2A1900C1997F98800830CA4 /* GLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLView.swift; sourceTree = "<group>"; };
-		D2A1900D1997F98800830CA4 /* GLWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWindowController.m; sourceTree = "<group>"; };
-		D2A1900E1997F98800830CA4 /* GLWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLWindowController.swift; sourceTree = "<group>"; };
-		D2A1900F1997F98800830CA4 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		D2A190101997F98800830CA4 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
-		D2A190111997F98800830CA4 /* SwiftGL-Demo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftGL-Demo-Bridging-Header.h"; sourceTree = "<group>"; };
-		D2A190121997F98800830CA4 /* Vertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		D2A18FDF1997F8E000830CA4 /* SwiftGL-Demo-OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftGL-Demo-OSX.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB3AB51944F05700655A34 /* SwiftGL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB3AB91944F05700655A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AB3AC01944F05700655A34 /* SwiftGLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +143,33 @@
 		D2EE43491953BF64007CC56F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		D2EE434F1953DF1B007CC56F /* SwiftGLTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftGLTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		D2EE43541953E42F007CC56F /* GLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLTest.m; sourceTree = "<group>"; };
+		D2F663141ADD7417003C1925 /* SwiftGL-Demo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftGL-Demo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2F663F11ADD7607003C1925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D2F663F31ADD7607003C1925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D2F663F41ADD7607003C1925 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D2F663F51ADD7607003C1925 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2F663F81ADD7607003C1925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D2F663F91ADD7607003C1925 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D2F663FA1ADD7607003C1925 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2F663FD1ADD7607003C1925 /* DemoShader1.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoShader1.fsh; sourceTree = "<group>"; };
+		D2F663FE1ADD7607003C1925 /* DemoShader1.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoShader1.vsh; sourceTree = "<group>"; };
+		D2F664001ADD7607003C1925 /* DemoShader1.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoShader1.fsh; sourceTree = "<group>"; };
+		D2F664011ADD7607003C1925 /* DemoShader1.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoShader1.vsh; sourceTree = "<group>"; };
+		D2F664041ADD7607003C1925 /* DemoScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoScene.swift; sourceTree = "<group>"; };
+		D2F664051ADD7607003C1925 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		D2F664061ADD7607003C1925 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		D2F664071ADD7607003C1925 /* Vertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		D2F664091ADD7607003C1925 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D2F6640A1ADD7607003C1925 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D2F6640C1ADD7607003C1925 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D2F6640D1ADD7607003C1925 /* GLFullscreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLFullscreenWindow.swift; sourceTree = "<group>"; };
+		D2F6640E1ADD7607003C1925 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
+		D2F6640F1ADD7607003C1925 /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLView.m; sourceTree = "<group>"; };
+		D2F664101ADD7607003C1925 /* GLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLView.swift; sourceTree = "<group>"; };
+		D2F664111ADD7607003C1925 /* GLWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWindowController.m; sourceTree = "<group>"; };
+		D2F664121ADD7607003C1925 /* GLWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLWindowController.swift; sourceTree = "<group>"; };
+		D2F664131ADD7607003C1925 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D2F664141ADD7607003C1925 /* SwiftGL-Demo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftGL-Demo-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +205,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2F663111ADD7417003C1925 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2F664451ADD7633003C1925 /* SwiftGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -176,63 +225,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D2A18FE01997F8E000830CA4 /* SwiftGL-Demo */ = {
-			isa = PBXGroup;
-			children = (
-				D2A18FFF1997F95700830CA4 /* Shaders */,
-				D2A190021997F95700830CA4 /* Source */,
-				D2A18FE11997F8E000830CA4 /* Supporting Files */,
-			);
-			path = "SwiftGL-Demo";
-			sourceTree = "<group>";
-		};
-		D2A18FE11997F8E000830CA4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D2A18FE81997F8E000830CA4 /* Images.xcassets */,
-				D2A18FEA1997F8E000830CA4 /* MainMenu.xib */,
-				D2A18FE21997F8E000830CA4 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D2A18FFF1997F95700830CA4 /* Shaders */ = {
-			isa = PBXGroup;
-			children = (
-				D2A190001997F95700830CA4 /* DemoShader1.fsh */,
-				D2A190011997F95700830CA4 /* DemoShader1.vsh */,
-			);
-			path = Shaders;
-			sourceTree = "<group>";
-		};
-		D2A190021997F95700830CA4 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				D2A190111997F98800830CA4 /* SwiftGL-Demo-Bridging-Header.h */,
-				D2A1900F1997F98800830CA4 /* main.swift */,
-				D2A190081997F98800830CA4 /* AppDelegate.swift */,
-				D2A190031997F95700830CA4 /* GLView.h */,
-				D2A190041997F95700830CA4 /* GLView.m */,
-				D2A1900C1997F98800830CA4 /* GLView.swift */,
-				D2A1900E1997F98800830CA4 /* GLWindowController.swift */,
-				D2A1900D1997F98800830CA4 /* GLWindowController.m */,
-				D2A1900B1997F98800830CA4 /* GLFullscreenWindow.swift */,
-				D2A1900A1997F98800830CA4 /* Engine.swift */,
-				D2A190101997F98800830CA4 /* Scene.swift */,
-				D2A190091997F98800830CA4 /* DemoScene.swift */,
-				D2A190121997F98800830CA4 /* Vertex.swift */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
 		D2AB3AAB1944F05700655A34 = {
 			isa = PBXGroup;
 			children = (
 				D2AB3ADF194500D900655A34 /* LICENSE */,
 				D2AB3AE0194500D900655A34 /* README.md */,
 				D2AB3AB71944F05700655A34 /* SwiftGL */,
+				D2F663ED1ADD7607003C1925 /* SwiftGL-Demo */,
 				D2AB3AC41944F05700655A34 /* SwiftGLTests */,
-				D2A18FE01997F8E000830CA4 /* SwiftGL-Demo */,
 				D20662C41947D963001D2FAC /* Frameworks */,
 				D2AB3AB61944F05700655A34 /* Products */,
 			);
@@ -244,7 +244,8 @@
 				D2AB3AB51944F05700655A34 /* SwiftGL.framework */,
 				D2AB3AC01944F05700655A34 /* SwiftGLTests.xctest */,
 				D2EE432F1953BE91007CC56F /* SwiftGL.framework */,
-				D2A18FDF1997F8E000830CA4 /* SwiftGL-Demo.app */,
+				D2A18FDF1997F8E000830CA4 /* SwiftGL-Demo-OSX.app */,
+				D2F663141ADD7417003C1925 /* SwiftGL-Demo-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -295,6 +296,119 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D2F663ED1ADD7607003C1925 /* SwiftGL-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				D2F663EE1ADD7607003C1925 /* Resources */,
+				D2F663FB1ADD7607003C1925 /* Shaders */,
+				D2F664021ADD7607003C1925 /* Source */,
+			);
+			path = "SwiftGL-Demo";
+			sourceTree = "<group>";
+		};
+		D2F663EE1ADD7607003C1925 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D2F663EF1ADD7607003C1925 /* iOS */,
+				D2F663F61ADD7607003C1925 /* OSX */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D2F663EF1ADD7607003C1925 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D2F663F01ADD7607003C1925 /* LaunchScreen.xib */,
+				D2F663F21ADD7607003C1925 /* Main.storyboard */,
+				D2F663F41ADD7607003C1925 /* Images.xcassets */,
+				D2F663F51ADD7607003C1925 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		D2F663F61ADD7607003C1925 /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				D2F663F71ADD7607003C1925 /* MainMenu.xib */,
+				D2F663F91ADD7607003C1925 /* Images.xcassets */,
+				D2F663FA1ADD7607003C1925 /* Info.plist */,
+			);
+			path = OSX;
+			sourceTree = "<group>";
+		};
+		D2F663FB1ADD7607003C1925 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				D2F663FC1ADD7607003C1925 /* iOS */,
+				D2F663FF1ADD7607003C1925 /* OSX */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		D2F663FC1ADD7607003C1925 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D2F663FE1ADD7607003C1925 /* DemoShader1.vsh */,
+				D2F663FD1ADD7607003C1925 /* DemoShader1.fsh */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		D2F663FF1ADD7607003C1925 /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				D2F664011ADD7607003C1925 /* DemoShader1.vsh */,
+				D2F664001ADD7607003C1925 /* DemoShader1.fsh */,
+			);
+			path = OSX;
+			sourceTree = "<group>";
+		};
+		D2F664021ADD7607003C1925 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D2F664141ADD7607003C1925 /* SwiftGL-Demo-Bridging-Header.h */,
+				D2F664031ADD7607003C1925 /* Common */,
+				D2F664081ADD7607003C1925 /* iOS */,
+				D2F6640B1ADD7607003C1925 /* OSX */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		D2F664031ADD7607003C1925 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D2F664041ADD7607003C1925 /* DemoScene.swift */,
+				D2F664051ADD7607003C1925 /* Engine.swift */,
+				D2F664061ADD7607003C1925 /* Scene.swift */,
+				D2F664071ADD7607003C1925 /* Vertex.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D2F664081ADD7607003C1925 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D2F664091ADD7607003C1925 /* AppDelegate.swift */,
+				D2F6640A1ADD7607003C1925 /* GameViewController.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		D2F6640B1ADD7607003C1925 /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				D2F664131ADD7607003C1925 /* main.swift */,
+				D2F6640C1ADD7607003C1925 /* AppDelegate.swift */,
+				D2F6640D1ADD7607003C1925 /* GLFullscreenWindow.swift */,
+				D2F6640E1ADD7607003C1925 /* GLView.h */,
+				D2F6640F1ADD7607003C1925 /* GLView.m */,
+				D2F664121ADD7607003C1925 /* GLWindowController.swift */,
+				D2F664101ADD7607003C1925 /* GLView.swift */,
+				D2F664111ADD7607003C1925 /* GLWindowController.m */,
+			);
+			path = OSX;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -315,9 +429,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2A18FDE1997F8E000830CA4 /* SwiftGL-Demo */ = {
+		D2A18FDE1997F8E000830CA4 /* SwiftGL-Demo-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D2A18FFD1997F8E100830CA4 /* Build configuration list for PBXNativeTarget "SwiftGL-Demo" */;
+			buildConfigurationList = D2A18FFD1997F8E100830CA4 /* Build configuration list for PBXNativeTarget "SwiftGL-Demo-OSX" */;
 			buildPhases = (
 				D2A18FDB1997F8E000830CA4 /* Sources */,
 				D2A18FDC1997F8E000830CA4 /* Frameworks */,
@@ -329,9 +443,9 @@
 			dependencies = (
 				D2A190201997F9C100830CA4 /* PBXTargetDependency */,
 			);
-			name = "SwiftGL-Demo";
+			name = "SwiftGL-Demo-OSX";
 			productName = "SwiftGL-Demo";
-			productReference = D2A18FDF1997F8E000830CA4 /* SwiftGL-Demo.app */;
+			productReference = D2A18FDF1997F8E000830CA4 /* SwiftGL-Demo-OSX.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D2AB3AB41944F05700655A34 /* SwiftGL-OSX */ = {
@@ -388,6 +502,25 @@
 			productReference = D2EE432F1953BE91007CC56F /* SwiftGL.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		D2F663131ADD7417003C1925 /* SwiftGL-Demo-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2F663381ADD7417003C1925 /* Build configuration list for PBXNativeTarget "SwiftGL-Demo-iOS" */;
+			buildPhases = (
+				D2F663101ADD7417003C1925 /* Sources */,
+				D2F663111ADD7417003C1925 /* Frameworks */,
+				D2F663121ADD7417003C1925 /* Resources */,
+				D2F664491ADD7633003C1925 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2F664481ADD7633003C1925 /* PBXTargetDependency */,
+			);
+			name = "SwiftGL-Demo-iOS";
+			productName = "SwiftGL-Demo-iOS";
+			productReference = D2F663141ADD7417003C1925 /* SwiftGL-Demo-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -410,6 +543,9 @@
 					D2EE432E1953BE91007CC56F = {
 						CreatedOnToolsVersion = 6.0;
 					};
+					D2F663131ADD7417003C1925 = {
+						CreatedOnToolsVersion = 6.3;
+					};
 				};
 			};
 			buildConfigurationList = D2AB3AAF1944F05700655A34 /* Build configuration list for PBXProject "SwiftGL" */;
@@ -426,9 +562,10 @@
 			projectRoot = "";
 			targets = (
 				D2AB3AB41944F05700655A34 /* SwiftGL-OSX */,
+				D2A18FDE1997F8E000830CA4 /* SwiftGL-Demo-OSX */,
 				D2EE432E1953BE91007CC56F /* SwiftGL-iOS */,
+				D2F663131ADD7417003C1925 /* SwiftGL-Demo-iOS */,
 				D2AB3ABF1944F05700655A34 /* SwiftGLTests */,
-				D2A18FDE1997F8E000830CA4 /* SwiftGL-Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -438,10 +575,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A190051997F95700830CA4 /* DemoShader1.fsh in Resources */,
-				D2A18FE91997F8E000830CA4 /* Images.xcassets in Resources */,
-				D2A18FEC1997F8E000830CA4 /* MainMenu.xib in Resources */,
-				D2A190061997F95700830CA4 /* DemoShader1.vsh in Resources */,
+				D2F6641D1ADD7607003C1925 /* MainMenu.xib in Resources */,
+				D2F6641F1ADD7607003C1925 /* Images.xcassets in Resources */,
+				D2F664291ADD7607003C1925 /* DemoShader1.vsh in Resources */,
+				D2F664271ADD7607003C1925 /* DemoShader1.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +605,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2F663121ADD7417003C1925 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2F664161ADD7607003C1925 /* LaunchScreen.xib in Resources */,
+				D2F6641E1ADD7607003C1925 /* MainMenu.xib in Resources */,
+				D2F664181ADD7607003C1925 /* Main.storyboard in Resources */,
+				D2F6641A1ADD7607003C1925 /* Images.xcassets in Resources */,
+				D2F664261ADD7607003C1925 /* DemoShader1.vsh in Resources */,
+				D2F664241ADD7607003C1925 /* DemoShader1.fsh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -475,17 +625,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A190181997F98800830CA4 /* GLWindowController.m in Sources */,
-				D2A190161997F98800830CA4 /* GLFullscreenWindow.swift in Sources */,
-				D2A1901B1997F98800830CA4 /* Scene.swift in Sources */,
-				D2A1901A1997F98800830CA4 /* main.swift in Sources */,
-				D2A1901C1997F98800830CA4 /* Vertex.swift in Sources */,
-				D2A190191997F98800830CA4 /* GLWindowController.swift in Sources */,
-				D2A190131997F98800830CA4 /* AppDelegate.swift in Sources */,
-				D2A190151997F98800830CA4 /* Engine.swift in Sources */,
-				D2A190171997F98800830CA4 /* GLView.swift in Sources */,
-				D2A190071997F95700830CA4 /* GLView.m in Sources */,
-				D2A190141997F98800830CA4 /* DemoScene.swift in Sources */,
+				D2F6643F1ADD7607003C1925 /* GLWindowController.m in Sources */,
+				D2F664431ADD7607003C1925 /* main.swift in Sources */,
+				D2F6642B1ADD7607003C1925 /* DemoScene.swift in Sources */,
+				D2F664391ADD7607003C1925 /* GLFullscreenWindow.swift in Sources */,
+				D2F6643B1ADD7607003C1925 /* GLView.m in Sources */,
+				D2F6643D1ADD7607003C1925 /* GLView.swift in Sources */,
+				D2F664311ADD7607003C1925 /* Vertex.swift in Sources */,
+				D2F664411ADD7607003C1925 /* GLWindowController.swift in Sources */,
+				D2F6642D1ADD7607003C1925 /* Engine.swift in Sources */,
+				D2F664371ADD7607003C1925 /* AppDelegate.swift in Sources */,
+				D2F6642F1ADD7607003C1925 /* Scene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +684,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2F663101ADD7417003C1925 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2F6642C1ADD7607003C1925 /* DemoScene.swift in Sources */,
+				D2F664321ADD7607003C1925 /* Vertex.swift in Sources */,
+				D2F6642E1ADD7607003C1925 /* Engine.swift in Sources */,
+				D2F664341ADD7607003C1925 /* AppDelegate.swift in Sources */,
+				D2F664361ADD7607003C1925 /* GameViewController.swift in Sources */,
+				D2F664301ADD7607003C1925 /* Scene.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -547,13 +710,34 @@
 			target = D2AB3AB41944F05700655A34 /* SwiftGL-OSX */;
 			targetProxy = D2AB3AC21944F05700655A34 /* PBXContainerItemProxy */;
 		};
+		D2F664481ADD7633003C1925 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2EE432E1953BE91007CC56F /* SwiftGL-iOS */;
+			targetProxy = D2F664471ADD7633003C1925 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D2A18FEA1997F8E000830CA4 /* MainMenu.xib */ = {
+		D2F663F01ADD7607003C1925 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D2A18FEB1997F8E000830CA4 /* Base */,
+				D2F663F11ADD7607003C1925 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		D2F663F21ADD7607003C1925 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2F663F31ADD7607003C1925 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D2F663F71ADD7607003C1925 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2F663F81ADD7607003C1925 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -571,7 +755,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SwiftGL-Demo/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftGL-Demo/Resources/OSX/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -587,7 +771,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "SwiftGL-Demo/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftGL-Demo/Resources/OSX/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -793,10 +977,50 @@
 			};
 			name = Release;
 		};
+		D2F663341ADD7417003C1925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftGL-Demo/Resources/iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2F663351ADD7417003C1925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftGL-Demo/Resources/iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D2A18FFD1997F8E100830CA4 /* Build configuration list for PBXNativeTarget "SwiftGL-Demo" */ = {
+		D2A18FFD1997F8E100830CA4 /* Build configuration list for PBXNativeTarget "SwiftGL-Demo-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D2A18FF91997F8E100830CA4 /* Debug */,
@@ -840,6 +1064,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D2F663381ADD7417003C1925 /* Build configuration list for PBXNativeTarget "SwiftGL-Demo-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2F663341ADD7417003C1925 /* Debug */,
+				D2F663351ADD7417003C1925 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

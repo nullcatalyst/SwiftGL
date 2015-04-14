@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D2A18FDE1997F8E000830CA4"
-               BuildableName = "SwiftGL-Demo.app"
-               BlueprintName = "SwiftGL-Demo"
+               BuildableName = "SwiftGL-Demo-OSX.app"
+               BlueprintName = "SwiftGL-Demo-OSX"
                ReferencedContainer = "container:SwiftGL.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2A18FDE1997F8E000830CA4"
-            BuildableName = "SwiftGL-Demo.app"
-            BlueprintName = "SwiftGL-Demo"
+            BuildableName = "SwiftGL-Demo-OSX.app"
+            BlueprintName = "SwiftGL-Demo-OSX"
             ReferencedContainer = "container:SwiftGL.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -53,8 +53,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2A18FDE1997F8E000830CA4"
-            BuildableName = "SwiftGL-Demo.app"
-            BlueprintName = "SwiftGL-Demo"
+            BuildableName = "SwiftGL-Demo-OSX.app"
+            BlueprintName = "SwiftGL-Demo-OSX"
             ReferencedContainer = "container:SwiftGL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -72,8 +72,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2A18FDE1997F8E000830CA4"
-            BuildableName = "SwiftGL-Demo.app"
-            BlueprintName = "SwiftGL-Demo"
+            BuildableName = "SwiftGL-Demo-OSX.app"
+            BlueprintName = "SwiftGL-Demo-OSX"
             ReferencedContainer = "container:SwiftGL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

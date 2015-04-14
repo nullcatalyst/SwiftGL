@@ -9,7 +9,7 @@
 #import "GLView.h"
 
 // Import the Swift classes
-#import "SwiftGL_Demo-Swift.h"
+#import "SwiftGL_Demo_OSX-Swift.h"
 
 @implementation GLView
 

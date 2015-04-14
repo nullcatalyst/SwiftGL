@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SwiftGL-Demo.xcscheme</key>
+		<key>SwiftGL-Demo-OSX.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+		<key>SwiftGL-Demo-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>SwiftGL-OSX.xcscheme</key>
 		<dict>
@@ -38,6 +43,21 @@
 			<true/>
 		</dict>
 		<key>D2EE432E1953BE91007CC56F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D2F663131ADD7417003C1925</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D2F6632B1ADD7417003C1925</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D2F6633A1ADD7524003C1925</key>
 		<dict>
 			<key>primary</key>
 			<true/>
