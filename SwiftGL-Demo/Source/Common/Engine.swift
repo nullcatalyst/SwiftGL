@@ -8,16 +8,15 @@
 
 import Foundation
 
-var viewWidth: Float  = 1
+var viewWidth: Float = 1
 var viewHeight: Float = 1
 var currentScene: Scene?
-
-@objc class Engine {
+@objc class Engine: NSObject {
     // "Class variables are not yet supported"
 //    class var width: Float
 //    class var height: Float
 //    class var scene: Scene?
-    
+
     class var scene: Scene? {
         get {
             return currentScene
@@ -27,28 +26,28 @@ var currentScene: Scene?
             currentScene?.resize(width: viewWidth, height: viewHeight)
         }
     }
-    
+
     class func update() {
         currentScene?.update()
     }
-    
+
     class func render() {
         currentScene?.render()
     }
-    
-    class func resize(#width: Float, height: Float) {
-        viewWidth  = width
+
+    class func resize(width width: Float, height: Float) {
+        viewWidth = width
         viewHeight = height
         currentScene?.resize(width: viewWidth, height: viewHeight)
     }
 }
 
 extension Engine {
-    class func initialize() {
+    override class func initialize() {
         currentScene = DemoScene()
     }
-    
-    class func finalize() {
+
+    override class func finalize() {
         currentScene = nil
     }
 }

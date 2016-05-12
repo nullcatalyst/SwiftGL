@@ -11,6 +11,6 @@ import Foundation
 protocol Scene {
     func update()
     func render()
-    
-    func resize(#width: Float, height: Float)
+
+    func resize(width width: Float, height: Float)
 }

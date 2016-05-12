@@ -58,7 +58,7 @@ class SwiftGLTests: XCTestCase {
         context.makeCurrentContext()
         
         if context != nil {
-            println("Context is valid")
+            print("Context is valid")
         }
         /*
         var ogl: Float[] = [
