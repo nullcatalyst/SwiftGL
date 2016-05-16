@@ -42,7 +42,6 @@
 		D2F664181ADD7607003C1925 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F663F21ADD7607003C1925 /* Main.storyboard */; };
 		D2F6641A1ADD7607003C1925 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2F663F41ADD7607003C1925 /* Images.xcassets */; };
 		D2F6641D1ADD7607003C1925 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F663F71ADD7607003C1925 /* MainMenu.xib */; };
-		D2F6641E1ADD7607003C1925 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F663F71ADD7607003C1925 /* MainMenu.xib */; };
 		D2F6641F1ADD7607003C1925 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2F663F91ADD7607003C1925 /* Images.xcassets */; };
 		D2F664241ADD7607003C1925 /* DemoShader1.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D2F663FD1ADD7607003C1925 /* DemoShader1.fsh */; };
 		D2F664261ADD7607003C1925 /* DemoShader1.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D2F663FE1ADD7607003C1925 /* DemoShader1.vsh */; };
@@ -527,6 +526,8 @@
 		D2AB3AAC1944F05700655A34 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Scott Bennett";
 				TargetAttributes = {
@@ -610,7 +611,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2F664161ADD7607003C1925 /* LaunchScreen.xib in Resources */,
-				D2F6641E1ADD7607003C1925 /* MainMenu.xib in Resources */,
 				D2F664181ADD7607003C1925 /* Main.storyboard in Resources */,
 				D2F6641A1ADD7607003C1925 /* Images.xcassets in Resources */,
 				D2F664261ADD7607003C1925 /* DemoShader1.vsh in Resources */,
@@ -1072,6 +1072,7 @@
 				D2F663351ADD7417003C1925 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

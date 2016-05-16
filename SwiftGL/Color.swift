@@ -112,6 +112,6 @@ public func * (s: Float, c: Color) -> Color {return Color(s * c.vec)}
 public func * (c: Color, s: Float) -> Color {return Color(c.vec * s)}
 public func / (c: Color, s: Float) -> Color {return Color(c.vec / s)}
 
-public func mix(a: Color, b: Color, t: Color)  -> Color {return mix(a, b, t.vec)}
+public func mix(a: Color, b: Color, t: Color)  -> Color {return mix(a, b: b, t: t.vec)}
 public func mix(a: Color, b: Color, t: Vec4)   -> Color {return a + Color((b - a).vec * t)}
 public func mix(a: Color, b: Color, t: Float) -> Color {return a + (b - a) * t}
