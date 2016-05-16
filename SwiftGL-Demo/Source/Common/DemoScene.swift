@@ -39,7 +39,7 @@ class DemoScene: Scene {
             glBindAttribLocation(program, AttribColor, "Color")
         }) {
             // You can take this out after. Useful for debugging
-            glDebug(__FILE__, line: __LINE__)
+            glDebug(#file, line: #line)
         }
 
         // Bind the vertices into the Vertex Buffer Object (VBO)

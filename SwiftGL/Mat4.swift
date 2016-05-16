@@ -217,8 +217,8 @@ public extension Mat4 { // Projection transformations
     }
 
     public static func ortho(width width: Float, height: Float, near: Float, far: Float) -> Mat4 {
-        var fan = far + near
-        var fsn = far - near
+        let fan = far + near
+        let fsn = far - near
         return Mat4(xx: 0.5 / width, yx: 0, zx: 0, wx: 0,
             xy: 0, yy: 0.5 / height, zy: 0, wy: 0,
             xz: 0, yz: 0, zz: -2 / fsn, wz: -fan / fsn,
@@ -226,12 +226,12 @@ public extension Mat4 { // Projection transformations
     }
 
     public static func ortho(left left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float) -> Mat4 {
-        var ral = right + left
-        var rsl = right - left
-        var tab = top + bottom
-        var tsb = top - bottom
-        var fan = far + near
-        var fsn = far - near
+        let ral = right + left
+        let rsl = right - left
+        let tab = top + bottom
+        let tsb = top - bottom
+        let fan = far + near
+        let fsn = far - near
         return Mat4(xx: 2 / rsl, yx: 0, zx: 0, wx: -ral / rsl,
             xy: 0, yy: 2 / tsb, zy: 0, wy: -tab / tsb,
             xz: 0, yz: 0, zz: -2 / fsn, wz: -fan / fsn,
@@ -239,8 +239,8 @@ public extension Mat4 { // Projection transformations
     }
 
     public static func frustum(width width: Float, height: Float, near: Float, far: Float) -> Mat4 {
-        var fan = far + near
-        var fsn = far - near
+        let fan = far + near
+        let fsn = far - near
         return Mat4(xx: near / width, yx: 0, zx: 0, wx: 0,
             xy: 0, yy: near / height, zy: 0, wy: 0,
             xz: 0, yz: 0, zz: -fan / fsn, wz: (-2 * far * near) / fsn,
@@ -248,12 +248,12 @@ public extension Mat4 { // Projection transformations
     }
 
     public static func frustum(left left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float) -> Mat4 {
-        var ral = right + left
-        var rsl = right - left
-        var tsb = top - bottom
-        var tab = top + bottom
-        var fan = far + near
-        var fsn = far - near
+        let ral = right + left
+        let rsl = right - left
+        let tsb = top - bottom
+        let tab = top + bottom
+        let fan = far + near
+        let fsn = far - near
         return Mat4(xx: 2 * near / rsl, yx: 0, zx: ral / rsl, wx: 0,
             xy: 0, yy: 2 * near / tsb, zy: tab / tsb, wy: 0,
             xz: 0, yz: 0, zz: -fan / fsn, wz: (-2 * far * near) / fsn,
@@ -261,7 +261,7 @@ public extension Mat4 { // Projection transformations
     }
 
     public static func perspective(fovy fovy: Float, aspect: Float, near: Float, far: Float) -> Mat4 {
-        var cot = 1 / tan(fovy / 2)
+        let cot = 1 / tan(fovy / 2)
 
         return Mat4(xx: cot / aspect, yx: 0, zx: 0, wx: 0,
             xy: 0, yy: cot, zy: 0, wy: 0,
@@ -270,8 +270,8 @@ public extension Mat4 { // Projection transformations
     }
 
     public static func perspective(fovy fovy: Float, width: Float, height: Float, near: Float, far: Float) -> Mat4 {
-        var cot = 1 / tan(fovy / 2)
-        var aspect = width / height
+        let cot = 1 / tan(fovy / 2)
+        let aspect = width / height
 
         return Mat4(xx: cot / aspect, yx: 0, zx: 0, wx: 0,
             xy: 0, yy: cot, zy: 0, wy: 0,
@@ -280,9 +280,9 @@ public extension Mat4 { // Projection transformations
     }
 
     public static func lookAt(eye eye: Vec3, center: Vec3, up: Vec3) -> Mat4 {
-        var n = normalize(eye - center)
-        var u = normalize(cross(up, n))
-        var v = cross(n, u)
+        let n = normalize(eye - center)
+        let u = normalize(cross(up, n))
+        let v = cross(n, u)
         return Mat4(xx: u.x, yx: u.y, zx: u.z, wx: dot(-u, eye),
             xy: v.x, yy: v.y, zy: v.z, wy: dot(-v, eye),
             xz: n.x, yz: n.y, zz: n.z, wz: dot(-n, eye),
