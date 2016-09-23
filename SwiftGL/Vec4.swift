@@ -184,6 +184,14 @@ public struct Vec4 {
         }
     }
 
+    public var ptr: UnsafePointer<Float> {
+        mutating get {
+            return withUnsafePointer(to: &self) {
+                return UnsafeRawPointer($0).assumingMemoryBound(to: Float.self)
+            }
+        }
+    }
+
     // Swizzle (Vec2) Properties
     public var xx: Vec2 { get { return Vec2(x: x, y: x) } }
     public var yx: Vec2 { get { return Vec2(x: y, y: x) } set(v) { self.y = v.x; self.x = v.y } }

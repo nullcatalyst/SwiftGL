@@ -51,19 +51,19 @@ open class Shader {
     }
 
     public init(vertexSource: String, fragmentSource: String) {
-        compile(vertexSource, fragmentSource)
+        _ = compile(vertexSource, fragmentSource)
     }
 
     public init(vertexSource: String, fragmentSource: String, bindAttibutes: (GLprogram) -> ()) {
-        compile(vertexSource, fragmentSource, bindAttibutes)
+        _ = compile(vertexSource, fragmentSource, bindAttibutes)
     }
 
     public init(vertexFile: String, fragmentFile: String) {
-        load(vertexFile, fragmentFile)
+        _ = load(vertexFile, fragmentFile)
     }
 
     public init(vertexFile: String, fragmentFile: String, bindAttibutes: (GLprogram) -> ()) {
-        load(vertexFile, fragmentFile, bindAttibutes)
+        _ = load(vertexFile, fragmentFile, bindAttibutes)
     }
 
     deinit {
@@ -164,11 +164,11 @@ open class Shader {
     open func bind(_ uniform: GLuniform, _ x: Float, _ y: Float) { glProgramUniform2f(id, uniform, x, y) }
     open func bind(_ uniform: GLuniform, _ x: Float, _ y: Float, _ z: Float) { glProgramUniform3f(id, uniform, x, y, z) }
     open func bind(_ uniform: GLuniform, _ x: Float, _ y: Float, _ z: Float, _ w: Float) { glProgramUniform4f(id, uniform, x, y, z, w) }
-    open func bind(_ uniform: GLuniform, _ v: Vec2) { glProgramUniform2fv(id, uniform, 1, UnsafePointer([v])) }
-    open func bind(_ uniform: GLuniform, _ v: Vec3) { glProgramUniform3fv(id, uniform, 1, UnsafePointer([v])) }
-    open func bind(_ uniform: GLuniform, _ v: Vec4) { glProgramUniform4fv(id, uniform, 1, UnsafePointer([v])) }
+    open func bind(_ uniform: GLuniform, _ v: inout Vec2) { glProgramUniform2fv(id, uniform, 1, v.ptr) }
+    open func bind(_ uniform: GLuniform, _ v: inout Vec3) { glProgramUniform3fv(id, uniform, 1, v.ptr) }
+    open func bind(_ uniform: GLuniform, _ v: inout Vec4) { glProgramUniform4fv(id, uniform, 1, v.ptr) }
 
-    open func bind(_ uniform: GLuniform, _ m: Mat4, transpose: GLboolean = GL_FALSE) { glProgramUniformMatrix4fv(id, uniform, 1, transpose, UnsafePointer([m])) }
+    open func bind(_ uniform: GLuniform, _ m: inout Mat4, transpose: GLboolean = GL_FALSE) { glProgramUniformMatrix4fv(id, uniform, 1, transpose, m.ptr) }
 
     open func bind(_ uniform: GLuniform, _ texture: Texture, index: GLint = 0) {
         glProgramUniform1i(id, uniform, index)
@@ -181,11 +181,11 @@ open class Shader {
     open func bind(_ uniform: String, _ x: Float, _ y: Float) { glProgramUniform2f(id, self.uniform(uniform), x, y) }
     open func bind(_ uniform: String, _ x: Float, _ y: Float, _ z: Float) { glProgramUniform3f(id, self.uniform(uniform), x, y, z) }
     open func bind(_ uniform: String, _ x: Float, _ y: Float, _ z: Float, _ w: Float) { glProgramUniform4f(id, self.uniform(uniform), x, y, z, w) }
-    open func bind(_ uniform: String, _ v: Vec2) { glProgramUniform2fv(id, self.uniform(uniform), 1, UnsafePointer([v])) }
-    open func bind(_ uniform: String, _ v: Vec3) { glProgramUniform3fv(id, self.uniform(uniform), 1, UnsafePointer([v])) }
-    open func bind(_ uniform: String, _ v: Vec4) { glProgramUniform4fv(id, self.uniform(uniform), 1, UnsafePointer([v])) }
+    open func bind(_ uniform: String, _ v: inout Vec2) { glProgramUniform2fv(id, self.uniform(uniform), 1, v.ptr) }
+    open func bind(_ uniform: String, _ v: inout Vec3) { glProgramUniform3fv(id, self.uniform(uniform), 1, v.ptr) }
+    open func bind(_ uniform: String, _ v: inout Vec4) { glProgramUniform4fv(id, self.uniform(uniform), 1, v.ptr) }
 
-    open func bind(_ uniform: String, _ m: Mat4, transpose: GLboolean = GL_FALSE) { glProgramUniformMatrix4fv(id, self.uniform(uniform), 1, transpose, UnsafePointer([m])) }
+    open func bind(_ uniform: String, _ m: inout Mat4, transpose: GLboolean = GL_FALSE) { glProgramUniformMatrix4fv(id, self.uniform(uniform), 1, transpose, m.ptr) }
 
     open func bind(_ uniform: String, _ texture: Texture, index: GLint = 0) {
         glProgramUniform1i(id, self.uniform(uniform), index)
@@ -197,18 +197,18 @@ open class Shader {
 
     fileprivate class func compile(_ type: GLenum, _ source: String) -> GLprogram {
         if let csource: [GLchar] = source.cString(using: String.Encoding.ascii) {
-            var cptr = ptr(csource)
+            let cptr = ptr(csource)
 
             let shader = glCreateShader(type)
-            glShaderSource(shader, 1, &cptr, nil)
+            glShaderSource(shader, 1, [cptr], nil)
             glCompileShader(shader)
 
             var logLength: GLint = 0
             glGetShaderiv(shader, GLenum(GL_INFO_LOG_LENGTH), &logLength)
             if logLength > 0 {
-                let log = UnsafeMutablePointer<CChar>(malloc(Int(logLength)))
+                let log = malloc(Int(logLength)).assumingMemoryBound(to: CChar.self)
                 glGetShaderInfoLog(shader, logLength, &logLength, log)
-                print("Shader compile log: \(String(CString: log, encoding: String.Encoding.ascii)!)")
+                print("Shader compile log: \(String(describing: log))")
                 free(log)
             }
 
@@ -232,9 +232,9 @@ open class Shader {
         glGetProgramiv(program, GLenum(GL_INFO_LOG_LENGTH), &logLength)
 
         if logLength > 0 {
-            let log = UnsafeMutablePointer<CChar>(malloc(Int(logLength)))
+            let log = malloc(Int(logLength)).assumingMemoryBound(to: CChar.self)
             glGetProgramInfoLog(program, logLength, &logLength, log)
-            print("Program link log:\n\(String(CString: log, encoding: String.Encoding.ascii)!)")
+            print("Program link log:\n\(String(describing: log))")
             free(log)
         }
 //        #endif

@@ -55,6 +55,14 @@ public struct Mat4 {
             self.z = Vec4(x: zx, y: zy, z: zz, w: zw)
             self.w = Vec4(x: wx, y: wy, z: wz, w: ww)
     }
+    
+    public var ptr: UnsafePointer<Float> {
+        mutating get {
+            return withUnsafePointer(to: &self) {
+                return UnsafeRawPointer($0).assumingMemoryBound(to: Float.self)
+            }
+        }
+    }
 }
 
 public func * (m: Mat4, v: Vec4) -> Vec4 {

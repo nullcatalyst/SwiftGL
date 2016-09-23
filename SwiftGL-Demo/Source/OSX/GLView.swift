@@ -20,7 +20,7 @@ extension GLView {
 //        Engine.finalize()
 //    }
 
-    override public func awakeFromNib() {
+    override open func awakeFromNib() {
         let attributes: [NSOpenGLPixelFormatAttribute] = [
             // Must specify the 3.2 Core Profile to use OpenGL 3.2
             NSOpenGLPixelFormatAttribute(NSOpenGLPFAOpenGLProfile), NSOpenGLPixelFormatAttribute(NSOpenGLProfileVersion3_2Core),
@@ -36,13 +36,13 @@ extension GLView {
 
         let pf = NSOpenGLPixelFormat(attributes: attributes)
 
-        if let context = NSOpenGLContext(format: pf!, shareContext: nil) {
+        if let context = NSOpenGLContext(format: pf!, share: nil) {
             // When we're using a CoreProfile context, crash if we call a legacy OpenGL function
             // This will make it much more obvious where and when such a function call is made so
             // that we can remove such calls.
             // Without this we'd simply get GL_INVALID_OPERATION error for calling legacy functions
             // but it would be more difficult to see where that function was called.
-            CGLEnable(context.CGLContextObj, kCGLCECrashOnRemovedFunctions)
+            CGLEnable(context.cglContextObj!, kCGLCECrashOnRemovedFunctions)
 
             pixelFormat = pf
             openGLContext = context
@@ -96,7 +96,7 @@ extension GLView {
 //        CGLUnlockContext(openGLContext.CGLContextObj)
 //    }
 
-    override public func drawRect(dirtyRect: NSRect) {
+    override open func draw(_ dirtyRect: NSRect) {
         // Called during resize operations
 
         // Avoid flickering during resize by drawiing
@@ -110,13 +110,13 @@ extension GLView {
         // When resizing the view, -reshape is called automatically on the main
         // thread. Add a mutex around to avoid the threads accessing the context
         // simultaneously when resizing
-        CGLLockContext(openGLContext!.CGLContextObj)
+        CGLLockContext(openGLContext!.cglContextObj!)
 
         Engine.update()
         Engine.render()
 
-        CGLFlushDrawable(openGLContext!.CGLContextObj)
-        CGLUnlockContext(openGLContext!.CGLContextObj)
+        CGLFlushDrawable(openGLContext!.cglContextObj!)
+        CGLUnlockContext(openGLContext!.cglContextObj!)
     }
 
 //    override func renewGState() {
@@ -132,7 +132,7 @@ extension GLView {
 //        super.renewGState()
 //    }
 
-    func windowWillClose(notification: NSNotification) {
+    func windowWillClose(_ notification: Notification) {
         // Stop the display link when the window is closing because default
         // OpenGL render buffers will be destroyed.  If display link continues to
         // fire without renderbuffers, OpenGL draw calls will set errors.

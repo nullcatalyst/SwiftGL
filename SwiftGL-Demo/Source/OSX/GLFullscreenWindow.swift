@@ -13,36 +13,36 @@ class GLFullscreenWindow: NSWindow {
 
     init() {
         // Create a screen-sized window on the display you want to take over
-        let screenRect = NSScreen.mainScreen()!.frame
+        let screenRect = NSScreen.main()!.frame
 
         // Initialize the window making it size of the screen and borderless
-        super.init(contentRect: screenRect, styleMask: NSBorderlessWindowMask, backing: .Buffered, defer: true)
+        super.init(contentRect: screenRect, styleMask: NSBorderlessWindowMask, backing: .buffered, defer: true)
 
         // Set the window level to be above the menu bar to cover everything else
 //        level = Int(CGWindowLevelForKey(CGWindowLevelKey(kCGMainMenuWindowLevelKey)) + 1)
 
         // Set opaque
-        opaque = true
+        isOpaque = true
 
         // Hide this when user switches to another window (or app)
         hidesOnDeactivate = true
     }
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
+//    required init?(coder: NSCoder) {
+//        super.init(coder: coder)
+//    }
 
-    override var canBecomeKeyWindow: Bool {
+    override var canBecomeKey: Bool {
         get {
             // Return true so that this borderless window can receive input
             return true
         }
     }
 
-    override func keyDown(event: NSEvent) {
+    override func keyDown(with event: NSEvent) {
         // Implement keyDown since controller will not get [ESC] key event which
         // the controller uses to kill fullscreen
         let windowController = self.windowController!
-        windowController.keyDown(event)
+        windowController.keyDown(with: event)
     }
 }

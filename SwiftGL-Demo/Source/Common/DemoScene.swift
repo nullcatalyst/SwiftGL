@@ -39,7 +39,7 @@ class DemoScene: Scene {
             glBindAttribLocation(program, AttribColor, "Color")
         }) {
             // You can take this out after. Useful for debugging
-            glDebug(#file, line: #line)
+            glDebug(filename: #file, line: #line)
         }
 
         // Bind the vertices into the Vertex Buffer Object (VBO)
@@ -100,7 +100,7 @@ class DemoScene: Scene {
         // After binding some data to our VBO, we must bind our VBO's data
         // into our Vertex Array Object (VAO) using the associated Shader attributes
         vao.bind(attribute: AttribPosition, type: Vec4.self, vbo: vbo, offset: 0)
-        vao.bind(attribute: AttribColor, type: Vec4.self, vbo: vbo, offset: sizeof(Vec4))
+        vao.bind(attribute: AttribColor, type: Vec4.self, vbo: vbo, offset: MemoryLayout<Vec4>.size)
         vao.bindElements(ibo)
     }
 
@@ -112,8 +112,8 @@ class DemoScene: Scene {
     }
 
     func render() {
-        glDepthFunc(GLenum(GL_LESS))
-        glEnable(GLenum(GL_DEPTH_TEST))
+        glDepthFunc(GL_LESS)
+        glEnable(GL_DEPTH_TEST)
 
         // Clear the screen to black before we draw anything
         glClearColor(0.1, 0.1, 0.1, 0)
@@ -123,13 +123,14 @@ class DemoScene: Scene {
         shader.bind()
 
         // Bind the updated matrix
-        shader.bind("Matrix", projection * Mat4.translate(x: 0, y: 0, z: -5) * modelview)
+        var matrix = projection * Mat4.translate(x: 0, y: 0, z: -5) * modelview
+        shader.bind("Matrix", &matrix)
 
         // Bind the VAO we plan to use
         vao.bind()
 
         // Finally submit what we are drawing to the GPU
-        glDrawElements(GLenum(GL_TRIANGLE_STRIP), 34, GLenum(GL_UNSIGNED_SHORT), nil)
+        glDrawElements(GL_TRIANGLE_STRIP, 34, GL_UNSIGNED_SHORT, nil)
     }
 
     func resize(width: Float, height: Float) {

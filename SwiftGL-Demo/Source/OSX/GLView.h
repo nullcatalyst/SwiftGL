@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <QuartzCore/CVDisplayLink.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface GLView : NSOpenGLView
 

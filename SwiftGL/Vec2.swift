@@ -59,6 +59,14 @@ public struct Vec2 {
             self = length * normalize(self)
         }
     }
+    
+    public var ptr: UnsafePointer<Float> {
+        mutating get {
+            return withUnsafePointer(to: &self) {
+                return UnsafeRawPointer($0).assumingMemoryBound(to: Float.self)
+            }
+        }
+    }
 
     // Swizzle (Vec2) Properties
     public var xx: Vec2 { get { return Vec2(x: x, y: x) } }
