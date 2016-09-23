@@ -83,7 +83,7 @@ public func * (a: Mat4, b: Mat4) -> Mat4 {
         ww: a.x.w * b.w.x + a.y.w * b.w.y + a.z.w * b.w.z + a.w.w * b.w.w)
 }
 
-public func *= (inout a: Mat4, b: Mat4) {
+public func *= (a: inout Mat4, b: Mat4) {
     a = a * b
 }
 
@@ -95,7 +95,7 @@ public extension Mat4 { // Affine transformations
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func rotateX(radians: Float) -> Mat4 {
+    public static func rotateX(_ radians: Float) -> Mat4 {
         let c = cos(radians)
         let s = sin(radians)
         return Mat4(xx: 1, yx: 0, zx: 0, wx: 0,
@@ -104,7 +104,7 @@ public extension Mat4 { // Affine transformations
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func rotateY(radians: Float) -> Mat4 {
+    public static func rotateY(_ radians: Float) -> Mat4 {
         let c = cos(radians)
         let s = sin(radians)
         return Mat4(xx: c, yx: 0, zx: s, wx: 0,
@@ -113,7 +113,7 @@ public extension Mat4 { // Affine transformations
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func rotateZ(radians: Float) -> Mat4 {
+    public static func rotateZ(_ radians: Float) -> Mat4 {
         let c = cos(radians)
         let s = sin(radians)
         return Mat4(xx: c, yx: -s, zx: 0, wx: 0,
@@ -122,7 +122,7 @@ public extension Mat4 { // Affine transformations
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func rotate(radians: Float, x: Float, y: Float, z: Float) -> Mat4 {
+    public static func rotate(_ radians: Float, x: Float, y: Float, z: Float) -> Mat4 {
         let v = normalize(Vec3(x: x, y: y, z: z))
         let c = cos(radians)
         let p = 1 - c
@@ -133,7 +133,7 @@ public extension Mat4 { // Affine transformations
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func rotate(radians: Float, v: Vec3) -> Mat4 {
+    public static func rotate(_ radians: Float, v: Vec3) -> Mat4 {
         let u = normalize(v)
         let c = cos(radians)
         let p = 1 - c
@@ -144,63 +144,63 @@ public extension Mat4 { // Affine transformations
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func translate(x x: Float, y: Float) -> Mat4 {
+    public static func translate(x: Float, y: Float) -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: x,
             xy: 0, yy: 1, zy: 0, wy: y,
             xz: 0, yz: 0, zz: 1, wz: 0,
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func translate(x x: Float, y: Float, z: Float) -> Mat4 {
+    public static func translate(x: Float, y: Float, z: Float) -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: x,
             xy: 0, yy: 1, zy: 0, wy: y,
             xz: 0, yz: 0, zz: 1, wz: z,
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func translate(offset: Vec2) -> Mat4 {
+    public static func translate(_ offset: Vec2) -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: offset.x,
             xy: 0, yy: 1, zy: 0, wy: offset.y,
             xz: 0, yz: 0, zz: 1, wz: 0,
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func translate(offset: Vec3) -> Mat4 {
+    public static func translate(_ offset: Vec3) -> Mat4 {
         return Mat4(xx: 1, yx: 0, zx: 0, wx: offset.x,
             xy: 0, yy: 1, zy: 0, wy: offset.y,
             xz: 0, yz: 0, zz: 1, wz: offset.z,
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func scale(s: Float) -> Mat4 {
+    public static func scale(_ s: Float) -> Mat4 {
         return Mat4(xx: s, yx: 0, zx: 0, wx: 0,
             xy: 0, yy: s, zy: 0, wy: 0,
             xz: 0, yz: 0, zz: s, wz: 0,
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func scale(x: Float, y: Float) -> Mat4 {
+    public static func scale(_ x: Float, y: Float) -> Mat4 {
         return Mat4(xx: x, yx: 0, zx: 0, wx: 0,
             xy: 0, yy: y, zy: 0, wy: 0,
             xz: 0, yz: 0, zz: 1, wz: 0,
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func scale(x: Float, y: Float, z: Float) -> Mat4 {
+    public static func scale(_ x: Float, y: Float, z: Float) -> Mat4 {
         return Mat4(xx: x, yx: 0, zx: 0, wx: 0,
             xy: 0, yy: y, zy: 0, wy: 0,
             xz: 0, yz: 0, zz: z, wz: 0,
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func scale(scale: Vec2) -> Mat4 {
+    public static func scale(_ scale: Vec2) -> Mat4 {
         return Mat4(xx: scale.x, yx: 0, zx: 0, wx: 0,
             xy: 0, yy: scale.y, zy: 0, wy: 0,
             xz: 0, yz: 0, zz: 1, wz: 0,
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func scale(scale: Vec3) -> Mat4 {
+    public static func scale(_ scale: Vec3) -> Mat4 {
         return Mat4(xx: scale.x, yx: 0, zx: 0, wx: 0,
             xy: 0, yy: scale.y, zy: 0, wy: 0,
             xz: 0, yz: 0, zz: scale.z, wz: 0,
@@ -209,14 +209,14 @@ public extension Mat4 { // Affine transformations
 }
 
 public extension Mat4 { // Projection transformations
-    public static func ortho(width width: Float, height: Float, depth: Float) -> Mat4 {
+    public static func ortho(width: Float, height: Float, depth: Float) -> Mat4 {
         return Mat4(xx: 0.5 / width, yx: 0, zx: 0, wx: 0,
             xy: 0, yy: 0.5 / height, zy: 0, wy: 0,
             xz: 0, yz: 0, zz: -0.5 / depth, wz: 0,
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func ortho(width width: Float, height: Float, near: Float, far: Float) -> Mat4 {
+    public static func ortho(width: Float, height: Float, near: Float, far: Float) -> Mat4 {
         let fan = far + near
         let fsn = far - near
         return Mat4(xx: 0.5 / width, yx: 0, zx: 0, wx: 0,
@@ -225,7 +225,7 @@ public extension Mat4 { // Projection transformations
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func ortho(left left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float) -> Mat4 {
+    public static func ortho(left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float) -> Mat4 {
         let ral = right + left
         let rsl = right - left
         let tab = top + bottom
@@ -238,7 +238,7 @@ public extension Mat4 { // Projection transformations
             xw: 0, yw: 0, zw: 0, ww: 1)
     }
 
-    public static func frustum(width width: Float, height: Float, near: Float, far: Float) -> Mat4 {
+    public static func frustum(width: Float, height: Float, near: Float, far: Float) -> Mat4 {
         let fan = far + near
         let fsn = far - near
         return Mat4(xx: near / width, yx: 0, zx: 0, wx: 0,
@@ -247,7 +247,7 @@ public extension Mat4 { // Projection transformations
             xw: 0, yw: 0, zw: -1, ww: 0)
     }
 
-    public static func frustum(left left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float) -> Mat4 {
+    public static func frustum(left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float) -> Mat4 {
         let ral = right + left
         let rsl = right - left
         let tsb = top - bottom
@@ -260,7 +260,7 @@ public extension Mat4 { // Projection transformations
             xw: 0, yw: 0, zw: -1, ww: 0)
     }
 
-    public static func perspective(fovy fovy: Float, aspect: Float, near: Float, far: Float) -> Mat4 {
+    public static func perspective(fovy: Float, aspect: Float, near: Float, far: Float) -> Mat4 {
         let cot = 1 / tan(fovy / 2)
 
         return Mat4(xx: cot / aspect, yx: 0, zx: 0, wx: 0,
@@ -269,7 +269,7 @@ public extension Mat4 { // Projection transformations
             xw: 0, yw: 0, zw: -1, ww: 0)
     }
 
-    public static func perspective(fovy fovy: Float, width: Float, height: Float, near: Float, far: Float) -> Mat4 {
+    public static func perspective(fovy: Float, width: Float, height: Float, near: Float, far: Float) -> Mat4 {
         let cot = 1 / tan(fovy / 2)
         let aspect = width / height
 
@@ -279,7 +279,7 @@ public extension Mat4 { // Projection transformations
             xw: 0, yw: 0, zw: -1, ww: 0)
     }
 
-    public static func lookAt(eye eye: Vec3, center: Vec3, up: Vec3) -> Mat4 {
+    public static func lookAt(eye: Vec3, center: Vec3, up: Vec3) -> Mat4 {
         let n = normalize(eye - center)
         let u = normalize(cross(up, n))
         let v = cross(n, u)

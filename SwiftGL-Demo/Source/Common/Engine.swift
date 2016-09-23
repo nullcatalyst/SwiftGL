@@ -35,7 +35,7 @@ var currentScene: Scene?
         currentScene?.render()
     }
 
-    class func resize(width width: Float, height: Float) {
+    class func resize(width: Float, height: Float) {
         viewWidth = width
         viewHeight = height
         currentScene?.resize(width: viewWidth, height: viewHeight)

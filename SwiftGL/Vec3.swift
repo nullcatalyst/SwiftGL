@@ -247,25 +247,25 @@ public func * (v: Vec3, s: Float) -> Vec3 { return Vec3(x: v.x * s, y: v.y * s, 
 public func / (v: Vec3, s: Float) -> Vec3 { return Vec3(x: v.x / s, y: v.y / s, z: v.z / s) }
 
 // Vec3 Assignment Operators
-public func += (inout a: Vec3, b: Vec3) { a = a + b }
-public func -= (inout a: Vec3, b: Vec3) { a = a - b }
-public func *= (inout a: Vec3, b: Vec3) { a = a * b }
-public func /= (inout a: Vec3, b: Vec3) { a = a / b }
+public func += (a: inout Vec3, b: Vec3) { a = a + b }
+public func -= (a: inout Vec3, b: Vec3) { a = a - b }
+public func *= (a: inout Vec3, b: Vec3) { a = a * b }
+public func /= (a: inout Vec3, b: Vec3) { a = a / b }
 
-public func *= (inout a: Vec3, b: Float) { a = a * b }
-public func /= (inout a: Vec3, b: Float) { a = a / b }
+public func *= (a: inout Vec3, b: Float) { a = a * b }
+public func /= (a: inout Vec3, b: Float) { a = a / b }
 
 // Functions which operate on Vec3
-public func length(v: Vec3) -> Float { return v.length }
-public func length2(v: Vec3) -> Float { return v.length2 }
-public func normalize(v: Vec3) -> Vec3 { return v / v.length }
-public func dot(a: Vec3, _ b: Vec3) -> Float { return a.x * b.x + a.y * b.y + a.z * b.z }
-public func cross(a: Vec3, _ b: Vec3) -> Vec3 { return Vec3(x: a.y * b.z - a.z * b.y, y: a.z * b.x - a.x * b.z, z: a.x * b.y - a.y * b.x) }
+public func length(_ v: Vec3) -> Float { return v.length }
+public func length2(_ v: Vec3) -> Float { return v.length2 }
+public func normalize(_ v: Vec3) -> Vec3 { return v / v.length }
+public func dot(_ a: Vec3, _ b: Vec3) -> Float { return a.x * b.x + a.y * b.y + a.z * b.z }
+public func cross(_ a: Vec3, _ b: Vec3) -> Vec3 { return Vec3(x: a.y * b.z - a.z * b.y, y: a.z * b.x - a.x * b.z, z: a.x * b.y - a.y * b.x) }
 
-public func clamp(value: Vec3, min: Float, max: Float) -> Vec3 { return Vec3(clamp(value.x, min: min, max: max), clamp(value.y, min: min, max: max), clamp(value.z, min: min, max: max)) }
-public func mix(a: Vec3, b: Vec3, t: Float) -> Vec3 { return a + (b - a) * t }
-public func smoothstep(a: Vec3, b: Vec3, t: Float) -> Vec3 { return mix(a, b: b, t: t * t * (3 - 2 * t)) }
+public func clamp(_ value: Vec3, min: Float, max: Float) -> Vec3 { return Vec3(clamp(value.x, min: min, max: max), clamp(value.y, min: min, max: max), clamp(value.z, min: min, max: max)) }
+public func mix(_ a: Vec3, b: Vec3, t: Float) -> Vec3 { return a + (b - a) * t }
+public func smoothstep(_ a: Vec3, b: Vec3, t: Float) -> Vec3 { return mix(a, b: b, t: t * t * (3 - 2 * t)) }
 
-public func clamp(value: Vec3, min: Vec3, max: Vec3) -> Vec3 { return Vec3(clamp(value.x, min: min.x, max: max.x), clamp(value.y, min: min.y, max: max.y), clamp(value.z, min: min.z, max: max.z)) }
-public func mix(a: Vec3, b: Vec3, t: Vec3) -> Vec3 { return a + (b - a) * t }
-public func smoothstep(a: Vec3, b: Vec3, t: Vec3) -> Vec3 { return mix(a, b: b, t: t * t * (Vec3(s: 3) - 2 * t)) }
+public func clamp(_ value: Vec3, min: Vec3, max: Vec3) -> Vec3 { return Vec3(clamp(value.x, min: min.x, max: max.x), clamp(value.y, min: min.y, max: max.y), clamp(value.z, min: min.z, max: max.z)) }
+public func mix(_ a: Vec3, b: Vec3, t: Vec3) -> Vec3 { return a + (b - a) * t }
+public func smoothstep(_ a: Vec3, b: Vec3, t: Vec3) -> Vec3 { return mix(a, b: b, t: t * t * (Vec3(s: 3) - 2 * t)) }

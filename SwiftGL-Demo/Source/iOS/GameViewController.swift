@@ -18,22 +18,22 @@ class GameViewController: GLKViewController {
     deinit {
         self.tearDownGL()
 
-        if EAGLContext.currentContext() === self.context {
-            EAGLContext.setCurrentContext(nil)
+        if EAGLContext.current() === self.context {
+            EAGLContext.setCurrent(nil)
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        context = EAGLContext(API: .OpenGLES2)
+        context = EAGLContext(api: .openGLES2)
         if context == nil {
             print("Failed to create ES context")
         }
 
         let view = self.view as! GLKView
         view.context = self.context!
-        view.drawableDepthFormat = .Format24
+        view.drawableDepthFormat = .format24
 
         self.setupGL()
     }
@@ -41,24 +41,24 @@ class GameViewController: GLKViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
-        if self.isViewLoaded() && self.view.window != nil {
+        if self.isViewLoaded && self.view.window != nil {
             self.view = nil
 
             self.tearDownGL()
 
-            if EAGLContext.currentContext() === self.context {
-                EAGLContext.setCurrentContext(nil)
+            if EAGLContext.current() === self.context {
+                EAGLContext.setCurrent(nil)
             }
             self.context = nil
         }
     }
 
     func setupGL() {
-        EAGLContext.setCurrentContext(self.context)
+        EAGLContext.setCurrent(self.context)
 
         // Change the working directory so that we can use C code to grab resource files
-        if let path = NSBundle.mainBundle().resourcePath {
-            NSFileManager.defaultManager().changeCurrentDirectoryPath(path)
+        if let path = Bundle.main.resourcePath {
+            FileManager.default.changeCurrentDirectoryPath(path)
         }
 
         Engine.initialize()
@@ -69,7 +69,7 @@ class GameViewController: GLKViewController {
     }
 
     func tearDownGL() {
-        EAGLContext.setCurrentContext(self.context)
+        EAGLContext.setCurrent(self.context)
 
         Engine.finalize()
     }
@@ -81,7 +81,7 @@ class GameViewController: GLKViewController {
     }
 
     // Render
-    override func glkView(view: GLKView, drawInRect rect: CGRect) {
+    override func glkView(_ view: GLKView, drawIn rect: CGRect) {
         Engine.render()
     }
 }

@@ -16,7 +16,7 @@ import CoreGraphics
     import ImageIO
 #endif
 
-public class Texture {
+open class Texture {
     var id: GLuint
     var width: GLsizei
     var height: GLsizei
@@ -38,20 +38,20 @@ public class Texture {
         glDeleteTextures(1, &id)
     }
 
-    public func load(filename: String) -> Bool {
+    open func load(_ filename: String) -> Bool {
         return load(filename, antialias: false, flipVertical: false)
     }
 
-    public func load(filename: String, antialias: Bool) -> Bool {
+    open func load(_ filename: String, antialias: Bool) -> Bool {
         return load(filename, antialias: antialias, flipVertical: false)
     }
 
-    public func load(filename: String, flipVertical: Bool) -> Bool {
+    open func load(_ filename: String, flipVertical: Bool) -> Bool {
         return load(filename, antialias: false, flipVertical: flipVertical)
     }
 
     /// @return true on success
-    public func load(filename: String, antialias: Bool, flipVertical: Bool) -> Bool {
+    open func load(_ filename: String, antialias: Bool, flipVertical: Bool) -> Bool {
         let imageData = Texture.Load(filename, width: &width, height: &height, flipVertical: flipVertical)
 
         glBindTexture(GL_TEXTURE_2D, id)
@@ -81,29 +81,29 @@ public class Texture {
         return false
     }
 
-    private class func Load(filename: String, inout width: GLsizei, inout height: GLsizei, flipVertical: Bool) -> UnsafeMutablePointer<()> {
-        let url = CFBundleCopyResourceURL(CFBundleGetMainBundle(), filename as NSString, "", nil)
+    fileprivate class func Load(_ filename: String, width: inout GLsizei, height: inout GLsizei, flipVertical: Bool) -> UnsafeMutableRawPointer {
+        let url = CFBundleCopyResourceURL(CFBundleGetMainBundle(), filename as NSString, "" as CFString!, nil)
 
-        let imageSource = CGImageSourceCreateWithURL(url, nil)
+        let imageSource = CGImageSourceCreateWithURL(url!, nil)
         let image = CGImageSourceCreateImageAtIndex(imageSource!, 0, nil)
 
-        width = GLsizei(CGImageGetWidth(image))
-        height = GLsizei(CGImageGetHeight(image))
+        width = GLsizei((image?.width)!)
+        height = GLsizei((image?.height)!)
 
         let zero: CGFloat = 0
-        let rect = CGRectMake(zero, zero, CGFloat(Int(width)), CGFloat(Int(height)))
+        let rect = CGRect(x: zero, y: zero, width: CGFloat(Int(width)), height: CGFloat(Int(height)))
         let colourSpace = CGColorSpaceCreateDeviceRGB()
 
-        let imageData: UnsafeMutablePointer<()> = malloc(Int(width * height * 4))
-        let ctx = CGBitmapContextCreate(imageData, Int(width), Int(height), 8, Int(width * 4), colourSpace, CGImageAlphaInfo.PremultipliedLast.rawValue)
+        let imageData: UnsafeMutableRawPointer = malloc(Int(width * height * 4))
+        let ctx = CGContext(data: imageData, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: Int(width * 4), space: colourSpace, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
 
         if flipVertical {
-            CGContextTranslateCTM(ctx, zero, CGFloat(Int(height)))
-            CGContextScaleCTM(ctx, 1, -1)
+            ctx?.translateBy(x: zero, y: CGFloat(Int(height)))
+            ctx?.scaleBy(x: 1, y: -1)
         }
 
-        CGContextSetBlendMode(ctx, CGBlendMode.Copy)
-        CGContextDrawImage(ctx, rect, image)
+        ctx?.setBlendMode(CGBlendMode.copy)
+        ctx?.draw(image!, in: rect)
 
         // The caller is required to free the imageData buffer
         return imageData

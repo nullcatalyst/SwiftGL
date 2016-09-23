@@ -112,8 +112,8 @@ class DemoScene: Scene {
     }
 
     func render() {
-        glDepthFunc(GL_LESS)
-        glEnable(GL_DEPTH_TEST)
+        glDepthFunc(GLenum(GL_LESS))
+        glEnable(GLenum(GL_DEPTH_TEST))
 
         // Clear the screen to black before we draw anything
         glClearColor(0.1, 0.1, 0.1, 0)
@@ -129,10 +129,10 @@ class DemoScene: Scene {
         vao.bind()
 
         // Finally submit what we are drawing to the GPU
-        glDrawElements(GL_TRIANGLE_STRIP, 34, GL_UNSIGNED_SHORT, nil)
+        glDrawElements(GLenum(GL_TRIANGLE_STRIP), 34, GLenum(GL_UNSIGNED_SHORT), nil)
     }
 
-    func resize(width width: Float, height: Float) {
+    func resize(width: Float, height: Float) {
         projection = Mat4.perspective(fovy: radians(45), width: width, height: height, near: 1, far: 9)
     }
 }

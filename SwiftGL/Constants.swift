@@ -113,7 +113,7 @@
     import OpenGLES.ES2.gl
 
 // glDebug(__FILE__, __LINE__)
-    public func glDebug(filename: String, line: Int) {
+    public func glDebug(_ filename: String, line: Int) {
         var error = glGetError()
         while error != GLenum(GL_NO_ERROR) {
             var errMsg: String

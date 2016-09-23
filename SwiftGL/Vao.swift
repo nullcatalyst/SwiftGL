@@ -14,7 +14,7 @@ import Foundation
     import OpenGLES
 #endif
 
-public class Vao {
+open class Vao {
     var id: GLuint
 
     public init() {
@@ -26,7 +26,7 @@ public class Vao {
         glDeleteVertexArrays(1, &id)
     }
 
-    public func bind() {
+    open func bind() {
         glBindVertexArray(id);
     }
 }
@@ -62,24 +62,24 @@ extension Vec4: GLType {
 }
 
 public extension Vao {
-    public func bind <T: GLType> (attribute attribute: GLuint, type: T.Type, vbo: Vbo, offset: GLsizeiptr) {
+    public func bind <T: GLType> (attribute: GLuint, type: T.Type, vbo: Vbo, offset: GLsizeiptr) {
         glBindVertexArray(id)
         glEnableVertexAttribArray(attribute)
 
         glBindBuffer(GL_ARRAY_BUFFER, vbo.id)
-        glVertexAttribPointer(attribute, type.glSize, type.glType, type.glNormalized, GLsizei(vbo.stride), UnsafePointer<()>(bitPattern: offset))
+        glVertexAttribPointer(attribute, type.glSize, type.glType, type.glNormalized, GLsizei(vbo.stride), UnsafeRawPointer(bitPattern: offset))
     }
 }
 
 public extension Vao {
-    public func bindElements(vbo: Vbo) {
+    public func bindElements(_ vbo: Vbo) {
         glBindVertexArray(id)
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo.id)
     }
 }
 
 public extension Vao {
-    public func bindInstanced <T: GLType> (attribute attribute: GLuint, type: T.Type, vbo: Vbo, offset: GLsizeiptr, divisor: GLuint = 1) {
+    public func bindInstanced <T: GLType> (attribute: GLuint, type: T.Type, vbo: Vbo, offset: GLsizeiptr, divisor: GLuint = 1) {
         bind(attribute: attribute, type: type, vbo: vbo, offset: offset)
         glVertexAttribDivisor(attribute, divisor)
     }
